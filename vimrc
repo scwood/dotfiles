@@ -1,7 +1,15 @@
 " Turn off VI compatability
 set nocompatible
 
-" File based indenting
+" Vundle init
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'itchyny/lightline.vim'
+call vundle#end()
 filetype plugin indent on
 
 " Turn off backup/swap files
