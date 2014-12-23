@@ -61,7 +61,7 @@ alias byu='ssh scwood@schizo.cs.byu.edu'
 alias subl='sublime'
 
 # Git aliases
-alias ga='git add *'
+alias ga='git add --all'
 alias gcm='git commit -m'
 alias gpom='git push origin master'
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
@@ -100,7 +100,7 @@ cs() {
 
 # Github all in one push
 push() {
-    git add .
+    git add all
     git commit -m "$1"
     git push origin master
 }
