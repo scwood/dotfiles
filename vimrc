@@ -1,22 +1,26 @@
 " Turn off VI compatability
 set nocompatible
 
-" Vundle init
+" Vundle initilization
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-bufferline'
 Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
+
+" General options
 
 " Turn off backup/swap files
 set nobackup
 set nowritebackup
 set noswapfile
+
+" Buffers exist like in normal editors
+set hidden
 
 " Turn on syntax highlighting
 syntax on
@@ -49,9 +53,6 @@ set expandtab
 " Make backspace behave like normal
 set backspace=indent,eol,start
 
-" Status bar options
-set laststatus=2
-
 " Stop using arrows in insert mode
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
@@ -69,7 +70,11 @@ inoremap { {<ESC>o}<ESC><S-o>
 
 " Nerd tree toggle
 map <C-n> :NERDTreeToggle<CR>
-let g:bufferline_echo = 0
-autocmd VimEnter *
-    \ let &statusline='%{bufferline#refresh_status()}'
-    \ .bufferline#get_status_string()
+
+" Status bar options
+" -----------------------------------------------------------------------------
+set laststatus=2
+hi StatusLine ctermbg=235
+hi StatusLine ctermfg=235
+set statusline=
+set statusline=%f
