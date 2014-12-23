@@ -8,8 +8,8 @@ call vundle#begin()
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
-Plugin 'itchyny/lightline.vim'
 Plugin 'bling/vim-bufferline'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
@@ -49,6 +49,8 @@ set expandtab
 " Make backspace behave like normal
 set backspace=indent,eol,start
 
+set laststatus=2
+
 " Stop using arrows in insert mode
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
@@ -64,27 +66,9 @@ inoremap jk <ESC>
 " Jump up a line after completing brace
 inoremap { {<ESC>o}<ESC><S-o>
 
-" Lightline settings
-set laststatus=2
-set noshowmode
-let g:lightline = {
-\ 'separator': { 'left': '⮀', 'right': '⮂' },
-\ 'subseparator': { 'left': '⮁', 'right': '⮃' },
-\ 'colorscheme': 'jellybeans',
-\ 'active': {
-\     'left': [ [ 'mode', 'paste' ], [ 'bufferline' ] ],
-\     'right': [],
-\ },
-\ 'component': {
-\     'bufferline': '%{bufferline#refresh_status()}%{g:bufferline_status_info.before . g:bufferline_status_info.current . g:bufferline_status_info.after}'
-\ }
-\ }
-
 " Nerd tree toggle
 map <C-n> :NERDTreeToggle<CR>
-
-" Turn bufferline off in the command line
 let g:bufferline_echo = 0
-
-" Scrolling
-set sidescroll=1
+autocmd VimEnter *
+            \ let &statusline='%{bufferline#refresh_status()}'
+            \ .bufferline#get_status_string()
