@@ -1,0 +1,10 @@
+- clean: ['~']
+
+- link:
+    ~/.gitignore_global: gitignore_global
+    ~/.livestreamerrc: livestreamerrc
+    ~/.tmux.conf: tmux.conf
+    ~/.vim: vim/
+    ~/.vimrc: vimrc
+    ~/.zsh: zsh/
+    ~/.zshrc: zshrc
