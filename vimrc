@@ -49,6 +49,7 @@ set expandtab
 " Make backspace behave like normal
 set backspace=indent,eol,start
 
+" Status bar options
 set laststatus=2
 
 " Stop using arrows in insert mode
@@ -70,5 +71,5 @@ inoremap { {<ESC>o}<ESC><S-o>
 map <C-n> :NERDTreeToggle<CR>
 let g:bufferline_echo = 0
 autocmd VimEnter *
-            \ let &statusline='%{bufferline#refresh_status()}'
-            \ .bufferline#get_status_string()
+    \ let &statusline='%{bufferline#refresh_status()}'
+    \ .bufferline#get_status_string()
