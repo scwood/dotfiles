@@ -9,6 +9,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'bling/vim-bufferline'
 call vundle#end()
 filetype plugin indent on
 
@@ -75,9 +76,7 @@ let g:lightline = {
 \     'right': [],
 \ },
 \ 'component': {
-\     'bufferline': 
-\     '%{bufferline#refresh_status()}%{g:bufferline_status_info.before 
-\     . g:bufferline_status_info.current . g:bufferline_status_info.after}'
+\     'bufferline': '%{bufferline#refresh_status()}%{g:bufferline_status_info.before . g:bufferline_status_info.current . g:bufferline_status_info.after}'
 \ }
 \ }
 
