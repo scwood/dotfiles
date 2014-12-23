@@ -1,10 +1,6 @@
 " Turn off VI compatability
 set nocompatible
 
-" Pathogen init
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
 " File based indenting
 filetype plugin indent on
 
