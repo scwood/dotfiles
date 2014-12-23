@@ -16,7 +16,7 @@ setopt correctall
 export VISUAL=vim
 
 # Add my bin to PATH
-path+=('/Users/spencerwood/bin')
+path+=('/Users/spencer/bin')
 export path
 
 # History
