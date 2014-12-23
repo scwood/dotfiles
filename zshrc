@@ -100,7 +100,7 @@ cs() {
 
 # Github all in one push
 push() {
-    git add all
+    git add --all
     git commit -m "$1"
     git push origin master
 }
