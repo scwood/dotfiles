@@ -99,12 +99,18 @@ nnoremap <leader>f /
 " Status bar options
 " -----------------------------------------------------------------------------
 
+" Turn status bar always on
 set laststatus=2
-hi StatusLine ctermbg=235
-hi StatusLine ctermfg=015
+
+" Status bar format
 set statusline=
 set statusline+=\ \~/
 set statusline+=%f
 set statusline+=%=
 set statusline+=%l/%L
 set statusline+=\ 
+
+" Colors, invert during insert mode
+hi StatusLine cterm=none ctermbg=235 ctermfg=015
+au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
+au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
