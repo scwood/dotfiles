@@ -2,7 +2,7 @@
 
 Some dotfiles that you could use if you really wanted to.
 
-![](http://i.imgur.com/YDSXvdu.png)
+![](https://cloud.githubusercontent.com/assets/9126138/5551512/f7a09320-8b8d-11e4-8a11-4bab69b45d43.png)
 
 ## Installation
 
