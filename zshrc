@@ -37,10 +37,9 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 setopt PROMPT_SUBST
 source ~/.zsh/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
-PROMPT=$'
-%n @ %m: %~%{$fg_bold[magenta]%}$(__git_ps1)%{$reset_color%}
+PROMPT=$'%n @ %m: %~%{$fg_bold[magenta]%}$(__git_ps1)%{$reset_color%}
 → '
-RPROMPT='%t'
+RPROMPT=$''
 
 # Aliases
 # -----------------------------------------------------------------------------
