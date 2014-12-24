@@ -6,7 +6,7 @@ if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
 
-# Auto cd
+# Auto cd into directories with just directory name
 setopt autocd
 
 # Spellcheck
@@ -16,7 +16,7 @@ setopt correctall
 export VISUAL=vim
 
 # Add my bin to PATH
-path+=('/Users/spencer/bin')
+path+=('~/bin')
 export path
 
 # History
@@ -45,6 +45,22 @@ RPROMPT='%t'
 # Aliases
 # -----------------------------------------------------------------------------
 
+# Pull OS name
+OS="$(uname)"
+
+# OSX specific aliases
+if [[ $OS == 'Darwin' ]]; then
+    alias l='ls -F -G'
+    alias ls='ls -F -G'
+    alias ll='ls -F -G -h -l'
+    alias la='ls -A -F -G'
+    alias lal='ls -A -F -G -h -l'
+
+# Linux specific aliases
+elif [[ $OS == 'Linux' ]]; then
+    alias l='ls --color'
+fi
+
 # General commands
 alias ..='cd ..'
 alias ~='cd ~'
@@ -61,14 +77,15 @@ alias byu='ssh scwood@schizo.cs.byu.edu'
 alias subl='sublime'
 
 # Git aliases
-alias ga='git add --all'
-alias gcm='git commit -m'
-alias gpom='git push origin master'
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
-alias gs='git status'
-alias gd='git diff'
+alias ga='git add'
+alias gaa='git add --all'
 alias gc='git clone'
-alias gc='git clone --recursive'
+alias gcm='git commit -m'
+alias gcr='git clone --recursive'
+alias gd='git diff'
+alias gpom='git push origin master'
+alias gs='git status'
 alias gsa='git submodule add'
 
 # Functions

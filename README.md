@@ -1,6 +1,6 @@
 # Dotfiles
 
-Some mediocre dotfiles that you could use if you really wanted to.
+Some dotfiles that you could use if you really wanted to.
 
 ![](http://i.imgur.com/YDSXvdu.png)
 
@@ -17,6 +17,8 @@ Symlinking is handled via [Dotbot](https://github.com/anishathalye/dotbot):
 cd ~/dotfiles
 ./install
 ```
+
+### For VIM
 
 Install [Vundle](https://github.com/gmarik/Vundle.vim):
 
