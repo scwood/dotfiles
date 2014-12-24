@@ -101,11 +101,9 @@ nnoremap <leader>f /
 
 set laststatus=2
 hi StatusLine ctermbg=235
-hi StatusLine ctermfg=white
+hi StatusLine ctermfg=015
 set statusline=
-set statusline+=\ 
-set statusline+=→
-set statusline+=\ 
+set statusline+=\ \~/
 set statusline+=%f
 set statusline+=%=
 set statusline+=%l/%L
