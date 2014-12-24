@@ -2,6 +2,8 @@
 
 Some mediocre dotfiles that you could use if you really wanted to.
 
+![](http://i.imgur.com/YDSXvdu.png)
+
 ## Installation
 
 ```
