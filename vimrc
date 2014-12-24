@@ -76,7 +76,7 @@ inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
 
-" jk to escape in insert mode
+" jk to escape insert/visual mode
 inoremap jk <ESC>
 xnoremap jk <ESC> 
 
@@ -107,7 +107,7 @@ set statusline=
 set statusline+=\ \~/
 set statusline+=%f
 set statusline+=%=
-set statusline+=%l/%L
+set statusline+=[%l/%L]
 set statusline+=\ 
 
 " Colors, invert during insert mode
