@@ -1,4 +1,4 @@
-# General Settings
+# General settings
 # -----------------------------------------------------------------------------
 
 # Allow local custimization through .zshrc_local 
@@ -49,7 +49,7 @@ RPROMPT='%t'
 alias ..='cd ..'
 alias ~='cd ~'
 alias c='clear'
-alias e='exit'
+alias q='exit'
 
 # Easy .zshrc reload
 alias reload='source ~/.zshrc'
@@ -66,6 +66,10 @@ alias gcm='git commit -m'
 alias gpom='git push origin master'
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 alias gs='git status'
+alias gd='git diff'
+alias gc='git clone'
+alias gc='git clone --recursive'
+alias gsa='git submodule add'
 
 # Functions
 # -----------------------------------------------------------------------------

@@ -2,22 +2,21 @@
 set nocompatible
 
 " Vundle initilization
-" -----------------------------------------------------------------------------
-
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+" Installed plugins
+" -----------------------------------------------------------------------------
 
 " Ctrl p to quickly switch to files
 Plugin 'kien/ctrlp.vim'
 
-" Vundle plugin manager
-Plugin 'gmarik/Vundle.vim'
-
 " Nerdtree file viewer
 Plugin 'scrooloose/nerdtree'
 
-" Syntastic error linting
+" Error linting
 Plugin 'scrooloose/syntastic'
 
 " Easily switch between vim and tmux
@@ -26,7 +25,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
-" General options
+" General settings
 " -----------------------------------------------------------------------------
 
 " Turn off backup/swap files
@@ -34,15 +33,13 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" Buffers exist like in normal editors
-set hidden
-
 " Turn on syntax highlighting
 syntax on
 
 " Colorscheme
 set background=dark
 colorscheme jellybeans
+
 " Turn on line numbers
 set number
 
@@ -59,13 +56,16 @@ set cursorline
 set incsearch
 set hlsearch
 
-"Tab will insert four spaces
+" Tab will insert four spaces
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
 " Make backspace behave like normal
 set backspace=indent,eol,start
+
+" Hide insert status
+set noshowmode
 
 " Keybinds
 " -----------------------------------------------------------------------------
@@ -76,12 +76,8 @@ inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
 
-" jk to escape insert/visual mode
+" jk to escape insert mode
 inoremap jk <ESC>
-xnoremap jk <ESC> 
-
-" C-n toggles NERDTree
-map <C-n> :NERDTreeToggle<CR>
 
 " ` saves in command mode
 map ` :w! <CR>
@@ -95,6 +91,7 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>f /
+nnoremap <leader>fr :%s/
 
 " Status bar options
 " -----------------------------------------------------------------------------
@@ -104,13 +101,14 @@ set laststatus=2
 
 " Status bar format
 set statusline=
-set statusline+=\ \~/
+set statusline+=\ 
 set statusline+=%f
 set statusline+=%=
 set statusline+=[%l/%L]
 set statusline+=\ 
 
-" Colors, invert during insert mode
+" Colors, invert during insert mode, currently only works with jk and <esc>
 hi StatusLine cterm=none ctermbg=235 ctermfg=015
 au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
 au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
+
