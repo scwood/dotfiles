@@ -51,9 +51,9 @@ OS="$(uname)"
 if [[ $OS == 'Darwin' ]]; then
     alias l='ls -F -G'
     alias ls='ls -F -G'
-    alias ll='ls -F -G -h -l'
     alias la='ls -A -F -G'
-    alias lal='ls -A -F -G -h -l'
+    alias ll='ls -F -G -h -l'
+    alias lla='ls -A -F -G -h -l'
 
 # Linux specific aliases
 elif [[ $OS == 'Linux' ]]; then
