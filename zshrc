@@ -42,20 +42,17 @@ setopt PROMPT_SUBST
 # Source git options
 source ~/.zsh/git-prompt.sh
 
-# Show '*' when git state is dirty
-export GIT_PS1_SHOWDIRTYSTATE=0
-
 # Name 
-PS1=$'%n at '
+PROMPT=$'%n at '
 
 # Machine name
-PS1+=$'%m in '
+PROMPT+=$'%m in '
 
 # Curent directory
-PS1+=$'%~'
+PROMPT+=$'%~'
 
 # Branch info and arrow for looks
-PS1+=$'$(__git_ps1)
+PROMPT+=$'$(__git_ps1)
 → '
 
 # For future use perhaps
