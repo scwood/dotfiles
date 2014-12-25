@@ -1,6 +1,6 @@
 # Dotfiles
 
-Some dotfiles that you could use if you really wanted to.
+My personal config files for zsh, vim, tmux, and more.
 
 ![](https://cloud.githubusercontent.com/assets/9126138/5552448/647c8800-8bbb-11e4-8157-44ada7e00cb9.png)
 
