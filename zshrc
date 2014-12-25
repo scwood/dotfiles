@@ -16,7 +16,7 @@ setopt correctall
 export VISUAL=vim
 
 # Add my bin to PATH
-path+=('~/bin')
+path+=($HOME/bin)
 export path
 
 # History
