@@ -22,6 +22,9 @@ Plugin 'scrooloose/syntastic'
 " Easily switch between vim and tmux
 Plugin 'christoomey/vim-tmux-navigator'
 
+" Toggle cursor between block in normal and I in insert
+Plugin 'jszakmeister/vim-togglecursor'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -112,4 +115,3 @@ set statusline+=\
 hi StatusLine cterm=none ctermbg=235 ctermfg=015
 au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
 au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
-

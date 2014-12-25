@@ -42,6 +42,9 @@ setopt PROMPT_SUBST
 # Source git options
 source ~/.zsh/git-prompt.sh
 
+# Show git branch dirty state
+GIT_PS1_SHOWDIRTYSTATE=1
+
 # Name 
 PROMPT=$'%n at '
 
