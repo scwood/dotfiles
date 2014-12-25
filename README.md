@@ -2,7 +2,7 @@
 
 Some dotfiles that you could use if you really wanted to.
 
-![](https://cloud.githubusercontent.com/assets/9126138/5551512/f7a09320-8b8d-11e4-8a11-4bab69b45d43.png)
+![](https://cloud.githubusercontent.com/assets/9126138/5552448/647c8800-8bbb-11e4-8157-44ada7e00cb9.png)
 
 ## Installation
 
@@ -18,7 +18,7 @@ cd ~/dotfiles
 ./install
 ```
 
-### For VIM
+### For VIM plugins
 
 Install [Vundle](https://github.com/gmarik/Vundle.vim):
 

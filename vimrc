@@ -102,6 +102,7 @@ set laststatus=2
 " Status bar format
 set statusline=
 set statusline+=\ 
+set statusline+=→\ 
 set statusline+=%f
 set statusline+=%=
 set statusline+=[%l/%L]
