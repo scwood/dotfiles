@@ -34,11 +34,31 @@ autoload -U colors && colors
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Prompt 
+# -----------------------------------------------------------------------------
+
+# Allow functions in prompt 
 setopt PROMPT_SUBST
+
+# Source git options
 source ~/.zsh/git-prompt.sh
+
+# Show '*' when git state is dirty
 export GIT_PS1_SHOWDIRTYSTATE=1
-PROMPT=$'%n@%m: %~%{$fg_bold[magenta]%}$(__git_ps1)%{$reset_color%}
+
+# Name 
+PROMPT=$'%n at '
+
+# Machine name
+PROMPT+=$'%m in '
+
+# Curent directory
+PROMPT+=$'%~'
+
+# Branch info and arrow for looks
+PROMPT+=$'$(__git_ps1)
 → '
+
+# For future use perhaps
 RPROMPT=$''
 
 # Aliases
