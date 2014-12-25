@@ -111,7 +111,7 @@ set statusline+=%=
 set statusline+=[%l/%L]
 set statusline+=\ 
 
-" Colors, invert during insert mode, currently only works with jk and <esc>
+" Colors invert during insert mode, currently only works with jk and <esc>
 hi StatusLine cterm=none ctermbg=235 ctermfg=015
 au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
 au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
