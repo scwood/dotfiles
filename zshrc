@@ -45,6 +45,9 @@ source ~/.zsh/git-prompt.sh
 # Show git branch dirty state
 GIT_PS1_SHOWDIRTYSTATE=1
 
+# Show git untracked state
+GIT_PS1_SHOWUNTRACKEDFILES=1
+
 # Name 
 PS1=$'%n at '
 
