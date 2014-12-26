@@ -46,16 +46,16 @@ source ~/.zsh/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 
 # Name 
-PROMPT=$'%n at '
+PS1=$'%n at '
 
 # Machine name
-PROMPT+=$'%m in '
+PS1+=$'%m in '
 
 # Curent directory
-PROMPT+=$'%~'
+PS1+=$'%~'
 
 # Branch info and arrow for looks
-PROMPT+=$'$(__git_ps1)
+PS1+=$'$(__git_ps1)
 → '
 
 # For future use perhaps
