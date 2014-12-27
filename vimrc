@@ -79,20 +79,14 @@ inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
 
-" jk to escape insert mode
+" jk to escape insert mode and save the file
 inoremap jk <ESC>:w<cr>
-
-" ` saves in command mode
-map ` :w! <CR>
 
 " Set leader to space
 map <space> <leader>
 
 " Leader keybinds
 nnoremap <leader>s :source $MYVIMRC<cr>
-nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
-nnoremap <leader>wq :wq<cr>
 nnoremap <leader>f /
 nnoremap <leader>fr :%s/
 
@@ -103,15 +97,14 @@ nnoremap <leader>fr :%s/
 set laststatus=2
 
 " Status bar format
-set statusline=
-set statusline+=\ 
+set statusline=\ 
 set statusline+=→\ 
-set statusline+=%f
+set statusline+=%F
 set statusline+=%=
 set statusline+=[%l/%L]
 set statusline+=\ 
 
-" Colors invert during insert mode, does not work with C-c
+" Status bar colors invert during insert mode, does not work with C-c
 hi StatusLine cterm=none ctermbg=235 ctermfg=015
 au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
 au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
