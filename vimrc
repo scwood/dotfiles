@@ -25,6 +25,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 " Toggle cursor between block in normal and I in insert
 Plugin 'jszakmeister/vim-togglecursor'
 
+" Autocomplete
+Plugin 'Valloric/YouCompleteMe'
+
 call vundle#end()
 filetype plugin indent on
 
