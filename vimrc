@@ -70,6 +70,9 @@ set backspace=indent,eol,start
 " Hide insert status
 set noshowmode
 
+" Set scroll buffer zone
+set scrolloff=3
+
 " Keybinds
 " -----------------------------------------------------------------------------
 
@@ -80,7 +83,7 @@ inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
 
 " jk to escape insert mode and save the file
-inoremap jk <ESC>:w<cr>
+inoremap jk <ESC>:w <bar> :noh<cr>
 
 " Set leader to space
 map <space> <leader>

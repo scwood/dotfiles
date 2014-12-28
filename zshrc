@@ -1,6 +1,9 @@
 # General settings
 # -----------------------------------------------------------------------------
 
+# Use emacs mode
+bindkey -e
+
 # Allow local custimization through .zshrc_local 
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
@@ -12,14 +15,12 @@ setopt autocd
 # Spellcheck
 setopt correctall
 
-# Use vim as editor
-export VISUAL=vim
-
 # Add my bin to PATH
 path+=($HOME/bin)
 export path
 
 # History
+setopt HIST_IGNORE_DUPS
 HISTSIZE=1000
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history
@@ -60,9 +61,6 @@ PS1+=$'%~'
 # Branch info and arrow for looks
 PS1+=$'$(__git_ps1)
 → '
-
-# For future use perhaps
-RPROMPT=$''
 
 # Aliases
 # -----------------------------------------------------------------------------
@@ -141,8 +139,8 @@ cs() {
 	ls
 }
 
-# Github all in one push
-push() {
+# Github add all, commit all, push all
+gpush() {
     git add --all
     git commit -m "$1"
     git push origin master
