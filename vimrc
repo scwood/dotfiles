@@ -13,20 +13,26 @@ Plugin 'gmarik/Vundle.vim'
 " Ctrl p to quickly switch to files
 Plugin 'kien/ctrlp.vim'
 
-" Nerdtree file viewer
+" Auto insert closing brackets
+Plugin 'Raimondi/delimitMate'
+
+" File viewer
 Plugin 'scrooloose/nerdtree'
+
+" Tab completion in insert mode
+Plugin 'ervandew/supertab'
 
 " Error linting
 Plugin 'scrooloose/syntastic'
+
+" Code snippets
+Plugin 'SirVer/ultisnips'
 
 " Easily switch between vim and tmux
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Toggle cursor between block in normal and I in insert
 Plugin 'jszakmeister/vim-togglecursor'
-
-" Autocomplete
-Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -76,6 +82,10 @@ set noshowmode
 " Set scroll buffer zone
 set scrolloff=3
 
+" Change supertab completion to be from top to bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
 " Keybinds
 " -----------------------------------------------------------------------------
 
@@ -85,8 +95,8 @@ inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
 
-" jk to escape insert mode and save the file
-inoremap jk <ESC>:w <bar> :noh<cr>
+" jk to escape insert mode, clear highlights, and save the file
+inoremap jk <ESC>:w <bar> noh<cr>
 
 " Set leader to space
 map <space> <leader>
