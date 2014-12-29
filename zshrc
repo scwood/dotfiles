@@ -125,7 +125,15 @@ unhide() {
 
 # Livestreamer shortcut
 watch() {
-    livestreamer twitch.tv/$1
+    if [ -z "$1" ]; then
+        echo No stream name given.
+        return
+    fi
+    if [ -z "$2" ]; then
+        livestreamer twitch.tv/$1 best
+        return
+    fi
+    livestreamer twitch.tv/$1 $2
 }
 
 # mkdir and cd into after
