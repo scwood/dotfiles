@@ -1,5 +1,2 @@
 # Player options
 player=mpv --cache 2048 --no-border 
-
-# Stream options
-default-stream best
