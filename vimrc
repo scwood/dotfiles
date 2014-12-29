@@ -25,14 +25,11 @@ Plugin 'ervandew/supertab'
 " Error linting
 Plugin 'scrooloose/syntastic'
 
-" Code snippets
+" Code snipptes 
 Plugin 'SirVer/ultisnips'
 
 " Easily switch between vim and tmux
 Plugin 'christoomey/vim-tmux-navigator'
-
-" Toggle cursor between block in normal and I in insert
-Plugin 'jszakmeister/vim-togglecursor'
 
 call vundle#end()
 filetype plugin indent on
