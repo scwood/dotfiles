@@ -37,6 +37,21 @@ Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
+" Plugin specific settings
+" -----------------------------------------------------------------------------
+
+" Change supertab completion to be from top to bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
+" Use python3 for syntastic rather than python2
+let g:syntastic_python_python_exec = '/path/to/python3'
+
+" Snippet settings
+let g:UltiSnipsExpandTrigger="<S-tab>"
+let g:UltiSnipsJumpForwardTrigger="<S-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
 " General settings
 " -----------------------------------------------------------------------------
 
@@ -81,15 +96,6 @@ set noshowmode
 
 " Set scroll buffer zone
 set scrolloff=3
-
-" Change supertab completion to be from top to bottom
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
-" Snippet settings
-let g:UltiSnipsExpandTrigger="<S-tab>"
-let g:UltiSnipsJumpForwardTrigger="<S-tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Keybinds
 " -----------------------------------------------------------------------------
