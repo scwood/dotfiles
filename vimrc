@@ -10,6 +10,9 @@ Plugin 'gmarik/Vundle.vim'
 " Installed plugins
 " -----------------------------------------------------------------------------
 
+" Autoshow suggestions
+Plugin 'AutoComplPop'
+
 " Ctrl p to quickly switch to files
 Plugin 'kien/ctrlp.vim'
 
@@ -84,9 +87,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " Snippet settings
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsExpandTrigger="<S-tab>"
+let g:UltiSnipsJumpForwardTrigger="<S-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Keybinds
 " -----------------------------------------------------------------------------
