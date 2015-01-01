@@ -93,9 +93,6 @@ alias reload='source ~/.zshrc'
 # School SSH
 alias byu='ssh scwood@schizo.cs.byu.edu'
 
-# Sublime
-alias subl='sublime'
-
 # Git aliases
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 alias ga='git add'

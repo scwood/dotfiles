@@ -22,9 +22,6 @@ Plugin 'Raimondi/delimitMate'
 " File viewer
 Plugin 'scrooloose/nerdtree'
 
-" Tab completion in insert mode
-Plugin 'ervandew/supertab'
-
 " Error linting
 Plugin 'scrooloose/syntastic'
 
