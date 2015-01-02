@@ -10,12 +10,6 @@ Plugin 'gmarik/Vundle.vim'
 " Installed plugins
 " -----------------------------------------------------------------------------
 
-" Autoshow suggestions
-Plugin 'AutoComplPop'
-
-" Ctrl p to quickly switch to files
-Plugin 'kien/ctrlp.vim'
-
 " Auto insert closing brackets
 Plugin 'Raimondi/delimitMate'
 
@@ -24,6 +18,9 @@ Plugin 'scrooloose/syntastic'
 
 " Code snipptes 
 Plugin 'SirVer/ultisnips'
+
+" Markdown improvements
+Plugin 'plasticboy/vim-markdown'
 
 " Easily switch between vim and tmux
 Plugin 'christoomey/vim-tmux-navigator'
@@ -34,10 +31,6 @@ filetype plugin indent on
 " Plugin specific settings
 " -----------------------------------------------------------------------------
 
-" Change supertab completion to be from top to bottom
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
 " Use python3 for syntastic rather than python2
 let g:syntastic_python_python_exec = '/path/to/python3'
 
@@ -45,6 +38,9 @@ let g:syntastic_python_python_exec = '/path/to/python3'
 let g:UltiSnipsExpandTrigger="<S-tab>"
 let g:UltiSnipsJumpForwardTrigger="<S-tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+" Turn off code folding for markdown
+let g:vim_markdown_folding_disabled=1
 
 " General settings
 " -----------------------------------------------------------------------------
