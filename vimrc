@@ -19,9 +19,6 @@ Plugin 'kien/ctrlp.vim'
 " Auto insert closing brackets
 Plugin 'Raimondi/delimitMate'
 
-" File viewer
-Plugin 'scrooloose/nerdtree'
-
 " Error linting
 Plugin 'scrooloose/syntastic'
 
