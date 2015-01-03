@@ -110,10 +110,10 @@ nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>f /
 nnoremap <leader>fr :%s/
 
-" Status bar options
+" Status line
 " -----------------------------------------------------------------------------
 
-" Turn status bar always on
+" Turn status line always on
 set laststatus=2
 
 " Status bar format

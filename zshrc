@@ -114,8 +114,8 @@ hide() {
 	killall -KILL Finder
 }
 
-# Unhide dot files
-unhide() {
+# Show dot files
+show() {
 	defaults write com.apple.finder AppleShowAllFiles YES
 	killall -KILL Finder
 }
