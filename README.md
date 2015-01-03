@@ -2,7 +2,7 @@
 
 My personal config files for zsh, vim, tmux, and more.
 
-![](https://cloud.githubusercontent.com/assets/9126138/5601806/d2278b0c-92d7-11e4-9c13-fef0d6df544b.png)
+![](https://cloud.githubusercontent.com/assets/9126138/5601808/4263699a-92d8-11e4-8160-1c7774fed23f.png)
 
 ## Installation
 
