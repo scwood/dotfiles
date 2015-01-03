@@ -1,9 +1,6 @@
 # General settings
 # -----------------------------------------------------------------------------
 
-# Use emacs mode
-bindkey -e
-
 # Allow local custimization through .zshrc_local 
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
@@ -33,6 +30,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'm:{-_}={_-}'
 # Syntax highlighting
 autoload -U colors && colors
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Use emacs mode
+bindkey -e
 
 # Prompt 
 # -----------------------------------------------------------------------------

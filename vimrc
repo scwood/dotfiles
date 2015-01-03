@@ -22,6 +22,9 @@ Plugin 'SirVer/ultisnips'
 " Markdown improvements
 Plugin 'plasticboy/vim-markdown'
 
+" Easy surround for words
+Plugin 'tpope/vim-surround'
+
 " Easily switch between vim and tmux
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -39,7 +42,7 @@ let g:UltiSnipsExpandTrigger="<S-tab>"
 let g:UltiSnipsJumpForwardTrigger="<S-tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
-" Turn off code folding for markdown
+" Turn off code folding for vim-markdown
 let g:vim_markdown_folding_disabled=1
 
 " General settings
