@@ -12,7 +12,7 @@ setopt autocd
 # Spellcheck
 setopt correctall
 
-# Add my bin to PATH
+# Add $HOME/bin to PATH
 path+=($HOME/bin)
 export path
 
