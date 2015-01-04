@@ -1,10 +1,13 @@
-" Turn off VI compatability
+" Turn off vi compatability
 set nocompatible
 
 " Installed plugins
 " -----------------------------------------------------------------------------
 
 call plug#begin()
+
+" Autocomplete
+Plug 'Shougo/neocomplete.vim'
 
 " Error linting
 Plug 'scrooloose/syntastic'
@@ -29,13 +32,17 @@ call plug#end()
 " Use python3 for syntastic rather than python2
 let g:syntastic_python_python_exec = '/path/to/python3'
 
-" Snippet settings
+" Set shift-tab to expand snippet and cycle foward, ctrl-b to cycle backward
 let g:UltiSnipsExpandTrigger="<S-tab>"
 let g:UltiSnipsJumpForwardTrigger="<S-tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 
 " Turn off code folding for vim-markdown
 let g:vim_markdown_folding_disabled=1
+
+" Enable neocomplete at startup and set tab to cylce through suggestions
+let g:neocomplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " General settings
 " -----------------------------------------------------------------------------
@@ -62,6 +69,17 @@ set colorcolumn=80
 " Highlight current line
 set cursorline
 
+" Set a scrolling buffer near the top and bottom of the screen
+set scrolloff=1
+
+" Turn autoindent on
+set autoindent
+
+" File specific indenting
+if has('autocmd')
+  filetype plugin indent on
+endif
+
 " Highlight, incrament, and smartcase search
 set incsearch
 set hlsearch
@@ -77,14 +95,6 @@ set expandtab
 set nobackup
 set nowritebackup
 set noswapfile
-
-" Turn autoindent on
-set autoindent
-
-" File specific indenting
-if has('autocmd')
-  filetype plugin indent on
-endif
 
 " Keybinds
 " -----------------------------------------------------------------------------
