@@ -15,14 +15,11 @@ Plug 'SirVer/ultisnips'
 " Markdown improvements
 Plug 'plasticboy/vim-markdown'
 
-" Easy surround for words
+" Surround objects easier
 Plug 'tpope/vim-surround'
 
-" Easily switch between vim and tmux
+" Easy nagivating between vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
-
-" Autocompletion
-Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
 
@@ -42,12 +39,7 @@ let g:vim_markdown_folding_disabled=1
 
 " General settings
 " -----------------------------------------------------------------------------
-
-" Turn off backup/swap files
-set nobackup
-set nowritebackup
-set noswapfile
-
+  
 " Turn on syntax highlighting
 syntax on
 
@@ -55,7 +47,10 @@ syntax on
 set background=dark
 colorscheme jellybeans
 
-" Turn on line numbers
+" Make bakscapce behave normally
+set backspace=indent,eol,start
+
+" Turn on line numbers 
 set number
 
 " Use system clipboard
@@ -67,31 +62,35 @@ set colorcolumn=80
 " Highlight current line
 set cursorline
 
-" Highlight, incramental, and smartcase search
+" Highlight, incrament, and smartcase search
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase 
 
-" Tab will insert four spaces
+" Tab will insert two spaces
 set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Make backspace behave like normal
-set backspace=indent,eol,start
+" Turn off backup/swap files
+set nobackup
+set nowritebackup
+set noswapfile
 
-" Hide insert status
-set noshowmode
+" Turn autoindent on
+set autoindent
 
-" Set scroll buffer zone
-set scrolloff=3
+" File specific indenting
+if has('autocmd')
+  filetype plugin indent on
+endif
 
 " Keybinds
 " -----------------------------------------------------------------------------
 
-" jk to escape insert mode, clear highlights, and save the file
-inoremap jk <ESC>:w <bar> noh<cr>
+" jk to escape insert mode, and save the file
+inoremap jk <ESC>:w<cr>
 
 " Set leader to space
 map <space> <leader>
@@ -104,16 +103,11 @@ nnoremap <leader>fr :%s/
 " Status line
 " -----------------------------------------------------------------------------
 
-" Turn status line always on
+" Turn status line on always
 set laststatus=2
 
 " Status bar format
-set statusline=\ 
-set statusline+=→\ 
-set statusline+=%F
-set statusline+=%=
-set statusline+=[%l/%L]
-set statusline+=\ 
+set statusline=\ →\ %F%=[%l/%L]\ 
 
 " Status bar colors invert during insert mode, does not work with C-c
 hi StatusLine cterm=none ctermbg=235 ctermfg=015
