@@ -50,17 +50,8 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 
 # Name 
-PS1=$'%n at '
-
-# Machine name
-PS1+=$'%m in '
-
-# Curent directory
-PS1+=$'%~'
-
-# Branch info and arrow for looks
-PS1+=$'$(__git_ps1)
-→ '
+PS1=$'%n at %m in %~$(__git_ps1)
+→ ' 
 
 # Aliases
 # -----------------------------------------------------------------------------
