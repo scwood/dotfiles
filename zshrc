@@ -3,7 +3,7 @@
 
 # Allow local custimization through .zshrc_local 
 if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
+  source ~/.zshrc_local
 fi
 
 # Auto cd into directories with just directory name
@@ -70,15 +70,15 @@ OS="$(uname)"
 
 # OSX specific aliases
 if [[ $OS == 'Darwin' ]]; then
-    alias l='ls -F -G'
-    alias ls='ls -F -G'
-    alias la='ls -A -F -G'
-    alias ll='ls -F -G -h -l'
-    alias lla='ls -A -F -G -h -l'
+  alias l='ls -F -G'
+  alias ls='ls -F -G'
+  alias la='ls -A -F -G'
+  alias ll='ls -F -G -h -l'
+  alias lla='ls -A -F -G -h -l'
 
 # Linux specific aliases
 elif [[ $OS == 'Linux' ]]; then
-    alias l='ls --color'
+  alias l='ls --color'
 fi
 
 # General commands
@@ -108,45 +108,68 @@ alias gsa='git submodule add'
 # Functions
 # -----------------------------------------------------------------------------
 
-# Hide dot files
-hide() {
-	defaults write com.apple.finder AppleShowAllFiles NO
-	killall -KILL Finder
-}
-
-# Show dot files
-show() {
-	defaults write com.apple.finder AppleShowAllFiles YES
-	killall -KILL Finder
-}
-
-# Livestreamer shortcut
-watch() {
-    if [ -z "$1" ]; then
-        echo No stream name given.
-        return
-    fi
-    if [ -z "$2" ]; then
-        livestreamer twitch.tv/$1 best
-        return
-    fi
-    livestreamer twitch.tv/$1 $2
-}
-
-# mkdir and cd into after
+# mkdir and cd into it
 mkcd() { 
-	mkdir "$1" && cd "$1"; 
+  mkdir "$1" && cd "$1"; 
 }
 
 # ls after cd
 cs() {
-	cd $1
-	ls
+  cd $1
+  ls
 }
 
-# Github add all, commit all, push all
+# Hide hidden files/directories in finder
+hide() {
+  defaults write com.apple.finder AppleShowAllFiles NO
+  killall -KILL Finder
+}
+
+# Show hidden files/directories in finder
+show() {
+  defaults write com.apple.finder AppleShowAllFiles YES
+  killall -KILL Finder
+}
+
+# Github add all, commit all with a message, and push all
 gpush() {
+  if [ -z $1 ]; then
+    echo "usage: gpush 'commit_message'"
+  else
     git add --all
     git commit -m "$1"
     git push origin master
+  fi
+}
+
+# Extract function that handles multiple file types
+extract() {
+  if [ -z $1 ]; then
+    echo "usage: extract file_name"
+  else
+    for f; do
+      if [ ! -f "$f" ]; then
+        echo "extract $f failed - file does not exist"
+      else
+        case "$f" in
+          *.tar) tar xvf $f;;
+          *.tar.gz) tar xvf $f;;
+          *.tgz) tar xvf $f;;
+          *.zip) unzip $f;;
+          *) echo "extract $f failed - unknown archive method"
+        esac
+      fi
+    done
+  fi
+}
+
+# Livestreamer shortcut
+watch() {
+  if [ -z "$1" ]; then
+    echo "usage: watch stream_name [quality]"
+  elif [ -z "$2" ]; then
+    livestreamer twitch.tv/$1 best
+  else
+    livestreamer twitch.tv/$1 $2
+  fi
 }

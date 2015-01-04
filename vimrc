@@ -1,35 +1,30 @@
 " Turn off VI compatability
 set nocompatible
 
-" Vundle initilization
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-
 " Installed plugins
 " -----------------------------------------------------------------------------
 
-" Auto insert closing brackets
-Plugin 'Raimondi/delimitMate'
+call plug#begin()
 
 " Error linting
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Code snipptes 
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Markdown improvements
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 
 " Easy surround for words
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " Easily switch between vim and tmux
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
-call vundle#end()
-filetype plugin indent on
+" Autocompletion
+Plug 'Shougo/neocomplete.vim'
+
+call plug#end()
 
 " Plugin specific settings
 " -----------------------------------------------------------------------------
@@ -72,13 +67,15 @@ set colorcolumn=80
 " Highlight current line
 set cursorline
 
-" Highlight and incramental search
+" Highlight, incramental, and smartcase search
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase 
 
 " Tab will insert four spaces
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " Make backspace behave like normal
@@ -92,12 +89,6 @@ set scrolloff=3
 
 " Keybinds
 " -----------------------------------------------------------------------------
-
-" Stop using arrows in insert mode
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
 
 " jk to escape insert mode, clear highlights, and save the file
 inoremap jk <ESC>:w <bar> noh<cr>
