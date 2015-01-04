@@ -76,9 +76,7 @@ set scrolloff=1
 set autoindent
 
 " File specific indenting
-if has('autocmd')
-  filetype plugin indent on
-endif
+filetype plugin indent on
 
 " Highlight, incrament, and smartcase search
 set incsearch
