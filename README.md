@@ -20,7 +20,7 @@ cd ~/dotfiles
 
 ### Vim
 
-Plugins are handled through ![vim-plug](https://github.com/junegunn/vim-plug). To install them, run `:PlugInstall` next time Vim is opened.
+Plugins are handled through [vim-plug](https://github.com/junegunn/vim-plug). To install them, run `:PlugInstall` next time Vim is opened.
 
 ### iTerm2
 
@@ -28,9 +28,9 @@ Colors and fonts for iTerm2 are stored in dotfiles/iTerm2.
 
 ### Tmux
 
-If you're on OS X and you want the battery indicator in your Tmux status line, download ![this script](https://github.com/scwood/Battery/blob/master/battery) and place it somewhere in your shells path, I like $HOME/path which I export in my .zshrc (original credit for the battery script goes to ![Goles](https://github.com/Goles)).
+If you're on OS X and you want the battery indicator in your Tmux status line, download [this script](https://github.com/scwood/Battery/blob/master/battery) and place it somewhere in your shells path, I like $HOME/path which I export in my .zshrc (original credit for the battery script goes to [Goles](https://github.com/Goles)).
 
-If you're not in OS X, or you aren't on a laptop, replace the following line in tmux.conf:
+If you're not in OS X, you aren't on a laptop, or you just don't want a battery indicator, replace the following line in tmux.conf:
 
 ```
 set -g status-right "%l:%M %p - %d %b %Y - #(battery -t -p -a)"
