@@ -96,6 +96,11 @@ alias gpom='git push origin master'
 alias gs='git status'
 alias gsa='git submodule add'
 
+# Vim config file shortcuts 
+alias vrc='vim ~/.vimrc'
+alias zrc='vim ~/.zshrc'
+alias trc='vim ~/.tmux.conf'
+
 # Functions
 # -----------------------------------------------------------------------------
 
