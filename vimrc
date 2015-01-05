@@ -66,9 +66,6 @@ set clipboard=unnamed
 " Set 80 character ruler
 set colorcolumn=80
 
-" Highlight current line
-set cursorline
-
 " Set a scrolling buffer near the top and bottom of the screen
 set scrolloff=1
 
@@ -77,6 +74,10 @@ set autoindent
 
 " File specific indenting
 filetype plugin indent on
+
+" Better rendering for the terminal
+set lazyredraw
+set ttyfast
 
 " Highlight, incrament, and smartcase search
 set incsearch
@@ -110,14 +111,14 @@ nnoremap <leader>fr :%s/
 
 " Status line
 " -----------------------------------------------------------------------------
-
+"
 " Turn status line on always
 set laststatus=2
 
 " Status bar format
 set statusline=\ →\ %F%=[%l/%L]\ 
 
-" Status bar colors invert during insert mode, does not work with C-c
+" Status bar colors invert during insert mode, does not work with C-c or gui
 hi StatusLine cterm=none ctermbg=235 ctermfg=015
 au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
 au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
