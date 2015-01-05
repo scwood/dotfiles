@@ -24,7 +24,7 @@ Plugins are handled through [vim-plug](https://github.com/junegunn/vim-plug). To
 
 ### iTerm2
 
-Colors and fonts for iTerm2 are stored in dotfiles/iTerm2. 
+Colors and fonts for iTerm2 are stored in dotfiles/iTerm2. Font in screenshot is Inconsolata size 13. 
 
 ### Tmux
 
