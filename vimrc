@@ -66,13 +66,13 @@ set clipboard=unnamed
 " Set 80 character ruler
 set colorcolumn=80
 
-" Set a scrolling buffer near the top and bottom of the screen
+" Set a one line scrolling buffer near the top and bottom of the screen
 set scrolloff=1
 
 " Turn autoindent on
 set autoindent
 
-" File specific indenting
+" Filetype specific indenting
 filetype plugin indent on
 
 " Better rendering for the terminal
@@ -111,7 +111,7 @@ nnoremap <leader>fr :%s/
 
 " Status line
 " -----------------------------------------------------------------------------
-"
+
 " Turn status line on always
 set laststatus=2
 
