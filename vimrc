@@ -15,9 +15,6 @@ Plug 'scrooloose/syntastic'
 " Code snipptes 
 Plug 'SirVer/ultisnips'
 
-" Markdown improvements
-Plug 'plasticboy/vim-markdown'
-
 " Surround objects easier
 Plug 'tpope/vim-surround'
 
@@ -39,6 +36,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 
 " Turn off code folding for vim-markdown
 let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_math=1
 
 " Enable neocomplete at startup and set tab to cylce through suggestions
 let g:neocomplete#enable_at_startup = 1

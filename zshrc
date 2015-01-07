@@ -101,6 +101,9 @@ alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias trc='vim ~/.tmux.conf'
 
+# Tmux aliases
+alias work='tmux new -s workspace'
+
 # Functions
 # -----------------------------------------------------------------------------
 
