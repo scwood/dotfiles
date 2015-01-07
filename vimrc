@@ -40,7 +40,9 @@ let g:vim_markdown_math=1
 
 " Enable neocomplete at startup and set tab to cylce through suggestions
 let g:neocomplete#enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:neocomplete#enable_smart_case = 1
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-g> neocomplete#undo_completion()
 
 " General settings
 " -----------------------------------------------------------------------------
@@ -96,7 +98,7 @@ set noswapfile
 " Keybinds
 " -----------------------------------------------------------------------------
 
-" jk to escape insert mode, and save the file
+" In insert mode remap jk to escape insert mode, and save the file
 inoremap jk <ESC>:w<cr>
 
 " Set leader to space
@@ -113,10 +115,10 @@ nnoremap <leader>fr :%s/
 " Turn status line on always
 set laststatus=2
 
-" Status bar format
+" Status line format
 set statusline=\ →\ %F%=[%l/%L]\ 
 
-" Status bar colors invert during insert mode, does not work with C-c or gui
+" Status line colors invert during insert mode, does not work with C-c or gui
 hi StatusLine cterm=none ctermbg=235 ctermfg=015
 au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
 au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
