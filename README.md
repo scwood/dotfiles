@@ -18,6 +18,8 @@ cd ~/dotfiles
 ./install
 ```
 
+If have have conflicting existing files you may have to move them to another directory.
+
 ### Vim
 
 Plugins are handled through [vim-plug](https://github.com/junegunn/vim-plug). To install them, run `:PlugInstall` next time Vim is opened.

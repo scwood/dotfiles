@@ -99,10 +99,10 @@ set noswapfile
 " -----------------------------------------------------------------------------
 
 " In insert mode remap jk to escape insert mode, and save the file
-inoremap jk <ESC>:w<cr>
+inoremap jk <ESC>
 
-" Remap <C-c> to do the same as above
-inoremap <C-c> <ESC>:w<cr>
+" Remap <C-c> to esc to play nice with changing statusline
+inoremap <C-c> <ESC>
 
 " Set leader to space
 map <space> <leader>
@@ -121,9 +121,9 @@ set laststatus=2
 " Status line format
 set statusline=\ →\ %F%=[%l/%L]\ 
 
-" Default status line colors
-hi StatusLine cterm=none ctermbg=235 ctermfg=015
-
 " Status line colors invert during insert mode, does not work with gui
 au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
 au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
+
+" Default status line colors
+hi StatusLine cterm=none ctermbg=235 ctermfg=015
