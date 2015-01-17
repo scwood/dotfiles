@@ -6,19 +6,19 @@ set nocompatible
 
 call plug#begin()
 
-" Autocomplete
+" Autocompletion
 Plug 'Shougo/neocomplete.vim'
 
 " Error linting
 Plug 'scrooloose/syntastic'
 
-" Code snipptes 
+" Snippets
 Plug 'SirVer/ultisnips'
 
-" Surround objects easier
+" Easily quote and surround objects
 Plug 'tpope/vim-surround'
 
-" Easy nagivating between vim and tmux
+" Vim/tmux navigation
 Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
@@ -29,14 +29,10 @@ call plug#end()
 " Use python3 for syntastic rather than python2
 let g:syntastic_python_python_exec = '/path/to/python3'
 
-" Set shift-tab to expand snippet and cycle foward, ctrl-b to cycle backward
+" Set shift-tab to expand snippets and cycle foward, ctrl-b to cycle backward
 let g:UltiSnipsExpandTrigger="<S-tab>"
 let g:UltiSnipsJumpForwardTrigger="<S-tab>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
-
-" Turn off code folding for vim-markdown
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_math=1
 
 " Enable neocomplete at startup and set tab to cylce through suggestions
 let g:neocomplete#enable_at_startup = 1
@@ -47,18 +43,14 @@ inoremap <expr><C-g> neocomplete#undo_completion()
 " General settings
 " -----------------------------------------------------------------------------
   
-" Turn on syntax highlighting
-syntax on
-
-" Colorscheme
-set background=dark
-colorscheme jellybeans
-
 " Make bakscapce behave normally
 set backspace=indent,eol,start
 
 " Turn on line numbers 
 set number
+
+" Highlight current line
+set cursorline
 
 " Use system clipboard
 set clipboard=unnamed
@@ -67,13 +59,17 @@ set clipboard=unnamed
 set colorcolumn=80
 
 " Set a one line scrolling buffer near the top and bottom of the screen
-set scrolloff=1
+set scrolloff=3
 
 " Turn autoindent on
 set autoindent
 
-" Filetype specific indenting
-filetype plugin indent on
+" Turn on syntax highlighting
+syntax on
+
+" Colorscheme
+set background=dark
+colorscheme jellybeans
 
 " Better rendering for the terminal
 set lazyredraw
@@ -88,6 +84,7 @@ set smartcase
 " Tab will insert two spaces
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Turn off backup/swap files
@@ -98,10 +95,10 @@ set noswapfile
 " Keybinds
 " -----------------------------------------------------------------------------
 
-" In insert mode remap jk to escape insert mode, and save the file
+" In insert mode remap jk to escape insert mode
 inoremap jk <ESC>
 
-" Remap <C-c> to esc to play nice with changing statusline
+" Remap <C-c> to esc to play nice with color changing statusline
 inoremap <C-c> <ESC>
 
 " Set leader to space
