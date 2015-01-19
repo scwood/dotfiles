@@ -1,10 +1,10 @@
-# General settings
-# -----------------------------------------------------------------------------
-
 # Allow local custimization through .zshrc_local 
 if [ -f ~/.zshrc_local ]; then
   source ~/.zshrc_local
 fi
+
+# General settings
+# -----------------------------------------------------------------------------
 
 # Auto cd into directories with just directory name
 setopt autocd
