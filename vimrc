@@ -108,6 +108,7 @@ map <space> <leader>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>f /
 nnoremap <leader>fr :%s/
+nnoremap <leader>n :noh<cr>
 
 " Status line
 " -----------------------------------------------------------------------------
