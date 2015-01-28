@@ -15,7 +15,7 @@ Plug 'scrooloose/syntastic'
 " Snippets
 Plug 'SirVer/ultisnips'
 
-" Easily quote and surround objects
+" Easily quote/surround objects
 Plug 'tpope/vim-surround'
 
 " Vim/tmux navigation
@@ -26,12 +26,14 @@ call plug#end()
 " Plugin specific settings
 " -----------------------------------------------------------------------------
 
-" Use python3 for syntastic rather than python2
+" Use python3 for syntastic, and let it check header files
 let g:syntastic_python_python_exec = '/path/to/python3'
+let g:syntastic_cpp_check_header = 1
 
-" Set shift-tab to expand snippets and cycle foward, ctrl-b to cycle backward
-let g:UltiSnipsExpandTrigger="<S-tab>"
-let g:UltiSnipsJumpForwardTrigger="<S-tab>"
+" Bind C-f (forward) to expand snippets and cycle foward and C-b (backward) to 
+" cycle backward
+let g:UltiSnipsExpandTrigger="<C-f>"
+let g:UltiSnipsJumpForwardTrigger="<C-f>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 
 " Enable neocomplete at startup and set tab to cylce through suggestions
@@ -55,14 +57,15 @@ set cursorline
 " Use system clipboard
 set clipboard=unnamed
 
-" Set 80 character ruler
+" Set 80 character vertical ruler
 set colorcolumn=80
 
-" Set a one line scrolling buffer near the top and bottom of the screen
+" Set a three line scrolling buffer near the top and bottom of the screen
 set scrolloff=3
 
-" Turn autoindent on
+" Turn on autoindent and smartindent
 set autoindent
+set smartindent
 
 " Turn on syntax highlighting
 syntax on
@@ -86,6 +89,11 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+
+" Markdown specific indentation (to place nice with pandoc)
+au FileType markdown set tabstop=4
+au FileType markdown set shiftwidth=4
+au FileType markdown set softtabstop=4
 
 " Turn off backup/swap files
 set nobackup
@@ -113,7 +121,7 @@ nnoremap <leader>n :noh<cr>
 " Status line
 " -----------------------------------------------------------------------------
 
-" Turn status line on always
+" Turn on status line
 set laststatus=2
 
 " Status line format
