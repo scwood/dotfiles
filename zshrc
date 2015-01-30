@@ -77,6 +77,7 @@ alias ..='cd ..'
 alias ~='cd ~'
 alias c='clear'
 alias q='exit'
+alias :q='exit'
 
 # Easy .zshrc reload
 alias reload='source ~/.zshrc'
@@ -100,6 +101,7 @@ alias gsa='git submodule add'
 alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias trc='vim ~/.tmux.conf'
+alias vim="stty stop '' -ixoff; vim"
 
 # Tmux aliases
 alias work='tmux new -s workspace'
