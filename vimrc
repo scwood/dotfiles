@@ -26,21 +26,20 @@ call plug#end()
 " Plugin specific settings
 " -----------------------------------------------------------------------------
 
+" Enable neocomplete at startup and set tab to cylce through suggestions
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 " Use python3 for syntastic, and let it check header files
 let g:syntastic_python_python_exec = '/path/to/python3'
 let g:syntastic_cpp_check_header = 1
 
 " Bind C-f (forward) to expand snippets and cycle foward and C-b (backward) to 
 " cycle backward
-let g:UltiSnipsExpandTrigger="<C-f>"
-let g:UltiSnipsJumpForwardTrigger="<C-f>"
-let g:UltiSnipsJumpBackwardTrigger="<C-b>"
-
-" Enable neocomplete at startup and set tab to cylce through suggestions
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-g> neocomplete#undo_completion()
+let g:UltiSnipsExpandTrigger="<c-f>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " General settings
 " -----------------------------------------------------------------------------
@@ -74,10 +73,6 @@ syntax on
 set background=dark
 colorscheme jellybeans
 
-" Better rendering for the terminal
-set lazyredraw
-set ttyfast
-
 " Highlight, incrament, and smartcase search
 set incsearch
 set hlsearch
@@ -90,7 +85,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-" Markdown specific indentation (to place nice with pandoc)
+" Markdown specific indentation
 au FileType markdown set tabstop=4
 au FileType markdown set shiftwidth=4
 au FileType markdown set softtabstop=4
@@ -103,20 +98,25 @@ set noswapfile
 " Keybinds
 " -----------------------------------------------------------------------------
 
-" In insert mode remap jk to escape insert mode
-inoremap jk <ESC>
+" Remap jk to exit insert mode
+inoremap jk <esc>
 
-" Remap <C-c> to esc to play nice with color changing statusline
-inoremap <C-c> <ESC>
+" Remap ctrl-s to save
+nnoremap <c-s> :w<cr>
+inoremap <c-s> <c-o>:w<cr>
+vnoremap <c-s> <c-o>:w<cr>
 
 " Set leader to space
 map <space> <leader>
 
 " Leader keybinds
-nnoremap <leader>s :source $MYVIMRC<cr>
+nnoremap <leader>so :source $MYVIMRC<cr>
 nnoremap <leader>f /
 nnoremap <leader>fr :%s/
 nnoremap <leader>n :noh<cr>
+nnoremap <leader>v <C-v>
+nnoremap <leader>vs :vsplit<cr>
+nnoremap <leader>sp :split<cr>
 
 " Status line
 " -----------------------------------------------------------------------------
@@ -127,9 +127,5 @@ set laststatus=2
 " Status line format
 set statusline=\ →\ %F%=[%l/%L]\ 
 
-" Status line colors invert during insert mode, does not work with gui
-au InsertLeave * hi StatusLine cterm=none ctermfg=015 ctermbg=235
-au InsertEnter * hi StatusLine cterm=none ctermfg=235 ctermbg=015
-
-" Default status line colors
+" Status line colors
 hi StatusLine cterm=none ctermbg=235 ctermfg=015
