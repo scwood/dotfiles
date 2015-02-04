@@ -101,10 +101,13 @@ alias gsa='git submodule add'
 alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias trc='vim ~/.tmux.conf'
+
+# Start vim to allow c-s keybind
 alias vim="stty stop '' -ixoff; vim"
 
 # Tmux aliases
 alias work='tmux new -s workspace'
+alias tks='tmux kill-server'
 
 # Functions
 # -----------------------------------------------------------------------------
