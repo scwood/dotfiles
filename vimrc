@@ -62,16 +62,27 @@ set colorcolumn=80
 " Set a three line scrolling buffer near the top and bottom of the screen
 set scrolloff=3
 
-" Turn on autoindent and smartindent
-set autoindent
-set smartindent
-
 " Turn on syntax highlighting
 syntax on
+
+" Spell check for markdown
+autocmd FileType markdown setlocal spell
+
+" Close scratch window
+set completeopt-=preview
 
 " Colorscheme
 set background=dark
 colorscheme jellybeans
+
+" Turn on autoindent/smartindent
+set autoindent
+set smartindent
+
+" Turn off backup/swap files
+set nobackup
+set nowritebackup
+set noswapfile
 
 " Highlight, incrament, and smartcase search
 set incsearch
@@ -90,10 +101,10 @@ au FileType markdown set tabstop=4
 au FileType markdown set shiftwidth=4
 au FileType markdown set softtabstop=4
 
-" Turn off backup/swap files
-set nobackup
-set nowritebackup
-set noswapfile
+" Python specific indentation
+au FileType python set tabstop=4
+au FileType python set shiftwidth=4
+au FileType python set softtabstop=4
 
 " Keybinds
 " -----------------------------------------------------------------------------
