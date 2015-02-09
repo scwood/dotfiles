@@ -9,6 +9,9 @@ call plug#begin()
 " Error linting
 Plug 'scrooloose/syntastic'
 
+" Snippets
+Plug 'SirVer/ultisnips'
+
 " Easily quote/surround objects
 Plug 'tpope/vim-surround'
 
@@ -26,6 +29,11 @@ call plug#end()
 " Use python3 for syntastic, and let it check header files
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_cpp_check_header = 1
+
+" Use c-f (forward) to expand snippets and c-b (backward) to jump backward
+let g:UltiSnipsExpandTrigger="<c-f>"   
+let g:UltiSnipsJumpForwardTrigger="<c-f>"    
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " General settings
 " -----------------------------------------------------------------------------
