@@ -51,6 +51,9 @@ set scrolloff=3
 " Turn on syntax highlighting
 syntax on
 
+" Completion menu behavior
+set completeopt=menu,longest
+
 " Colorscheme
 set background=dark
 colorscheme jellybeans
