@@ -12,6 +12,9 @@ Plug 'scrooloose/syntastic'
 " Snippets
 Plug 'SirVer/ultisnips'
 
+" Commenting
+Plug 'tpope/vim-commentary'
+
 " Easily quote/surround objects
 Plug 'tpope/vim-surround'
 
