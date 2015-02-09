@@ -6,14 +6,8 @@ set nocompatible
 
 call plug#begin()
 
-" Autocompletion
-Plug 'Shougo/neocomplete.vim'
-
 " Error linting
 Plug 'scrooloose/syntastic'
-
-" Snippets
-Plug 'SirVer/ultisnips'
 
 " Easily quote/surround objects
 Plug 'tpope/vim-surround'
@@ -21,30 +15,22 @@ Plug 'tpope/vim-surround'
 " Vim/tmux navigation
 Plug 'christoomey/vim-tmux-navigator'
 
+" Autocomplete
+Plug 'ajh17/VimCompletesMe'
+
 call plug#end()
 
 " Plugin specific settings
 " -----------------------------------------------------------------------------
 
-" Enable neocomplete at startup and set tab to cylce through suggestions
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
 " Use python3 for syntastic, and let it check header files
-let g:syntastic_python_python_exec = '/path/to/python3'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_cpp_check_header = 1
-
-" Bind C-f (forward) to expand snippets and cycle foward and C-b (backward) to 
-" cycle backward
-let g:UltiSnipsExpandTrigger="<c-f>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " General settings
 " -----------------------------------------------------------------------------
-  
-" Make bakscapce behave normally
+
+" Make backspace behave normally
 set backspace=indent,eol,start
 
 " Turn on line numbers 
@@ -64,12 +50,6 @@ set scrolloff=3
 
 " Turn on syntax highlighting
 syntax on
-
-" Spell check for markdown
-autocmd FileType markdown setlocal spell
-
-" Close scratch window
-set completeopt-=preview
 
 " Colorscheme
 set background=dark
@@ -120,6 +100,9 @@ vnoremap <c-s> <c-o>:w<cr>
 " Set leader to space
 map <space> <leader>
 
+" Make '' jump go to last cursor position by default
+nnoremap '' ``
+
 " Leader keybinds
 nnoremap <leader>so :source $MYVIMRC<cr>
 nnoremap <leader>f /
@@ -128,6 +111,25 @@ nnoremap <leader>n :noh<cr>
 nnoremap <leader>v <C-v>
 nnoremap <leader>vs :vsplit<cr>
 nnoremap <leader>sp :split<cr>
+nnoremap <leader>fs 1z=
+nnoremap <leader>wc :w <bar> !wc %<cr>
+
+" Functions
+" -----------------------------------------------------------------------------
+
+func! WordProcessorMode() 
+  map j gj
+  map k gk
+  setlocal wrap
+  setlocal linebreak
+  setlocal nonumber
+  setlocal tabstop=8
+  setlocal shiftwidth=8
+  setlocal softtabstop=8
+  setlocal noexpandtab
+  setlocal spell spelllang=en_us
+endfunc!
+command! WP call WordProcessorMode()
 
 " Status line
 " -----------------------------------------------------------------------------
