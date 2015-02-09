@@ -15,7 +15,7 @@ Plug 'SirVer/ultisnips'
 " Commenting
 Plug 'tpope/vim-commentary'
 
-" Easily quote/surround objects
+" Quote/surround objects
 Plug 'tpope/vim-surround'
 
 " Vim/tmux navigation
