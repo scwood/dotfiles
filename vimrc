@@ -1,28 +1,19 @@
 " Turn off vi compatability
 set nocompatible
 
-" Installed plugins
+" Plugins
 " -----------------------------------------------------------------------------
 
 call plug#begin()
 
-" Error linting
-Plug 'scrooloose/syntastic'
-
-" Snippets
 Plug 'SirVer/ultisnips'
-
-" Commenting
-Plug 'tpope/vim-commentary'
-
-" Quote/surround objects
-Plug 'tpope/vim-surround'
-
-" Vim/tmux navigation
-Plug 'christoomey/vim-tmux-navigator'
-
-" Autocomplete
 Plug 'ajh17/VimCompletesMe'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/syntastic'
+Plug 'sjl/vitality.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -120,7 +111,7 @@ nnoremap '' ``
 " Leader keybinds
 nnoremap <leader>so :source $MYVIMRC<cr>
 nnoremap <leader>f /
-nnoremap <leader>fr :%s/
+nnoremap <leader>far :%s/
 nnoremap <leader>n :noh<cr>
 nnoremap <leader>v <C-v>
 nnoremap <leader>vs :vsplit<cr>
@@ -142,6 +133,7 @@ func! WordProcessorMode()
   setlocal softtabstop=8
   setlocal noexpandtab
   setlocal spell spelllang=en_us
+  setlocal colorcolumn=0
 endfunc!
 command! WP call WordProcessorMode()
 
