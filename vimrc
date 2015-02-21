@@ -1,6 +1,7 @@
 " Turn off vi compatibility
 set nocompatible
 
+" -----------------------------------------------------------------------------
 " Plugins
 " -----------------------------------------------------------------------------
 
@@ -8,16 +9,18 @@ call plug#begin()
 
 Plug 'SirVer/ultisnips' " snippets
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
+Plug 'ervandew/supertab' " autocompletion
 Plug 'junegunn/goyo.vim' " distraction free writing
 Plug 'junegunn/vim-peekaboo' " register viewer
 Plug 'scrooloose/syntastic' " syntax highlighting
 Plug 'sjl/vitality.vim' " iterm2 cursor change
-Plug 'tpope/vim-commentary' " easily comment blocks
+Plug 'tpope/vim-commentary' " comment out blocks
 Plug 'tpope/vim-repeat' " make plugin commands repeatable
 Plug 'tpope/vim-surround' " surround objects
 
 call plug#end()
 
+" -----------------------------------------------------------------------------
 " Plugin specific settings
 " -----------------------------------------------------------------------------
 
@@ -30,6 +33,10 @@ let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"    
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
+" Reverse default supertab completion direction
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" -----------------------------------------------------------------------------
 " General settings
 " -----------------------------------------------------------------------------
 
@@ -92,16 +99,23 @@ au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
 au FileType python set tabstop=4
 
-" Keybinds
+" -----------------------------------------------------------------------------
+" Mappings
 " -----------------------------------------------------------------------------
 
 " Remap jk to exit insert mode
 inoremap jk <esc>
 
-" Remap ctrl-s to save
+" Save mappings
 nnoremap <c-s> :w<cr>
 inoremap <c-s> <c-o>:w<cr>
 vnoremap <c-s> <c-o>:w<cr>
+
+" insert mode movement
+inoremap <c-h> <c-o>h
+inoremap <c-l> <c-o>a
+inoremap <c-j> <c-o>j
+inoremap <c-k> <c-o>k
 
 " Set leader to space
 map <space> <leader>
@@ -117,6 +131,7 @@ nnoremap <leader>z 1z=
 nnoremap <leader>wc :w <bar> !wc %<cr>
 nnoremap <leader>p :ls<cr>:b<space>
 
+" -----------------------------------------------------------------------------
 " Functions
 " -----------------------------------------------------------------------------
 
@@ -151,6 +166,7 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
+" -----------------------------------------------------------------------------
 " Status line
 " -----------------------------------------------------------------------------
 
