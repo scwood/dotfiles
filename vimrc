@@ -1,4 +1,4 @@
-" Turn off vi compatability
+" Turn off vi compatibility
 set nocompatible
 
 " Plugins
@@ -6,14 +6,15 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'SirVer/ultisnips'
-Plug 'ajh17/VimCompletesMe'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'godlygeek/tabular'
-Plug 'scrooloose/syntastic'
-Plug 'sjl/vitality.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
+Plug 'SirVer/ultisnips' " snippets
+Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
+Plug 'junegunn/goyo.vim' " distraction free writing
+Plug 'junegunn/vim-peekaboo' " register viewer
+Plug 'scrooloose/syntastic' " syntax highlighting
+Plug 'sjl/vitality.vim' " iterm2 cursor change
+Plug 'tpope/vim-commentary' " easily comment blocks
+Plug 'tpope/vim-repeat' " make plugin commands repeatable
+Plug 'tpope/vim-surround' " surround objects
 
 call plug#end()
 
@@ -69,27 +70,27 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" Highlight, incrament, and smartcase search
-set incsearch
+" Highlight, increment, and smartcase search
 set hlsearch
 set ignorecase
+set incsearch
 set smartcase 
 
 " Tab will insert two spaces
-set tabstop=2
+set expandtab
 set shiftwidth=2
 set softtabstop=2
-set expandtab
+set tabstop=2
 
 " Markdown specific indentation
-au FileType markdown set tabstop=4
 au FileType markdown set shiftwidth=4
 au FileType markdown set softtabstop=4
+au FileType markdown set tabstop=4
 
 " Python specific indentation
-au FileType python set tabstop=4
 au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
+au FileType python set tabstop=4
 
 " Keybinds
 " -----------------------------------------------------------------------------
@@ -110,14 +111,11 @@ nnoremap '' ``
 
 " Leader keybinds
 nnoremap <leader>so :source $MYVIMRC<cr>
-nnoremap <leader>f /
-nnoremap <leader>far :%s/
-nnoremap <leader>n :noh<cr>
-nnoremap <leader>v <C-v>
-nnoremap <leader>vs :vsplit<cr>
-nnoremap <leader>sp :split<cr>
-nnoremap <leader>fs 1z=
+nnoremap <leader>sar :%s/
+nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
+nnoremap <leader>z 1z=
 nnoremap <leader>wc :w <bar> !wc %<cr>
+nnoremap <leader>p :ls<cr>:b<space>
 
 " Functions
 " -----------------------------------------------------------------------------
@@ -125,17 +123,33 @@ nnoremap <leader>wc :w <bar> !wc %<cr>
 func! WordProcessorMode() 
   map j gj
   map k gk
-  setlocal wrap
+  setlocal colorcolumn=0
   setlocal linebreak
+  setlocal noexpandtab
   setlocal nonumber
-  setlocal tabstop=8
   setlocal shiftwidth=8
   setlocal softtabstop=8
-  setlocal noexpandtab
   setlocal spell spelllang=en_us
-  setlocal colorcolumn=0
+  setlocal tabstop=8
+  setlocal wrap
 endfunc!
 command! WP call WordProcessorMode()
+
+func! s:goyo_enter()
+  silent !tmux set status off
+  call WordProcessorMode()
+endfunc!
+
+func! s:goyo_leave()
+  silent !tmux set status on
+  :soure $MYVIMRC
+  hi StatusLine cterm=none ctermbg=235 ctermfg=015
+endfunc!
+
+autocmd! User GoyoEnter
+autocmd! User GoyoLeave
+autocmd  User GoyoEnter nested call <SID>goyo_enter()
+autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
 " Status line
 " -----------------------------------------------------------------------------
