@@ -24,7 +24,7 @@ call plug#end()
 " Plugin specific settings
 " -----------------------------------------------------------------------------
 
-" Use python3 for syntastic, and let it check header files
+" Use python3 for syntastic, and let it check header files for c languages
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_cpp_check_header = 1
 
@@ -35,6 +35,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Reverse default supertab completion direction
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" Automatically populate the error location list
+let g:syntastic_always_populate_loc_list = 1
+
+" Set Goyo width
+let g:goyo_width = 79
 
 " -----------------------------------------------------------------------------
 " General settings
@@ -111,12 +117,6 @@ nnoremap <c-s> :w<cr>
 inoremap <c-s> <c-o>:w<cr>
 vnoremap <c-s> <c-o>:w<cr>
 
-" insert mode movement
-inoremap <c-h> <c-o>h
-inoremap <c-l> <c-o>a
-inoremap <c-j> <c-o>j
-inoremap <c-k> <c-o>k
-
 " Set leader to space
 map <space> <leader>
 
@@ -144,7 +144,6 @@ func! WordProcessorMode()
   setlocal nonumber
   setlocal shiftwidth=8
   setlocal softtabstop=8
-  setlocal spell spelllang=en_us
   setlocal tabstop=8
   setlocal wrap
 endfunc!
