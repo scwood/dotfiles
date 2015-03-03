@@ -10,12 +10,11 @@ call plug#begin()
 Plug 'SirVer/ultisnips' " snippets
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
 Plug 'ervandew/supertab' " autocompletion
-Plug 'junegunn/goyo.vim' " distraction free writing
+Plug 'junegunn/goyo.vim' " distraction free writer
 Plug 'junegunn/vim-peekaboo' " register viewer
 Plug 'scrooloose/syntastic' " syntax highlighting
-Plug 'sjl/vitality.vim' " iterm2 cursor change
+Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
-Plug 'tpope/vim-repeat' " make plugin commands repeatable
 Plug 'tpope/vim-surround' " surround objects
 
 call plug#end()
@@ -24,23 +23,23 @@ call plug#end()
 " Plugin specific settings
 " -----------------------------------------------------------------------------
 
-" Use python3 for syntastic, and let it check header files for c languages
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_cpp_check_header = 1
+" Goyo
+let g:goyo_width = 79
 
-" Use c-f (forward) to expand snippets and c-b (backward) to jump backward
-let g:UltiSnipsExpandTrigger="<c-f>"   
-let g:UltiSnipsJumpForwardTrigger="<c-f>"    
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-" Reverse default supertab completion direction
+" Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" Automatically populate the error location list
+" Syntasitc 
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
-" Set Goyo width
-let g:goyo_width = 79
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-f>"   
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"    
 
 " -----------------------------------------------------------------------------
 " General settings
@@ -70,9 +69,13 @@ syntax on
 " Completion menu behavior
 set completeopt=menu,longest
 
+" Statusline
+set laststatus=2
+set statusline=\ →\ %F%=[%l/%L]\ 
+
 " Colorscheme
 set background=dark
-colorscheme jellybeans
+colorscheme hybrid
 
 " Turn on autoindent/smartindent
 set autoindent
@@ -120,19 +123,16 @@ vnoremap <c-s> <c-o>:w<cr>
 " Set leader to space
 map <space> <leader>
 
-" Make '' jump go to last cursor position by default
-nnoremap '' ``
-
 " Leader keybinds
 nnoremap <leader>so :source $MYVIMRC<cr>
 nnoremap <leader>sar :%s/
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
-nnoremap <leader>z 1z=
+nnoremap <leader>z 1z=e
 nnoremap <leader>wc :w <bar> !wc %<cr>
 nnoremap <leader>p :ls<cr>:b<space>
 
 " -----------------------------------------------------------------------------
-" Functions
+" Functions/Autocommands
 " -----------------------------------------------------------------------------
 
 func! WordProcessorMode() 
@@ -146,6 +146,7 @@ func! WordProcessorMode()
   setlocal softtabstop=8
   setlocal tabstop=8
   setlocal wrap
+  setlocal spell
 endfunc!
 command! WP call WordProcessorMode()
 
@@ -165,15 +166,5 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-" -----------------------------------------------------------------------------
-" Status line
-" -----------------------------------------------------------------------------
-
-" Turn on status line
-set laststatus=2
-
-" Status line format
-set statusline=\ →\ %F%=[%l/%L]\ 
-
-" Status line colors
-hi StatusLine cterm=none ctermbg=235 ctermfg=015
+autocmd WinEnter * set cursorline
+autocmd WinLeave * set nocursorline
