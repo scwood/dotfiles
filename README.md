@@ -45,3 +45,7 @@ set -g status-right "%l:%M %p - %d %b %Y"
 ```
 
 Original credit for the battery script goes to [Goles](https://github.com/Goles).
+
+## License
+
+MIT

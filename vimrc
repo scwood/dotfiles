@@ -8,6 +8,7 @@ set nocompatible
 call plug#begin()
 
 Plug 'SirVer/ultisnips' " snippets
+Plug 'Yggdroot/indentLine' " indent guides
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
 Plug 'ervandew/supertab' " autocompletion
 Plug 'junegunn/goyo.vim' " distraction free writer
@@ -21,10 +22,14 @@ call plug#end()
 
 " -----------------------------------------------------------------------------
 " Plugin specific settings
-" -----------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 " Goyo
 let g:goyo_width = 79
+
+" IndentLine
+let g:indentLine_color_term = 237
+let g:indentLine_char = '⋮'
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -135,6 +140,7 @@ nnoremap <leader>p :ls<cr>:b<space>
 " Functions/Autocommands
 " -----------------------------------------------------------------------------
 
+" Word processing
 func! WordProcessorMode() 
   map j gj
   map k gk
@@ -150,21 +156,21 @@ func! WordProcessorMode()
 endfunc!
 command! WP call WordProcessorMode()
 
+" Goyo 
 func! s:goyo_enter()
   silent !tmux set status off
   call WordProcessorMode()
 endfunc!
-
 func! s:goyo_leave()
   silent !tmux set status on
   :soure $MYVIMRC
   hi StatusLine cterm=none ctermbg=235 ctermfg=015
 endfunc!
-
 autocmd! User GoyoEnter
 autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
+" Split indicator 
 autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
