@@ -1,9 +1,9 @@
 " Turn off vi compatibility
 set nocompatible
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Plugins
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 call plug#begin()
 
@@ -11,6 +11,7 @@ Plug 'SirVer/ultisnips' " snippets
 Plug 'Yggdroot/indentLine' " indent guides
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
 Plug 'ervandew/supertab' " autocompletion
+Plug 'junegunn/fzf', { 'dir': '~/.fzf' } " fuzzy finder
 Plug 'junegunn/goyo.vim' " distraction free writer
 Plug 'junegunn/vim-peekaboo' " register viewer
 Plug 'scrooloose/syntastic' " syntax highlighting
@@ -20,9 +21,9 @@ Plug 'tpope/vim-surround' " surround objects
 
 call plug#end()
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Plugin specific settings
-" ----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Goyo
 let g:goyo_width = 79
@@ -46,9 +47,9 @@ let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"    
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " General settings
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Make backspace behave normally
 set backspace=indent,eol,start
@@ -62,14 +63,14 @@ set cursorline
 " Use system clipboard
 set clipboard=unnamed
 
-" Set 80 character vertical ruler
-set colorcolumn=80
-
 " Set a three line scrolling buffer near the top and bottom of the screen
 set scrolloff=3
 
 " Turn on syntax highlighting
 syntax on
+
+" 80 character indicator
+set colorcolumn=80
 
 " Completion menu behavior
 set completeopt=menu,longest
@@ -113,9 +114,9 @@ au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
 au FileType python set tabstop=4
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Mappings
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Remap jk to exit insert mode
 inoremap jk <esc>
@@ -134,11 +135,12 @@ nnoremap <leader>sar :%s/
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>z 1z=e
 nnoremap <leader>wc :w <bar> !wc %<cr>
-nnoremap <leader>p :ls<cr>:b<space>
+" nnoremap <leader>p :ls<cr>:b<space>
+nnoremap <leader>p :FZF<cr>
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Functions/Autocommands
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Word processing
 func! WordProcessorMode() 
