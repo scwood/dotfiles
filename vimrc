@@ -69,8 +69,8 @@ set scrolloff=3
 " Turn on syntax highlighting
 syntax on
 
-" 80 character indicator
-set colorcolumn=80
+" 80 characters per line indicator
+match ErrorMsg '\%>80v.\+'
 
 " Completion menu behavior
 set completeopt=menu,longest
@@ -135,7 +135,6 @@ nnoremap <leader>sar :%s/
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>z 1z=e
 nnoremap <leader>wc :w <bar> !wc %<cr>
-" nnoremap <leader>p :ls<cr>:b<space>
 nnoremap <leader>p :FZF<cr>
 
 " ------------------------------------------------------------------------------
