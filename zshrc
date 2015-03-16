@@ -1,3 +1,6 @@
+# Source fzf fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Allow local custimization through .zshrc_local 
 if [ -f ~/.zshrc_local ]; then
   source ~/.zshrc_local
@@ -128,10 +131,39 @@ cs() {
   ls
 }
 
-# Fuzzy finder change directories
+# fuzzy find and change directories
 fd() {
-  dir=$(find . -type d | fzf)
+  local dir=$(find * -type d | fzf-tmux)
   cd "$dir"
+}
+
+# fuzzy find and open in finder (OSX)
+if [[ $OS == 'Darwin' ]]; then
+  ff() {
+    local target
+    target=$(fzf-tmux)
+    if [ -z "$target" ]; then
+      return
+    elif [ ! -d $target ]; then
+      target=$(dirname "$target") 
+    fi
+    open "$target"
+  }
+fi
+
+# fuzzy find and open file with default open command
+fo() {
+  local target
+  target=$(fzf-tmux)
+  open "$target"
+}
+
+# fuzzy find and open in vim
+fvim() {
+  local file=$(find * -type f | fzf-tmux)
+  if [ ! -z "$file" ]; then
+    vim "$file"
+  fi
 }
 
 # Hide hidden files/directories in finder
@@ -150,32 +182,32 @@ show() {
 gpush() {
   if [ -z $1 ]; then
     echo "usage: gpush 'commit_message'"
-  else
-    git add --all
-    git commit -m "$1"
-    git push origin master
+    return
   fi
+  git add --all
+  git commit -m "$1"
+  git push origin master
 }
 
 # Extract function that handles multiple file types
 extract() {
   if [ -z $1 ]; then
     echo "usage: extract file_name"
-  else
-    for f; do
-      if [ ! -f "$f" ]; then
-        echo "extract $f failed - file does not exist"
-      else
-        case "$f" in
-          *.tar) tar xvf $f;;
-          *.tar.gz) tar xvf $f;;
-          *.tgz) tar xvf $f;;
-          *.zip) unzip $f;;
-          *) echo "extract $f failed - unknown archive method"
-        esac
-      fi
-    done
+    return
   fi
+  for f; do
+    if [ ! -f "$f" ]; then
+      echo "extract $f failed - file does not exist"
+    else
+      case "$f" in
+        *.tar) tar xvf $f;;
+        *.tar.gz) tar xvf $f;;
+        *.tgz) tar xvf $f;;
+        *.zip) unzip $f;;
+        *) echo "extract $f failed - unknown archive method"
+      esac
+    fi
+  done
 }
 
 # Livestreamer shortcut
@@ -188,4 +220,10 @@ watch() {
     livestreamer twitch.tv/$1 $2
   fi
 }
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# generate tmux workspace
+tmux-work() {
+  tmux new-session -d -s workspace -n editing 
+  tmux new-window -t workspace -n testing
+  tmux attach -t workspace
+}
