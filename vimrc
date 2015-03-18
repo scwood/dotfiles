@@ -172,6 +172,9 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-" Split indicator 
+" Toggle cursorline depending on if the window is focused or not
 autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
+
+" Highlight text over 80 characters as an error
+autocmd WinEnter * match ErrorMsg '\%>80v.\+'
