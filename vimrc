@@ -25,9 +25,6 @@ call plug#end()
 " Plugin specific settings
 " ------------------------------------------------------------------------------
 
-" Goyo
-let g:goyo_width = 79
-
 " IndentLine
 let g:indentLine_color_term = 237
 let g:indentLine_char = '⋮'
@@ -57,9 +54,6 @@ set backspace=indent,eol,start
 " Turn on line numbers 
 set number
 
-" Highlight current line
-set cursorline
-
 " Use system clipboard
 set clipboard=unnamed
 
@@ -69,7 +63,7 @@ set scrolloff=3
 " Turn on syntax highlighting
 syntax on
 
-" 80 characters per line indicator
+" Match text over 80 characters as an error
 match ErrorMsg '\%>80v.\+'
 
 " Completion menu behavior
@@ -165,16 +159,11 @@ endfunc!
 func! s:goyo_leave()
   silent !tmux set status on
   :soure $MYVIMRC
-  hi StatusLine cterm=none ctermbg=235 ctermfg=015
 endfunc!
 autocmd! User GoyoEnter
 autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-" Toggle cursorline depending on if the window is focused or not
-autocmd WinEnter * set cursorline
-autocmd WinLeave * set nocursorline
-
-" Highlight text over 80 characters as an error
+" Match long lines
 autocmd WinEnter * match ErrorMsg '\%>80v.\+'
