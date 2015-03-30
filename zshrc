@@ -155,6 +155,9 @@ fi
 fo() {
   local target
   target=$(fzf-tmux)
+  if [ -z "$target" ]; then
+    return
+  fi
   open "$target"
 }
 
