@@ -1,4 +1,3 @@
-" Turn off vi compatibility
 set nocompatible
 
 " ------------------------------------------------------------------------------
@@ -12,7 +11,7 @@ Plug 'Yggdroot/indentLine' " indent guides
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
 Plug 'ervandew/supertab' " autocompletion
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' } " fuzzy finder
-Plug 'junegunn/goyo.vim' " distraction free writer
+Plug 'junegunn/goyo.vim' " distraction free writer (for word processing)
 Plug 'junegunn/vim-peekaboo' " register viewer
 Plug 'scrooloose/syntastic' " syntax highlighting
 Plug 'scwood/vim-hybrid' " colorscheme
@@ -60,14 +59,18 @@ set clipboard=unnamed
 " Set a three line scrolling buffer near the top and bottom of the screen
 set scrolloff=3
 
+" Completion menu behavior
+set completeopt=menu,longest
+
+" Error matching over 80 characters
+match ErrorMsg '\%>80v.\+'
+
 " Turn on syntax highlighting
 syntax on
 
-" Match text over 80 characters as an error
-match ErrorMsg '\%>80v.\+'
-
-" Completion menu behavior
-set completeopt=menu,longest
+" Turn off errors
+set visualbell 
+set t_vb=
 
 " Statusline
 set laststatus=2
@@ -84,6 +87,7 @@ set smartindent
 " Turn off backup/swap files
 set nobackup
 set nowritebackup
+" 80 character error matching
 set noswapfile
 
 " Highlight, increment, and smartcase search
@@ -143,9 +147,9 @@ func! WordProcessorMode()
   setlocal linebreak
   setlocal noexpandtab
   setlocal nonumber
-  setlocal shiftwidth=8
-  setlocal softtabstop=8
-  setlocal tabstop=8
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
+  setlocal tabstop=4
   setlocal wrap
   setlocal spell
 endfunc!
@@ -165,5 +169,5 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-" Match long lines
+" Error matching over 80 characters
 autocmd WinEnter * match ErrorMsg '\%>80v.\+'
