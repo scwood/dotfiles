@@ -1,2 +1,2 @@
 # Player options
-player=mpv --cache 2048 --no-border --autofit=80%
+player=mpv --cache 2048 --no-border --autofit=80% --input-media-keys=no
