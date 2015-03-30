@@ -2,7 +2,7 @@
 
 My personal config files for zsh, vim, tmux, and more.
 
-![](https://cloud.githubusercontent.com/assets/9126138/6469751/4c0218be-c19c-11e4-8e0a-bf90c8f9da28.png)
+![](https://cloud.githubusercontent.com/assets/9126138/6901741/96259f16-d6cc-11e4-8047-b68a057677b9.png)
 
 ## Installation
 
@@ -26,7 +26,7 @@ Plugins are handled through [vim-plug](https://github.com/junegunn/vim-plug). To
 
 ### iTerm2
 
-Colors and fonts for iTerm2 are stored in dotfiles/iTerm2. Font in screenshot is Inconsolata size 13. 
+Colors and fonts for iTerm2 are stored in dotfiles/iTerm2.
 
 ### Tmux
 
