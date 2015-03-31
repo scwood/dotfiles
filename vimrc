@@ -25,7 +25,6 @@ call plug#end()
 " ------------------------------------------------------------------------------
 
 " IndentLine
-let g:indentLine_color_term = 237
 let g:indentLine_char = '⋮'
 
 " Supertab
@@ -62,13 +61,13 @@ set scrolloff=3
 " Completion menu behavior
 set completeopt=menu,longest
 
-" Error matching over 80 characters
+" Error matching for lines over 80 characters
 match ErrorMsg '\%>80v.\+'
 
 " Turn on syntax highlighting
 syntax on
 
-" Turn off errors
+" Turn off errors notifications
 set visualbell 
 set t_vb=
 
@@ -87,13 +86,12 @@ set smartindent
 " Turn off backup/swap files
 set nobackup
 set nowritebackup
-" 80 character error matching
 set noswapfile
 
 " Highlight, increment, and smartcase search
 set hlsearch
-set ignorecase
 set incsearch
+set ignorecase
 set smartcase 
 
 " Tab will insert two spaces
@@ -115,9 +113,6 @@ au FileType python set tabstop=4
 " ------------------------------------------------------------------------------
 " Mappings
 " ------------------------------------------------------------------------------
-
-" Remap jk to exit insert mode
-inoremap jk <esc>
 
 " Save mappings
 nnoremap <c-s> :w<cr>
@@ -169,5 +164,5 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-" Error matching over 80 characters
+" Error matching for lines over 80 characters
 autocmd WinEnter * match ErrorMsg '\%>80v.\+'
