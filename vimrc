@@ -147,17 +147,18 @@ func! WordProcessorMode()
   setlocal tabstop=4
   setlocal wrap
   setlocal spell
+  hi ErrorMsg NONE
+  syntax off " makes long lines not so laggy
 endfunc!
 command! WP call WordProcessorMode()
 
 " Goyo 
 func! s:goyo_enter()
   silent !tmux set status off
-  call WordProcessorMode()
 endfunc!
 func! s:goyo_leave()
   silent !tmux set status on
-  :soure $MYVIMRC
+  :source $MYVIMRC
 endfunc!
 autocmd! User GoyoEnter
 autocmd! User GoyoLeave
