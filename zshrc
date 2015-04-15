@@ -1,66 +1,65 @@
-# Source fzf fuzzy finder
+# source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Allow local custimization through .zshrc_local 
+# allow local custimization through .zshrc_local 
 if [ -f ~/.zshrc_local ]; then
   source ~/.zshrc_local
 fi
 
 # ------------------------------------------------------------------------------
-# General settings
+# general settings
 # ------------------------------------------------------------------------------
 
-# Disable autocorrect
+# disable autocorrect
 unsetopt correct_all
 
-# Add $HOME/bin to PATH
+# add $HOME/bin to PATH
 path+=($HOME/bin)
 export path
 
-# History
+# history
 setopt HIST_IGNORE_DUPS
 HISTSIZE=1000
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history
 
-# Autocomplete
+# autocomplete
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'm:{-_}={_-}'
 
-# Syntax highlighting
+# syntax highlighting
 autoload -U colors && colors
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Use emacs mode
+# use emacs mode
 bindkey -e
 
 # ------------------------------------------------------------------------------
-# Prompt 
+# prompt 
 # ------------------------------------------------------------------------------
 
-# Allow functions in prompt 
+# allow functions in prompt 
 setopt PROMPT_SUBST
 
-# Source git options
+# source git options
 source ~/.zsh/git-prompt.sh
 
-# Show git branch dirty state
+# show git branch dirty state
 GIT_PS1_SHOWDIRTYSTATE=1
 
-# Show git untracked state
+# show git untracked state
 GIT_PS1_SHOWUNTRACKEDFILES=1
 
-# Name 
+# name 
 PS1=$'%n at %m in %2~$(__git_ps1)
 → ' 
-# →
 
 # ------------------------------------------------------------------------------
 # Aliases
 # ------------------------------------------------------------------------------
 
-# Pull OS name
+# pull OS name
 OS="$(uname)"
 
 # OSX specific aliases
@@ -71,25 +70,25 @@ if [[ $OS == 'Darwin' ]]; then
   alias ll='ls -F -G -h -l'
   alias lla='ls -A -F -G -h -l'
 
-# Linux specific aliases
+# linux specific aliases
 elif [[ $OS == 'Linux' ]]; then
   alias l='ls --color'
 fi
 
-# General commands
+# general commands
 alias ..='cd ..'
 alias ~='cd ~'
 alias c='clear'
 alias q='exit'
 alias :q='exit'
 
-# Easy .zshrc reload
+# easy .zshrc reload
 alias reload='source ~/.zshrc'
 
-# School SSH
+# school SSH
 alias byu='ssh scwood@schizo.cs.byu.edu'
 
-# Git aliases
+# git aliases
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 alias ga='git add'
 alias gaa='git add --all'
@@ -101,28 +100,28 @@ alias gpom='git push origin master'
 alias gs='git status'
 alias gsa='git submodule add'
 
-# Vim config file shortcuts 
+# vim config file shortcuts 
 alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias trc='vim ~/.tmux.conf'
 
-# Start vim to allow c-s keybind
+# start vim to allow c-s keybind
 alias vim="stty stop '' -ixoff; vim"
 
-# Tmux aliases
+# tmux aliases
 alias tks='tmux kill-server'
 
 # ------------------------------------------------------------------------------
-# Functions
+# functions
 # ------------------------------------------------------------------------------
 
-# Hide hidden files/directories in finder
+# hide hidden files/directories in finder
 hide() {
   defaults write com.apple.finder AppleShowAllFiles NO
   killall -KILL Finder
 }
 
-# Show hidden files/directories in finder
+# show hidden files/directories in finder
 show() {
   defaults write com.apple.finder AppleShowAllFiles YES
   killall -KILL Finder
@@ -166,7 +165,7 @@ fvim() {
   fi
 }
 
-# Extract function that handles multiple file types
+# extract function that handles multiple file types
 extract() {
   if [ -z $1 ]; then
     echo "usage: extract file_name"
@@ -187,7 +186,7 @@ extract() {
   done
 }
 
-# Livestreamer shortcut
+# livestreamer shortcut function
 watch() {
   if [ -z "$1" ]; then
     echo "usage: watch stream_name [quality]"
@@ -198,7 +197,7 @@ watch() {
   fi
 }
 
-# Github add all, commit all with a message, and push all
+# github add all, commit all with a message, and push all
 gpush() {
   if [ -z $1 ]; then
     echo "usage: gpush 'commit_message'"
