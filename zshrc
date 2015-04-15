@@ -10,11 +10,8 @@ fi
 # General settings
 # ------------------------------------------------------------------------------
 
-# Auto cd into directories with just directory name
-setopt autocd
-
-# Spellcheck
-setopt correctall
+# Disable autocorrect
+unsetopt correct_all
 
 # Add $HOME/bin to PATH
 path+=($HOME/bin)
@@ -113,22 +110,22 @@ alias trc='vim ~/.tmux.conf'
 alias vim="stty stop '' -ixoff; vim"
 
 # Tmux aliases
-alias work='tmux new -s workspace'
 alias tks='tmux kill-server'
 
 # ------------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------------
 
-# mkdir and cd into it
-mkcd() { 
-  mkdir "$1" && cd "$1"; 
+# Hide hidden files/directories in finder
+hide() {
+  defaults write com.apple.finder AppleShowAllFiles NO
+  killall -KILL Finder
 }
 
-# ls after cd
-cs() {
-  cd $1
-  ls
+# Show hidden files/directories in finder
+show() {
+  defaults write com.apple.finder AppleShowAllFiles YES
+  killall -KILL Finder
 }
 
 # fuzzy find and change directories
@@ -169,29 +166,6 @@ fvim() {
   fi
 }
 
-# Hide hidden files/directories in finder
-hide() {
-  defaults write com.apple.finder AppleShowAllFiles NO
-  killall -KILL Finder
-}
-
-# Show hidden files/directories in finder
-show() {
-  defaults write com.apple.finder AppleShowAllFiles YES
-  killall -KILL Finder
-}
-
-# Github add all, commit all with a message, and push all
-gpush() {
-  if [ -z $1 ]; then
-    echo "usage: gpush 'commit_message'"
-    return
-  fi
-  git add --all
-  git commit -m "$1"
-  git push origin master
-}
-
 # Extract function that handles multiple file types
 extract() {
   if [ -z $1 ]; then
@@ -224,9 +198,28 @@ watch() {
   fi
 }
 
+# Github add all, commit all with a message, and push all
+gpush() {
+  if [ -z $1 ]; then
+    echo "usage: gpush 'commit_message'"
+    return
+  fi
+  git add --all
+  git commit -m "$1"
+  git push origin master
+}
+
 # generate tmux workspace
-tmux-work() {
+work() {
   tmux new-session -d -s workspace -n editing 
-  tmux new-window -t workspace -n testing
+  tmux new-window -t workspace:2 -n testing
+  tmux new-window -t workspace:3 -n other
+  tmux send-keys -t workspace:1 'vim' C-m
+  tmux select-window -t workspace:2
+  tmux splitw -h
+  tmux send-keys -t workspace:2 'vim' C-m
+  tmux splitw -v
+  tmux send-keys -t workspace:2 'vim' C-m
+  tmux select-window -t workspace:1
   tmux attach -t workspace
 }
