@@ -32,8 +32,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'm:{-_}={_-}'
 autoload -U colors && colors
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# use emacs mode
-bindkey -e
+# use vim mode
+bindkey -v
+export KEYTIMEOUT=1
 
 # ------------------------------------------------------------------------------
 # prompt 
@@ -52,8 +53,9 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 
 # name 
-PS1=$'%n at %m in %2~$(__git_ps1)
-→ ' 
+PS1=$'%{%F{green}%}%n%{%f%} at %{%F{yellow}%}%m%{%f%} in %{%F{blue}%}%~%{%f%}%{%F{red}%}$(__git_ps1)%{%f%}
+$ ' 
+#→
 
 # ------------------------------------------------------------------------------
 # Aliases
@@ -115,6 +117,11 @@ alias tks='tmux kill-server'
 # functions
 # ------------------------------------------------------------------------------
 
+# trash
+trash() {
+  mv $1 ~/.Trash
+}
+
 # hide hidden files/directories in finder
 hide() {
   defaults write com.apple.finder AppleShowAllFiles NO
@@ -129,7 +136,13 @@ show() {
 
 # fuzzy find and change directories
 fd() {
-  local dir=$(find * -type d | fzf-tmux)
+  local dir=$(find ~/* -type d | fzf-tmux)
+  cd "$dir"
+}
+
+fdf() {
+  local file=$(find ~/* -type f | fzf-tmux)
+  dir=$(dirname $file)
   cd "$dir"
 }
 
