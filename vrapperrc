@@ -1,0 +1,14 @@
+" tabs
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+" search
+set hlsearch
+set ignorecase
+set incsearch
+" other settings
+set cursorline
+set scrolloff=3
+set smartcase
+set textwidth=80
