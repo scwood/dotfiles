@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal config files for zsh, vim, tmux, and more.
+My personal config files for zsh, vim, tmux, etc.
 
 ![](https://cloud.githubusercontent.com/assets/9126138/6958523/8609cf26-d8ca-11e4-9e23-5e8006560510.png)
 
@@ -8,25 +8,14 @@ My personal config files for zsh, vim, tmux, and more.
 
 ```
 cd ~
-git clone --recursive https://github.com/scwood/dotfiles.git
-```
-
-Symlinking is handled via [Dotbot](https://github.com/anishathalye/dotbot):
-  
-```
+git clone https://github.com/scwood/dotfiles.git
 cd ~/dotfiles
 ./install
 ```
 
-If have have conflicting existing files you may have to move them to another directory.
-
 ### Vim
 
 Plugins are handled through [vim-plug](https://github.com/junegunn/vim-plug). To install them, run `:PlugInstall` next time Vim is opened.
-
-### iTerm2
-
-Colors and fonts for iTerm2 are stored in dotfiles/iTerm2.
 
 ### Tmux
 
