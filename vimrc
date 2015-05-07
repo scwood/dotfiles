@@ -17,6 +17,7 @@ Plug 'junegunn/vim-peekaboo' " register viewer
 Plug 'scrooloose/syntastic' " syntax highlighting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
+Plug 'tpope/vim-markdown' " markdown settings
 Plug 'tpope/vim-surround' " surround objects
 
 call plug#end()
@@ -38,6 +39,9 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
+" vim-markdown
+let g:markdown_fenced_languages = ['java']
+
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-f>"   
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
@@ -46,73 +50,53 @@ let g:UltiSnipsJumpForwardTrigger="<c-f>"
 " ------------------------------------------------------------------------------
 " general settings
 " ------------------------------------------------------------------------------
+"
+syntax on " turn on syntax highlighting
+colorscheme hybrid " colorscheme
 
-" make backspace behave normally
-set backspace=indent,eol,start
+set backspace=indent,eol,start " make backspace behave normally
+set clipboard=unnamed " use system clipboard
+set cursorline " turn on cursor line
+set number " turn on line numbers 
+set scrolloff=3 " set a three line scrolling buffer at the top and bottom
 
-" turn on line numbers 
-set number
+set hlsearch " highlight search
+set incsearch " jump to closest instance during search
+set ignorecase " case insensitive search
+set smartcase  " if using a capital, search becomes case sensitive search
 
-" use system clipboard
-set clipboard=unnamed
+set writebackup " make backup during file overwrite
+set nobackup " delete backup after file is written
+set noswapfile " turn off swap files
 
-" set a three line scrolling buffer near the top and bottom of the screen
-set scrolloff=3
-
-" completion menu behavior
-set completeopt=menu,longest
-
-" error matching for lines over 80 characters
-match ErrorMsg '\%>80v.\+'
-
-" turn on syntax highlighting
-syntax on
-
-" turn off error notifications
-set visualbell 
-set t_vb=
-
-" statusline
-set laststatus=2
+set visualbell " enable visual bell in order to disable beeping
+set t_vb= " make visual bell blank
+set laststatus=2 " keep status line on and change the format
 set statusline=\ →\ %F%=[%l/%L]\ 
 
-" colorscheme
-set background=dark
-colorscheme hybrid
+set autoindent " copy indent from previous when starting new line
+set smartindent " smart newline autoindenting for langauges
+set expandtab " use spaces for tabs
+set tabstop=2 " tabs count for two spaces
+set shiftwidth=2 " use two spaces for autoindents
+set softtabstop=2 " backspace deleltes two spaces tab inserts two spaces
 
-" turn on autoindent/smartindent
-set autoindent
-set smartindent
+" pythong/markdown/text specific indentation
+au FileType markdown,python,text set shiftwidth=4
+au FileType markdown,python,text set softtabstop=4
+au FileType markdown,python,text set tabstop=4
 
-" turn off backup/swap files
-set nobackup
-set nowritebackup
-set noswapfile
+" persistent undo stored in ~/.vim/undo
+if has('persistent_undo')
+  if !isdirectory($HOME . "/.vim/undo")
+    call mkdir($HOME . ".vim/undo", "p")
+  endif
+  set undodir=~/.vim/undo
+  set undofile 
+endif
 
-" highlight, increment, and smartcase search
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase 
-
-" tab will insert two spaces
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-
-" markdown specific indentation
-au FileType markdown set shiftwidth=4
-au FileType markdown set softtabstop=4
-au FileType markdown set tabstop=4
-
-" python specific indentation
-au FileType python set shiftwidth=4
-au FileType python set softtabstop=4
-au FileType python set tabstop=4
-
-" ------------------------------------------------------------------------------
-" mappings
+" ------------------------------------------------------------------------------ 
+" extra mappings
 " ------------------------------------------------------------------------------
 
 " save mappings
@@ -120,10 +104,8 @@ nnoremap <c-s> :w<cr>
 inoremap <c-s> <c-o>:w<cr>
 vnoremap <c-s> <c-o>:w<cr>
 
-" set leader to space
+" leader mappings
 map <space> <leader>
-
-" leader keybinds
 nnoremap <leader>so :source $MYVIMRC<cr>
 nnoremap <leader>sar :%s/
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
@@ -166,5 +148,11 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-" error matching for lines over 80 characters
-autocmd WinEnter * match ErrorMsg '\%>80v.\+'
+" error matching for lines over 80 characters (exclude markdown and text files)
+func! HighlightLongLines()
+  if &ft =~ 'markdown\|txt\'
+    return
+  endif
+  match ErrorMsg '\%>80v.\+'
+endfunc
+autocmd BufEnter,WinEnter * call HighlightLongLines()
