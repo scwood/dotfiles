@@ -9,7 +9,7 @@ tmux.osx.conf
 tmux.reset.conf
 vim 
 vimrc
-vrapper
+vrapperrc
 zsh 
 zshrc"
 
