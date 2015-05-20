@@ -8,16 +8,13 @@ set nocompatible
 call plug#begin()
 
 Plug 'SirVer/ultisnips' " snippets
-Plug 'Yggdroot/indentLine' " indent guides
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
 Plug 'ervandew/supertab' " autocompletion
-Plug 'junegunn/fzf', { 'dir': '~/.fzf' } " fuzzy finder
-Plug 'junegunn/goyo.vim' " distraction free writer (for word processing)
-Plug 'junegunn/vim-peekaboo' " register viewer
-Plug 'scrooloose/syntastic' " syntax highlighting
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " fuzzy find
+Plug 'scrooloose/syntastic' " error linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
-Plug 'tpope/vim-markdown' " markdown settings
+Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown settings
 Plug 'tpope/vim-surround' " surround objects
 
 call plug#end()
@@ -25,9 +22,6 @@ call plug#end()
 " ------------------------------------------------------------------------------
 " plugin specific settings
 " ------------------------------------------------------------------------------
-
-" indentLine
-let g:indentLine_char = '⋮'
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -50,7 +44,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-f>"
 " ------------------------------------------------------------------------------
 " general settings
 " ------------------------------------------------------------------------------
-"
+
 syntax on " turn on syntax highlighting
 colorscheme hybrid " colorscheme
 
@@ -89,7 +83,7 @@ au FileType markdown,python,text set tabstop=4
 " persistent undo stored in ~/.vim/undo
 if has('persistent_undo')
   if !isdirectory($HOME . "/.vim/undo")
-    call mkdir($HOME . ".vim/undo", "p")
+    call mkdir($HOME . "/.vim/undo", "p")
   endif
   set undodir=~/.vim/undo
   set undofile 
@@ -134,19 +128,6 @@ func! WordProcessorMode()
   syntax off " makes long lines not so laggy
 endfunc!
 command! WP call WordProcessorMode()
-
-" goyo 
-func! s:goyo_enter()
-  silent !tmux set status off
-endfunc!
-func! s:goyo_leave()
-  silent !tmux set status on
-  :source $MYVIMRC
-endfunc!
-autocmd! User GoyoEnter
-autocmd! User GoyoLeave
-autocmd  User GoyoEnter nested call <SID>goyo_enter()
-autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
 " error matching for lines over 80 characters (exclude markdown and text files)
 func! HighlightLongLines()
