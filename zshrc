@@ -199,17 +199,6 @@ extract() {
   done
 }
 
-# livestreamer shortcut function
-watch() {
-  if [ -z "$1" ]; then
-    echo "usage: watch stream_name [quality]"
-  elif [ -z "$2" ]; then
-    livestreamer twitch.tv/$1 best
-  else
-    livestreamer twitch.tv/$1 $2
-  fi
-}
-
 # github add all, commit all with a message, and push all
 gpush() {
   if [ -z $1 ]; then
