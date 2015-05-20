@@ -76,7 +76,7 @@ set tabstop=2 " tabs count for two spaces
 set shiftwidth=2 " use two spaces for autoindents
 set softtabstop=2 " backspace deleltes two spaces tab inserts two spaces
 
-" pythong/markdown/text specific indentation
+" python/markdown/text specific indentation
 au FileType markdown,python,text set shiftwidth=4
 au FileType markdown,python,text set softtabstop=4
 au FileType markdown,python,text set tabstop=4
