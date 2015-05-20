@@ -1,5 +1,5 @@
 dir=~/dotfiles
-backup_dir=~/dotfiles_backup
+backup_dir=~/.dotfiles_backup
 
 files="
 gitignore_global 
