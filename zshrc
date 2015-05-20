@@ -135,12 +135,12 @@ show() {
 }
 
 # fuzzy find and change directories
-fd() {
+fdir() {
   local dir=$(find ~/* -type d | fzf-tmux)
   cd "$dir"
 }
 
-fdf() {
+ffile() {
   local file=$(find ~/* -type f | fzf-tmux)
   dir=$(dirname $file)
   cd "$dir"
@@ -148,9 +148,9 @@ fdf() {
 
 # fuzzy find and open in finder (OSX)
 if [[ $OS == 'Darwin' ]]; then
-  ff() {
+  ffind() {
     local target
-    target=$(fzf-tmux)
+    target=$(find ~/* | fzf-tmux)
     if [ -z "$target" ]; then
       return
     elif [ ! -d $target ]; then
@@ -161,9 +161,9 @@ if [[ $OS == 'Darwin' ]]; then
 fi
 
 # fuzzy find and open file with default open command
-fo() {
+fopen() {
   local target
-  target=$(fzf-tmux)
+  target=$(find ~/* | fzf-tmux)
   if [ -z "$target" ]; then
     return
   fi
@@ -222,5 +222,9 @@ work() {
   tmux splitw -v
   tmux send-keys -t workspace:2 'vim' C-m
   tmux select-window -t workspace:1
+  tmux attach -t workspace
+}
+worklite() {
+  tmux new-session -d -s workspace
   tmux attach -t workspace
 }
