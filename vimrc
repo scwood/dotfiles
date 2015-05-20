@@ -65,6 +65,7 @@ set noswapfile " turn off swap files
 
 set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank
+
 set laststatus=2 " keep status line on and change the format
 set statusline=\ →\ %F%=[%l/%L]\ 
 
@@ -89,6 +90,15 @@ if has('persistent_undo')
   set undofile 
 endif
 
+" error matching for lines over 80 characters (exclude markdown and text files)
+func! HighlightLongLines()
+  if &ft =~ 'markdown\|txt\'
+    return
+  endif
+  match ErrorMsg '\%>80v.\+'
+endfunc
+autocmd BufEnter,WinEnter * call HighlightLongLines()
+
 " ------------------------------------------------------------------------------ 
 " extra mappings
 " ------------------------------------------------------------------------------
@@ -106,34 +116,3 @@ nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>z 1z=e
 nnoremap <leader>wc :w <bar> !wc %<cr>
 nnoremap <leader>p :FZF<cr>
-
-" ------------------------------------------------------------------------------
-" functions/autocommands
-" ------------------------------------------------------------------------------
-
-" word processing
-func! WordProcessorMode() 
-  map j gj
-  map k gk
-  setlocal colorcolumn=0
-  setlocal linebreak
-  setlocal noexpandtab
-  setlocal nonumber
-  setlocal shiftwidth=4
-  setlocal softtabstop=4
-  setlocal tabstop=4
-  setlocal wrap
-  setlocal spell
-  hi ErrorMsg NONE
-  syntax off " makes long lines not so laggy
-endfunc!
-command! WP call WordProcessorMode()
-
-" error matching for lines over 80 characters (exclude markdown and text files)
-func! HighlightLongLines()
-  if &ft =~ 'markdown\|txt\'
-    return
-  endif
-  match ErrorMsg '\%>80v.\+'
-endfunc
-autocmd BufEnter,WinEnter * call HighlightLongLines()
