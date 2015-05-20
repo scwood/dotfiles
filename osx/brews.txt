@@ -1,0 +1,9 @@
+ant
+brew-cask
+gnupg
+python3
+reattach-to-user-namespace
+screenfetch
+tmux
+vim
+weechat
