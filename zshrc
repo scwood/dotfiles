@@ -66,7 +66,6 @@ OS="$(uname)"
 
 # OSX specific aliases
 if [[ $OS == 'Darwin' ]]; then
-  alias l='ls -F -G'
   alias ls='ls -F -G'
   alias la='ls -A -F -G'
   alias ll='ls -F -G -h -l'
@@ -74,15 +73,8 @@ if [[ $OS == 'Darwin' ]]; then
 
 # linux specific aliases
 elif [[ $OS == 'Linux' ]]; then
-  alias l='ls --color'
+  alias ls='ls --color'
 fi
-
-# general commands
-alias ..='cd ..'
-alias ~='cd ~'
-alias c='clear'
-alias q='exit'
-alias :q='exit'
 
 # easy .zshrc reload
 alias reload='source ~/.zshrc'
