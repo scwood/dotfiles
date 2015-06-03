@@ -4,6 +4,7 @@ backup_dir=~/.dotfiles_backup
 files="
 gitignore_global 
 livestreamerrc 
+slate
 tmux.conf 
 tmux.osx.conf 
 tmux.reset.conf
@@ -33,7 +34,7 @@ for file in $files; do
 done
 
 echo
-echo "Updating ~/dotfile submodules"
+echo "Updating ~/dotfiles submodules"
 git submodule update --init --recursive
 echo "Finished"
 echo
