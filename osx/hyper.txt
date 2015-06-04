@@ -1,0 +1,4 @@
+# Hyper key
+
+- In Seil change caps lock to keycode 80
+- In Karabiner add private xml and enable setting
