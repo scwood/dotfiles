@@ -36,6 +36,9 @@ hs.hotkey.bind(hyper, "e", function()
   hs.application.launchOrFocus("Finder")
 end)
 
+hs.hotkey.bind(hyper, "m", function()
+  hs.application.launchOrFocus("Spotify")
+end)
 --------------------------------------------------------------------------------
 -- window management
 --------------------------------------------------------------------------------
