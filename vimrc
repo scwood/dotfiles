@@ -103,11 +103,6 @@ autocmd BufEnter,WinEnter * call HighlightLongLines()
 " extra mappings
 " ------------------------------------------------------------------------------
 
-" save mappings
-nnoremap <c-s> :w<cr>
-inoremap <c-s> <c-o>:w<cr>
-vnoremap <c-s> <c-o>:w<cr>
-
 " leader mappings
 map <space> <leader>
 nnoremap <leader>so :source $MYVIMRC<cr>
