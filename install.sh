@@ -5,7 +5,6 @@ files="
 gitignore_global 
 hammerspoon
 livestreamerrc 
-slate
 tmux.conf 
 tmux.osx.conf 
 tmux.reset.conf
