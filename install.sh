@@ -3,6 +3,7 @@ backup_dir=~/.dotfiles_backup
 
 files="
 gitignore_global 
+hammerspoon
 livestreamerrc 
 slate
 tmux.conf 
