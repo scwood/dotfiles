@@ -51,6 +51,7 @@ colorscheme hybrid " colorscheme
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
 set cursorline " turn on cursor line
+set mouse=a " enable mouse
 set number " turn on line numbers 
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
 
