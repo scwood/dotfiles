@@ -61,7 +61,7 @@ end)
 -- application shortcuts
 --------------------------------------------------------------------------------
 
-hs.hotkey.bind(hyper, 't', function()
+hs.hotkey.bind(hyper, 'return', function()
   hs.application.launchOrFocus('iTerm')
 end)
 
@@ -69,7 +69,7 @@ hs.hotkey.bind(hyper, 'c', function()
   hs.application.launchOrFocus('Google Chrome')
 end)
 
-hs.hotkey.bind(hyper, 's', function()
+hs.hotkey.bind(hyper, 't', function()
   hs.application.launchOrFocus('Sublime Text')
 end)
 
@@ -77,7 +77,7 @@ hs.hotkey.bind(hyper, 'e', function()
   hs.application.launchOrFocus('Finder')
 end)
 
-hs.hotkey.bind(hyper, 'm', function()
+hs.hotkey.bind(hyper, 's', function()
   hs.application.launchOrFocus('Spotify')
 end)
 
