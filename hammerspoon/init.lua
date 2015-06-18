@@ -30,32 +30,36 @@ hs.grid.MARGINY = 0
 hs.grid.GRIDWIDTH = 2
 hs.grid.GRIDHEIGHT = 2
 
-hs.hotkey.bind(hyper, 'f', hs.grid.maximizeWindow)
-hs.hotkey.bind(hyper, 'n', hs.grid.pushWindowNextScreen)
-
-hs.hotkey.bind(hyper, 'h', function()
+local function leftHalf()
   hs.grid.resizeWindowTaller()
   hs.grid.resizeWindowThinner()
   hs.grid.pushWindowLeft()
-end)
+end
 
-hs.hotkey.bind(hyper, 'j', function()
+local function bottomHalf()
   hs.grid.resizeWindowShorter()
   hs.grid.resizeWindowWider()
   hs.grid.pushWindowDown()
-end)
+end
 
-hs.hotkey.bind(hyper, 'k', function()
+local function topHalf()
   hs.grid.resizeWindowShorter()
   hs.grid.resizeWindowWider()
   hs.grid.pushWindowUp()
-end)
+end
 
-hs.hotkey.bind(hyper, 'l', function()
+local function rightHalf()
   hs.grid.resizeWindowTaller()
   hs.grid.resizeWindowThinner()
   hs.grid.pushWindowRight()
-end)
+end
+
+hs.hotkey.bind(hyper, 'n', hs.grid.pushWindowNextScreen)
+hs.hotkey.bind(hyper, 'f', hs.grid.maximizeWindow)
+hs.hotkey.bind(hyper, 'h', leftHalf)
+hs.hotkey.bind(hyper, 'j', bottomHalf)
+hs.hotkey.bind(hyper, 'k', topHalf)
+hs.hotkey.bind(hyper, 'l', rightHalf)
 
 --------------------------------------------------------------------------------
 -- application shortcuts
