@@ -3,7 +3,8 @@
 --------------------------------------------------------------------------------
 
 -- define hyper key
-local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
+local hyper = {'cmd', 'alt', 'ctrl'}
+local hyperShift = {'cmd', 'alt', 'ctrl', 'shift'}
 
 -- disable window snapping animation
 hs.window.animationDuration = 0
@@ -54,12 +55,44 @@ local function rightHalf()
   hs.grid.pushWindowRight()
 end
 
+local function northWest()
+  hs.grid.resizeWindowShorter()
+  hs.grid.resizeWindowThinner()
+  hs.grid.pushWindowUp()
+  hs.grid.pushWindowLeft()
+end
+
+local function northEast()
+  hs.grid.resizeWindowShorter()
+  hs.grid.resizeWindowThinner()
+  hs.grid.pushWindowUp()
+  hs.grid.pushWindowRight()
+end
+
+local function southWest()
+  hs.grid.resizeWindowShorter()
+  hs.grid.resizeWindowThinner()
+  hs.grid.pushWindowDown()
+  hs.grid.pushWindowLeft()
+end
+
+local function southEast()
+  hs.grid.resizeWindowShorter()
+  hs.grid.resizeWindowThinner()
+  hs.grid.pushWindowDown()
+  hs.grid.pushWindowRight()
+end
+
 hs.hotkey.bind(hyper, 'n', hs.grid.pushWindowNextScreen)
 hs.hotkey.bind(hyper, 'f', hs.grid.maximizeWindow)
 hs.hotkey.bind(hyper, 'h', leftHalf)
 hs.hotkey.bind(hyper, 'j', bottomHalf)
 hs.hotkey.bind(hyper, 'k', topHalf)
 hs.hotkey.bind(hyper, 'l', rightHalf)
+hs.hotkey.bind(hyperShift, 'h', northWest)
+hs.hotkey.bind(hyperShift, 'j', northEast)
+hs.hotkey.bind(hyperShift, 'k', southWest)
+hs.hotkey.bind(hyperShift, 'l', southEast)
 
 --------------------------------------------------------------------------------
 -- application shortcuts
@@ -91,4 +124,8 @@ end)
 
 hs.hotkey.bind(hyper, 'p', function()
   hs.application.launchOrFocus('Plug')
+end)
+
+hs.hotkey.bind(hyper, 'r', function()
+  hs.application.launchOrFocus('Safari')
 end)
