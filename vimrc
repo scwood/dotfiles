@@ -92,13 +92,13 @@ if has('persistent_undo')
 endif
 
 " error matching for lines over 80 characters (exclude markdown and text files)
-func! HighlightLongLines()
-  if &ft =~ 'markdown\|txt\'
-    return
-  endif
-  match ErrorMsg '\%>80v.\+'
-endfunc
-autocmd BufEnter,WinEnter * call HighlightLongLines()
+" func! HighlightLongLines()
+"   if &ft =~ 'markdown\|txt\'
+"     return
+"   endif
+"   match ErrorMsg '\%>80v.\+'
+" endfunc
+" autocmd BufEnter,WinEnter * call HighlightLongLines()
 
 " ------------------------------------------------------------------------------ 
 " extra mappings
