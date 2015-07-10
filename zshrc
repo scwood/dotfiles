@@ -33,7 +33,7 @@ autoload -U colors && colors
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # use vim mode
-bindkey -v
+bindkey -e
 export KEYTIMEOUT=1
 
 # ------------------------------------------------------------------------------
