@@ -31,6 +31,18 @@ hs.grid.MARGINY = 0
 hs.grid.GRIDWIDTH = 2
 hs.grid.GRIDHEIGHT = 2
 
+local function nextScreen()
+  if hs.window.focusedWindow() then
+    hs.grid.pushWindowNextScreen()
+  end
+end
+
+local function fullScreen()
+  if hs.window.focusedWindow() then
+    hs.grid.maximizeWindow()
+  end
+end
+
 local function leftHalf()
   if hs.window.focusedWindow() then 
     hs.grid.resizeWindowTaller()
@@ -99,8 +111,8 @@ local function southEast()
   end
 end
 
-hs.hotkey.bind(hyper, 'n', hs.grid.pushWindowNextScreen)
-hs.hotkey.bind(hyper, 'f', hs.grid.maximizeWindow)
+hs.hotkey.bind(hyper, 'n', nextScreen)
+hs.hotkey.bind(hyper, 'f', fullScreen)
 hs.hotkey.bind(hyper, 'h', leftHalf)
 hs.hotkey.bind(hyper, 'j', bottomHalf)
 hs.hotkey.bind(hyper, 'k', topHalf)
