@@ -32,55 +32,71 @@ hs.grid.GRIDWIDTH = 2
 hs.grid.GRIDHEIGHT = 2
 
 local function leftHalf()
-  hs.grid.resizeWindowTaller()
-  hs.grid.resizeWindowThinner()
-  hs.grid.pushWindowLeft()
+  if hs.window.focusedWindow() then 
+    hs.grid.resizeWindowTaller()
+    hs.grid.resizeWindowThinner()
+    hs.grid.pushWindowLeft()
+  end
 end
 
 local function bottomHalf()
-  hs.grid.resizeWindowShorter()
-  hs.grid.resizeWindowWider()
-  hs.grid.pushWindowDown()
+  if hs.window.focusedWindow() then 
+    hs.grid.resizeWindowShorter()
+    hs.grid.resizeWindowWider()
+    hs.grid.pushWindowDown()
+  end
 end
 
 local function topHalf()
-  hs.grid.resizeWindowShorter()
-  hs.grid.resizeWindowWider()
-  hs.grid.pushWindowUp()
+  if hs.window.focusedWindow() then 
+    hs.grid.resizeWindowShorter()
+    hs.grid.resizeWindowWider()
+    hs.grid.pushWindowUp()
+  end
 end
 
 local function rightHalf()
-  hs.grid.resizeWindowTaller()
-  hs.grid.resizeWindowThinner()
-  hs.grid.pushWindowRight()
+  if hs.window.focusedWindow() then 
+    hs.grid.resizeWindowTaller()
+    hs.grid.resizeWindowThinner()
+    hs.grid.pushWindowRight()
+  end
 end
 
 local function northWest()
-  hs.grid.resizeWindowShorter()
-  hs.grid.resizeWindowThinner()
-  hs.grid.pushWindowUp()
-  hs.grid.pushWindowLeft()
+  if hs.window.focusedWindow() then 
+    hs.grid.resizeWindowShorter()
+    hs.grid.resizeWindowThinner()
+    hs.grid.pushWindowUp()
+    hs.grid.pushWindowLeft()
+  end
 end
 
 local function northEast()
-  hs.grid.resizeWindowShorter()
-  hs.grid.resizeWindowThinner()
-  hs.grid.pushWindowUp()
-  hs.grid.pushWindowRight()
+  if hs.window.focusedWindow() then 
+    hs.grid.resizeWindowShorter()
+    hs.grid.resizeWindowThinner()
+    hs.grid.pushWindowUp()
+    hs.grid.pushWindowRight()
+  end
 end
 
 local function southWest()
-  hs.grid.resizeWindowShorter()
-  hs.grid.resizeWindowThinner()
-  hs.grid.pushWindowDown()
-  hs.grid.pushWindowLeft()
+  if hs.window.focusedWindow() then 
+    hs.grid.resizeWindowShorter()
+    hs.grid.resizeWindowThinner()
+    hs.grid.pushWindowDown()
+    hs.grid.pushWindowLeft()
+  end
 end
 
 local function southEast()
-  hs.grid.resizeWindowShorter()
-  hs.grid.resizeWindowThinner()
-  hs.grid.pushWindowDown()
-  hs.grid.pushWindowRight()
+  if hs.window.focusedWindow() then 
+    hs.grid.resizeWindowShorter()
+    hs.grid.resizeWindowThinner()
+    hs.grid.pushWindowDown()
+    hs.grid.pushWindowRight()
+  end
 end
 
 hs.hotkey.bind(hyper, 'n', hs.grid.pushWindowNextScreen)
