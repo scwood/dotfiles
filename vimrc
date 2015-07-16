@@ -7,6 +7,7 @@ set nocompatible
 
 call plug#begin()
 
+Plug 'Raimondi/delimitMate' " auto insert paraenthesis, brackets, etc.
 Plug 'SirVer/ultisnips' " snippets
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
 Plug 'ervandew/supertab' " autocompletion
@@ -16,6 +17,7 @@ Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
 Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown settings
 Plug 'tpope/vim-surround' " surround objects
+Plug 'vim-scripts/AutoComplPop' " auto show completion menu
 
 call plug#end()
 
