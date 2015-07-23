@@ -12,12 +12,9 @@ Plug 'SirVer/ultisnips' " snippets
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
 Plug 'ervandew/supertab' " autocompletion
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " fuzzy find
-Plug 'scrooloose/syntastic' " error linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
 Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown settings
-Plug 'tpope/vim-surround' " surround objects
-Plug 'vim-scripts/AutoComplPop' " auto show completion menu
 
 call plug#end()
 
@@ -27,13 +24,6 @@ call plug#end()
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" syntasitc 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
 " vim-markdown
 let g:markdown_fenced_languages = ['java']
@@ -92,15 +82,6 @@ if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile 
 endif
-
-" error matching for lines over 80 characters (exclude markdown and text files)
-" func! HighlightLongLines()
-"   if &ft =~ 'markdown\|txt\'
-"     return
-"   endif
-"   match ErrorMsg '\%>80v.\+'
-" endfunc
-" autocmd BufEnter,WinEnter * call HighlightLongLines()
 
 " ------------------------------------------------------------------------------ 
 " extra mappings
