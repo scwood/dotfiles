@@ -3,23 +3,29 @@
 --------------------------------------------------------------------------------
 
 -- define hyper key
+
 local hyper = {'cmd', 'alt', 'ctrl'}
 local hyperShift = {'cmd', 'alt', 'ctrl', 'shift'}
 
 -- disable window snapping animation
+
 hs.window.animationDuration = 0
 
 -- reload conifg file on save
+
 function reload_config(files)
   hs.reload()
 end
+
 hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', reload_config):start()
 hs.alert.show('Config loaded')
 
 -- window hints settings
+
 hs.hotkey.bind(hyper, 'a', function()
   hs.hints.windowHints()
 end)
+
 hs.hints.showTitleThresh = 0
 
 --------------------------------------------------------------------------------
@@ -31,96 +37,57 @@ hs.grid.MARGINY = 0
 hs.grid.GRIDWIDTH = 2
 hs.grid.GRIDHEIGHT = 2
 
-local function nextScreen()
-  if hs.window.focusedWindow() then
-    hs.grid.pushWindowNextScreen()
-  end
-end
-
 local function fullScreen()
   if hs.window.focusedWindow() then
     hs.grid.maximizeWindow()
   end
 end
 
-local function leftHalf()
-  if hs.window.focusedWindow() then 
-    hs.grid.resizeWindowTaller()
-    hs.grid.resizeWindowThinner()
-    hs.grid.pushWindowLeft()
+local function halfScreen()
+  if hs.window.focusedWindow() then
+    hs.grid.resizeWindowThinner();
+    hs.grid.resizeWindowTaller();
   end
 end
 
-local function bottomHalf()
-  if hs.window.focusedWindow() then 
-    hs.grid.resizeWindowShorter()
-    hs.grid.resizeWindowWider()
-    hs.grid.pushWindowDown()
+local function quarterScreen()
+  if hs.window.focusedWindow() then
+    hs.grid.resizeWindowThinner();
+    hs.grid.resizeWindowShorter();
   end
 end
 
-local function topHalf()
-  if hs.window.focusedWindow() then 
-    hs.grid.resizeWindowShorter()
-    hs.grid.resizeWindowWider()
-    hs.grid.pushWindowUp()
+local function moveLeft()
+  if hs.window.focusedWindow() then
+    hs.grid.pushWindowLeft();
   end
 end
 
-local function rightHalf()
-  if hs.window.focusedWindow() then 
-    hs.grid.resizeWindowTaller()
-    hs.grid.resizeWindowThinner()
-    hs.grid.pushWindowRight()
+local function moveUp()
+  if hs.window.focusedWindow() then
+    hs.grid.pushWindowUp();
   end
 end
 
-local function northWest()
-  if hs.window.focusedWindow() then 
-    hs.grid.resizeWindowShorter()
-    hs.grid.resizeWindowThinner()
-    hs.grid.pushWindowUp()
-    hs.grid.pushWindowLeft()
+local function moveDown()
+  if hs.window.focusedWindow() then
+    hs.grid.pushWindowDown();
   end
 end
 
-local function northEast()
-  if hs.window.focusedWindow() then 
-    hs.grid.resizeWindowShorter()
-    hs.grid.resizeWindowThinner()
-    hs.grid.pushWindowUp()
-    hs.grid.pushWindowRight()
+local function moveRight()
+  if hs.window.focusedWindow() then
+    hs.grid.pushWindowRight();
   end
 end
 
-local function southWest()
-  if hs.window.focusedWindow() then 
-    hs.grid.resizeWindowShorter()
-    hs.grid.resizeWindowThinner()
-    hs.grid.pushWindowDown()
-    hs.grid.pushWindowLeft()
-  end
-end
-
-local function southEast()
-  if hs.window.focusedWindow() then 
-    hs.grid.resizeWindowShorter()
-    hs.grid.resizeWindowThinner()
-    hs.grid.pushWindowDown()
-    hs.grid.pushWindowRight()
-  end
-end
-
-hs.hotkey.bind(hyper, 'n', nextScreen)
-hs.hotkey.bind(hyper, 'f', fullScreen)
-hs.hotkey.bind(hyper, 'h', leftHalf)
-hs.hotkey.bind(hyper, 'j', bottomHalf)
-hs.hotkey.bind(hyper, 'k', topHalf)
-hs.hotkey.bind(hyper, 'l', rightHalf)
-hs.hotkey.bind(hyperShift, 'h', northWest)
-hs.hotkey.bind(hyperShift, 'j', northEast)
-hs.hotkey.bind(hyperShift, 'k', southWest)
-hs.hotkey.bind(hyperShift, 'l', southEast)
+hs.hotkey.bind(hyperShift, 'f', fullScreen)
+hs.hotkey.bind(hyperShift, 'h', halfScreen)
+hs.hotkey.bind(hyperShift, 'q', quarterScreen)
+hs.hotkey.bind(hyper, 'h', moveLeft)
+hs.hotkey.bind(hyper, 'j', moveDown)
+hs.hotkey.bind(hyper, 'k', moveUp)
+hs.hotkey.bind(hyper, 'l', moveRight)
 
 --------------------------------------------------------------------------------
 -- application shortcuts
