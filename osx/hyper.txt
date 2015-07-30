@@ -1,5 +1,0 @@
-# Hyper key
-
-- In OS X settings set caps lock action to none
-- In Seil change caps lock to keycode 80
-- Copy private.xml to ~/Library/ApplicationSupport/Karabiner and enable it

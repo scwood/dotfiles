@@ -1,9 +1,0 @@
-brew-cask
-gnupg
-python
-python3
-reattach-to-user-namespace
-screenfetch
-tmux
-vim
-weechat
