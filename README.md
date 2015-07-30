@@ -1,3 +1,1 @@
-# Dotfiles
-
-My config files for the shell.
+My config files.
