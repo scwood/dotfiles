@@ -22,9 +22,9 @@ if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
-  PS1='\u@\h: \w \[\033[34m\]$(__git_ps1)\[\033[0m\]\n$ '
+  PS1='\u@\h: \w\[\033[34m\]$(__git_ps1)\[\033[0m\]\n$ '
 else
-  PS1='\u@\h: \w \n$ '
+  PS1='\u@\h: \w\n$ '
 fi
 
 # add ~/bin to the path
