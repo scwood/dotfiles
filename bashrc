@@ -38,6 +38,7 @@ alias gcm='git commit -m'
 alias gd='git diff'
 alias gpo='git push origin'
 alias gs='git status'
+alias gca='git commit --amend'
 
 # config file shortcuts 
 alias vrc='vim ~/.vimrc'
