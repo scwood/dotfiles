@@ -2,17 +2,13 @@ dir=~/dotfiles
 backup_dir=~/.dotfiles_backup
 
 files="
+bash_profile
+bashrc
 gitignore_global 
 hammerspoon
+inputrc
 livestreamerrc 
-tmux.conf 
-tmux.osx.conf 
-tmux.reset.conf
-vim 
-vimrc
-vrapperrc
-zsh 
-zshrc"
+vimrc"
 
 echo
 echo "Creating $backup_dir for backup of existing dotfiles"
@@ -34,7 +30,19 @@ for file in $files; do
 done
 
 echo
-echo "Updating ~/dotfiles submodules"
-git submodule update --init --recursive
+echo "Setting up global gitignore..."
+git config --global core.excludesfile '~/.gitignore_global'
+echo "Finished"
+echo
+
+if [ ! -e ~/.git-prompt.sh ]; then
+  echo "Downloading git prompt ..."
+  curl -o ~/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+  echo "Finished"
+  echo
+fi
+
+echo "Downloading VIM Plug..."
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "Finished"
 echo

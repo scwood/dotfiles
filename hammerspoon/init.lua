@@ -2,10 +2,9 @@
 -- general
 --------------------------------------------------------------------------------
 
--- define hyper key
+-- define mash key
 
-local hyper = {'cmd', 'alt', 'ctrl'}
-local hyperShift = {'cmd', 'alt', 'ctrl', 'shift'}
+local mash = {'cmd', 'alt', 'ctrl'}
 
 -- disable window snapping animation
 
@@ -20,107 +19,112 @@ end
 hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', reload_config):start()
 hs.alert.show('Config loaded')
 
--- window hints settings
-
-hs.hotkey.bind(hyper, 'a', function()
-  hs.hints.windowHints()
-end)
-
-hs.hints.showTitleThresh = 0
-
 --------------------------------------------------------------------------------
 -- window management
 --------------------------------------------------------------------------------
 
-hs.grid.MARGINX = 0
-hs.grid.MARGINY = 0
-hs.grid.GRIDWIDTH = 2
-hs.grid.GRIDHEIGHT = 2
-
-local function fullScreen()
+function fullscreen()
   if hs.window.focusedWindow() then
-    hs.grid.maximizeWindow()
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    frame.x = max.x
+    frame.y = max.y
+    frame.w = max.w
+    frame.h = max.h
+    win:setFrame(frame)
   end
 end
 
-local function halfScreen()
+function leftHalf()
   if hs.window.focusedWindow() then
-    hs.grid.resizeWindowThinner();
-    hs.grid.resizeWindowTaller();
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    frame.x = max.x
+    frame.y = max.y
+    frame.w = max.w / 2
+    frame.h = max.h
+    win:setFrame(frame)
   end
 end
 
-local function quarterScreen()
+function rightHalf()
   if hs.window.focusedWindow() then
-    hs.grid.resizeWindowThinner();
-    hs.grid.resizeWindowShorter();
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    frame.x = max.x + max.w / 2
+    frame.y = max.y
+    frame.w = max.w / 2
+    frame.h = max.h
+    win:setFrame(frame)
   end
 end
 
-local function moveLeft()
+function topLeft()
   if hs.window.focusedWindow() then
-    hs.grid.pushWindowLeft();
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    frame.x = max.x
+    frame.y = max.y
+    frame.w = max.w / 2
+    frame.h = max.h / 2
+    win:setFrame(frame)
   end
 end
 
-local function moveUp()
+function topRight()
   if hs.window.focusedWindow() then
-    hs.grid.pushWindowUp();
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    frame.x = max.x + max.w / 2 
+    frame.y = max.y
+    frame.w = max.w / 2
+    frame.h = max.h / 2
+    win:setFrame(frame)
   end
 end
 
-local function moveDown()
+function bottomLeft()
   if hs.window.focusedWindow() then
-    hs.grid.pushWindowDown();
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    frame.x = max.x
+    frame.y = max.y + max.h / 2
+    frame.w = max.w / 2
+    frame.h = max.h / 2
+    win:setFrame(frame)
   end
 end
 
-local function moveRight()
+function bottomRight()
   if hs.window.focusedWindow() then
-    hs.grid.pushWindowRight();
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    frame.x = max.x + max.w / 2 
+    frame.y = max.y + max.h / 2
+    frame.w = max.w / 2
+    frame.h = max.h / 2
+    win:setFrame(frame)
   end
 end
 
-hs.hotkey.bind(hyperShift, 'f', fullScreen)
-hs.hotkey.bind(hyperShift, 'h', halfScreen)
-hs.hotkey.bind(hyperShift, 'q', quarterScreen)
-hs.hotkey.bind(hyper, 'h', moveLeft)
-hs.hotkey.bind(hyper, 'j', moveDown)
-hs.hotkey.bind(hyper, 'k', moveUp)
-hs.hotkey.bind(hyper, 'l', moveRight)
-
---------------------------------------------------------------------------------
--- application shortcuts
---------------------------------------------------------------------------------
-
-hs.hotkey.bind(hyper, 'return', function()
-  hs.application.launchOrFocus('iTerm')
-end)
-
-hs.hotkey.bind(hyper, 'c', function()
-  hs.application.launchOrFocus('Google Chrome')
-end)
-
-hs.hotkey.bind(hyper, 't', function()
-  hs.application.launchOrFocus('Sublime Text')
-end)
-
-hs.hotkey.bind(hyper, 'e', function()
-  hs.application.launchOrFocus('Finder')
-end)
-
-hs.hotkey.bind(hyper, 's', function()
-  hs.application.launchOrFocus('Spotify')
-end)
-
-hs.hotkey.bind(hyper, 'd', function()
-  hs.application.launchOrFocus('Dash')
-end)
-
-hs.hotkey.bind(hyper, 'p', function()
-  hs.application.launchOrFocus('Plug')
-end)
-
-hs.hotkey.bind(hyper, 'r', function()
-  hs.application.launchOrFocus('Safari')
-end)
+hs.hotkey.bind(mash, 'f', fullscreen)
+hs.hotkey.bind(mash, 'd', leftHalf)
+hs.hotkey.bind(mash, 'g', rightHalf)
+hs.hotkey.bind(mash, 'r', topLeft)
+hs.hotkey.bind(mash, 't', topRight)
+hs.hotkey.bind(mash, 'c', bottomLeft)
+hs.hotkey.bind(mash, 'v', bottomRight)

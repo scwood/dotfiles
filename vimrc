@@ -1,4 +1,3 @@
-" turn off vi compatibility 
 set nocompatible
 
 " ------------------------------------------------------------------------------
@@ -8,8 +7,6 @@ set nocompatible
 call plug#begin()
 
 Plug 'Raimondi/delimitMate' " auto insert paraenthesis, brackets, etc.
-Plug 'SirVer/ultisnips' " snippets
-Plug 'christoomey/vim-tmux-navigator' " tmux/vim split navigation
 Plug 'ervandew/supertab' " autocompletion
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " fuzzy find
 Plug 'scwood/vim-hybrid' " colorscheme
@@ -28,21 +25,15 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " vim-markdown
 let g:markdown_fenced_languages = ['java']
 
-" ultisnips
-let g:UltiSnipsExpandTrigger="<c-f>"   
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"    
-
 " ------------------------------------------------------------------------------
 " general settings
 " ------------------------------------------------------------------------------
 
 syntax on " turn on syntax highlighting
-colorscheme hybrid " colorscheme
+colorscheme hybrid " set the colorscheme
 
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
-set cursorline " turn on cursor line
 set mouse=a " enable mouse
 set number " turn on line numbers 
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
@@ -70,9 +61,9 @@ set shiftwidth=2 " use two spaces for autoindents
 set softtabstop=2 " backspace deleltes two spaces tab inserts two spaces
 
 " python/markdown/text specific indentation
-au FileType markdown,python,text,yaml set shiftwidth=4
-au FileType markdown,python,text,yaml set softtabstop=4
-au FileType markdown,python,text,yaml set tabstop=4
+au FileType markdown,python,text,yaml set shiftwidth=2
+au FileType markdown,python,text,yaml set softtabstop=2
+au FileType markdown,python,text,yaml set tabstop=2
 
 " persistent undo stored in ~/.vim/undo
 if has('persistent_undo')
