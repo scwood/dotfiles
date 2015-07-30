@@ -30,8 +30,9 @@ for file in $files; do
 done
 
 echo
-echo "Setting up global gitignore..."
+echo "Setting up git..."
 git config --global core.excludesfile '~/.gitignore_global'
+git config --global core.editor /usr/bin/vim
 echo "Finished"
 echo
 
@@ -42,7 +43,9 @@ if [ ! -e ~/.git-prompt.sh ]; then
   echo
 fi
 
-echo "Downloading VIM Plug..."
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo "Finished"
-echo
+if [ ! -e ~/.vim/autoload/plug.vim ]; then
+  echo "Downloading VIM Plug..."
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  echo "Finished"
+  echo
+fi

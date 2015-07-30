@@ -4,7 +4,7 @@ if [ -f ~/.bashrc_local ]; then
 fi
 
 # read OS name
-OS="$(uname)"
+os="$(uname)"
 
 # prompt 
 if [ -f ~/.git-prompt.sh ]; then
@@ -20,7 +20,7 @@ fi
 export PATH=$PATH:$HOME/bin
 
 # OS X specific aliases
-if [[ $OS == 'Darwin' ]]; then
+if [[ $os == 'Darwin' ]]; then
   alias l='ls -F -G'
   alias ls='ls -F -G'
   alias la='ls -A -F -G'
@@ -45,7 +45,7 @@ alias brc='vim ~/.bshrc'
 
 # show hidden files/directories in finder
 showHidden() {
-  if [[ $OS == 'Darwin' ]]; then
+  if [[ $os == 'Darwin' ]]; then
     defaults write com.apple.finder AppleShowAllFiles YES
     killall -KILL Finder
   else
@@ -55,7 +55,7 @@ showHidden() {
 
 # hide hidden files/directories in finder
 hideHidden() {
-  if [[ $OS == 'Darwin' ]]; then
+  if [[ $os == 'Darwin' ]]; then
     defaults write com.apple.finder AppleShowAllFiles NO
     killall -KILL Finder
   else
