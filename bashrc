@@ -2,6 +2,10 @@
 # general
 # ------------------------------------------------------------------------------
 
+# source fzf
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # allow local config
 
 if [ -f ~/.bashrc_local ]; then

@@ -38,7 +38,7 @@ echo
 
 if [ ! -e ~/.git-prompt.sh ]; then
   echo "Downloading git prompt ..."
-  curl -o ~/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+  curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
   echo "Finished"
   echo
 fi
