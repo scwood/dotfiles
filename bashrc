@@ -3,6 +3,9 @@ if [ -f ~/.bashrc_local ]; then
   source ~/.bashrc_local
 fi
 
+# read OS name
+OS="$(uname)"
+
 # prompt 
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
@@ -16,10 +19,7 @@ fi
 # add ~/bin to the path
 export PATH=$PATH:$HOME/bin
 
-# get OS name
-OS="$(uname)"
-
-# osx specific aliases
+# OS X specific aliases
 if [[ $OS == 'Darwin' ]]; then
   alias l='ls -F -G'
   alias ls='ls -F -G'
@@ -45,14 +45,22 @@ alias brc='vim ~/.bshrc'
 
 # show hidden files/directories in finder
 showHidden() {
-  defaults write com.apple.finder AppleShowAllFiles YES
-  killall -KILL Finder
+  if [[ $OS == 'Darwin' ]]; then
+    defaults write com.apple.finder AppleShowAllFiles YES
+    killall -KILL Finder
+  else
+    echo "Not on Darwin"
+  fi
 }
 
 # hide hidden files/directories in finder
 hideHidden() {
-  defaults write com.apple.finder AppleShowAllFiles NO
-  killall -KILL Finder
+  if [[ $OS == 'Darwin' ]]; then
+    defaults write com.apple.finder AppleShowAllFiles NO
+    killall -KILL Finder
+  else
+    echo "Not on Darwin"
+  fi
 }
 
 # extract function that handles multiple file types
