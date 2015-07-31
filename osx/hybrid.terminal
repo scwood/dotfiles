@@ -240,8 +240,12 @@
 	<false/>
 	<key>UseBrightBold</key>
 	<true/>
+	<key>columnCount</key>
+	<integer>999</integer>
 	<key>name</key>
-	<string>Tomorrow Night</string>
+	<string>hybrid</string>
+	<key>rowCount</key>
+	<integer>999</integer>
 	<key>shellExitAction</key>
 	<integer>0</integer>
 	<key>type</key>
