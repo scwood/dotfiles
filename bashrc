@@ -4,7 +4,9 @@
 
 # source fzf
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if [ -f ~/.fzf.bash ]; then
+    source ~/.fzf.bash
+fi
 
 # allow local config
 
@@ -12,11 +14,7 @@ if [ -f ~/.bashrc_local ]; then
   source ~/.bashrc_local
 fi
 
-# read OS name
-
-os="$(uname)"
-
-# prompt 
+# prompt
 
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
@@ -34,6 +32,10 @@ export PATH=$PATH:$HOME/bin
 # ------------------------------------------------------------------------------
 # aliases
 # ------------------------------------------------------------------------------
+
+# read OS name
+
+os="$(uname)"
 
 # OS X specific aliases
 
@@ -58,7 +60,7 @@ alias gpo='git push origin'
 alias gs='git status'
 alias gca='git commit --amend'
 
-# config file shortcuts 
+# config file shortcuts
 
 alias vrc='vim ~/.vimrc'
 alias brc='vim ~/.bshrc'
@@ -74,7 +76,7 @@ showHidden() {
     defaults write com.apple.finder AppleShowAllFiles YES
     killall -KILL Finder
   else
-    echo "Not on Darwin"
+    echo "error: not on Darwin"
   fi
 }
 
@@ -85,7 +87,7 @@ hideHidden() {
     defaults write com.apple.finder AppleShowAllFiles NO
     killall -KILL Finder
   else
-    echo "Not on Darwin"
+    echo "error: not on Darwin"
   fi
 }
 
