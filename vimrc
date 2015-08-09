@@ -61,18 +61,18 @@ set shiftwidth=2 " use two spaces for autoindents
 set softtabstop=2 " backspace deleltes two spaces tab inserts two spaces
 
 " python/markdown/text specific indentation
-au FileType markdown,python,text,yaml set shiftwidth=2
-au FileType markdown,python,text,yaml set softtabstop=2
-au FileType markdown,python,text,yaml set tabstop=2
+au FileType markdown,python,text,yaml set shiftwidth=4
+au FileType markdown,python,text,yaml set softtabstop=4
+au FileType markdown,python,text,yaml set tabstop=4
 
 " persistent undo stored in ~/.vim/undo
-if has('persistent_undo')
-  if !isdirectory($HOME . "/.vim/undo")
-    call mkdir($HOME . "/.vim/undo", "p")
-  endif
-  set undodir=~/.vim/undo
-  set undofile 
-endif
+" if has('persistent_undo')
+"   if !isdirectory($HOME . "/.vim/undo")
+"     call mkdir($HOME . "/.vim/undo", "p")
+"   endif
+"   set undodir=~/.vim/undo
+"   set undofile 
+" endif
 
 " ------------------------------------------------------------------------------ 
 " extra mappings
