@@ -79,6 +79,8 @@ endif
 " ------------------------------------------------------------------------------
 
 " leader mappings
+map j gj
+map k gk
 map <space> <leader>
 nnoremap <leader>so :source $MYVIMRC<cr>
 nnoremap <leader>sar :%s/
