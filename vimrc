@@ -51,7 +51,7 @@ set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank
 
 set laststatus=2 " keep status line on and change the format
-set statusline=\ →\ %F%=[%l/%L]\
+set statusline=\ →\ %F%=[%l/%L]
 
 set autoindent " copy indent from previous when starting new line
 set smartindent " smart newline autoindenting for languages
