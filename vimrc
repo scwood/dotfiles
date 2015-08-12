@@ -6,7 +6,7 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'Raimondi/delimitMate' " auto insert paraenthesis, brackets, etc.
+Plug 'Raimondi/delimitMate' " auto insert parenthesis, brackets, etc.
 Plug 'ervandew/supertab' " autocompletion
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " fuzzy find
 Plug 'scwood/vim-hybrid' " colorscheme
@@ -23,7 +23,7 @@ call plug#end()
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " vim-markdown
-let g:markdown_fenced_languages = ['java']
+let g:markdown_fenced_languages = ['java', 'python', 'javascript']
 
 " ------------------------------------------------------------------------------
 " general settings
@@ -35,7 +35,7 @@ colorscheme hybrid " set the colorscheme
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
 set mouse=a " enable mouse
-set number " turn on line numbers 
+set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
 
 set hlsearch " highlight search
@@ -51,34 +51,26 @@ set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank
 
 set laststatus=2 " keep status line on and change the format
-set statusline=\ →\ %F%=[%l/%L]\ 
+set statusline=\ →\ %F%=[%l/%L]
 
 set autoindent " copy indent from previous when starting new line
-set smartindent " smart newline autoindenting for langauges
+set smartindent " smart newline autoindenting for languages
 set expandtab " use spaces for tabs
 set tabstop=2 " tabs count for two spaces
 set shiftwidth=2 " use two spaces for autoindents
-set softtabstop=2 " backspace deleltes two spaces tab inserts two spaces
+set softtabstop=2 " backspace deletes two spaces tab inserts two spaces
 
 " python/markdown/text specific indentation
 au FileType markdown,python,text,yaml set shiftwidth=4
 au FileType markdown,python,text,yaml set softtabstop=4
 au FileType markdown,python,text,yaml set tabstop=4
 
-" persistent undo stored in ~/.vim/undo
-" if has('persistent_undo')
-"   if !isdirectory($HOME . "/.vim/undo")
-"     call mkdir($HOME . "/.vim/undo", "p")
-"   endif
-"   set undodir=~/.vim/undo
-"   set undofile 
-" endif
-
-" ------------------------------------------------------------------------------ 
-" extra mappings
+" ------------------------------------------------------------------------------
+" key mappings
 " ------------------------------------------------------------------------------
 
-" leader mappings
+map j gj
+map k gk
 map <space> <leader>
 nnoremap <leader>so :source $MYVIMRC<cr>
 nnoremap <leader>sar :%s/
