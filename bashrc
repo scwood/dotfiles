@@ -53,7 +53,7 @@ alias gaa='git add --all'
 alias gb='git branch'
 alias gc='git clone'
 alias gcm='git commit -m'
-alias gd='git diff'
+alias gd='git diff --word-diff'
 alias gpo='git push origin'
 alias gs='git status'
 alias gca='git commit --amend'
@@ -61,7 +61,7 @@ alias gca='git commit --amend'
 # config file shortcuts 
 
 alias vrc='vim ~/.vimrc'
-alias brc='vim ~/.bshrc'
+alias brc='vim ~/.bashrc'
 
 # ------------------------------------------------------------------------------
 # functions
