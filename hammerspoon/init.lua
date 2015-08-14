@@ -1,77 +1,37 @@
---------------------------------------------------------------------------------
--- general
---------------------------------------------------------------------------------
+-- key definitions
+local mash = {'cmd', 'alt', 'ctrl'}
 
--- define mash key
-
-mash = {'cmd', 'alt', 'ctrl'}
-
--- disable window snapping animation
-
+-- disable window animations
 hs.window.animationDuration = 0
 
--- reload conifg file on save
+-- window hints
+hs.hotkey.bind(mash, '.', hs.hints.windowHints)
 
-function reload_config(files)
-  hs.reload()
-end
+-- grid constants
+hs.grid.MARGINX = 0
+hs.grid.MARGINY = 0
+hs.grid.GRIDHEIGHT = 2
+hs.grid.GRIDWIDTH = 2
 
-hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', reload_config):start()
-hs.alert.show('Config loaded')
+-- resizing windows
+hs.hotkey.bind(mash, '[', hs.grid.resizeWindowThinner)
+hs.hotkey.bind(mash, '-', hs.grid.resizeWindowShorter)
+hs.hotkey.bind(mash, '=', hs.grid.resizeWindowTaller)
+hs.hotkey.bind(mash, ']', hs.grid.resizeWindowWider)
 
---------------------------------------------------------------------------------
--- window management
---------------------------------------------------------------------------------
+-- moving windows
+hs.hotkey.bind(mash, 'h', hs.grid.pushWindowLeft)
+hs.hotkey.bind(mash, 'j', hs.grid.pushWindowDown)
+hs.hotkey.bind(mash, 'k', hs.grid.pushWindowUp)
+hs.hotkey.bind(mash, 'l', hs.grid.pushWindowRight)
 
--- window location functions
+-- move windows between montiors
+hs.hotkey.bind(mash, 'n', hs.grid.pushWindowNextScreen)
+hs.hotkey.bind(mash, 'p', hs.grid.pushWindowPrevScreen)
 
-function moveScreens()
-  hs.window.focusedWindow():moveOneScreenEast()
-end
+-- maximize window
+hs.hotkey.bind(mash, 'm', hs.grid.maximizeWindow)
 
-function fullScreen()
-  hs.window.focusedWindow():moveToUnit(hs.layout.maximized) 
-end
-
-function leftHalf() 
-  hs.window.focusedWindow():moveToUnit(hs.layout.left50) 
-end
-
-function rightHalf()
-  hs.window.focusedWindow():moveToUnit(hs.layout.right50) 
-end
-
-function topHalf()
-  hs.window.focusedWindow():moveToUnit({x=0, y=0, w=1, h=0.5}) 
-end
-
-function bottomHalf()
-  hs.window.focusedWindow():moveToUnit({x=0, y=0.5, w=1, h=0.5}) 
-end
-
-function topLeft()
-  hs.window.focusedWindow():moveToUnit({x=0, y=0, w=0.5, h=0.5}) 
-end
-
-function topRight()
-  hs.window.focusedWindow():moveToUnit({x=0.5, y=0, w=0.5, h=0.5}) 
-end
-
-function bottomLeft()
-  hs.window.focusedWindow():moveToUnit({x=0, y=0.5, w=0.5, h=0.5}) 
-end
-
-function bottomRight()
-  hs.window.focusedWindow():moveToUnit({x=0.5, y=0.5, w=0.5, h=0.5}) 
-end
-
-hs.hotkey.bind(mash, 'n', moveScreens)
-hs.hotkey.bind(mash, 'f', fullScreen)
-hs.hotkey.bind(mash, 'd', leftHalf)
-hs.hotkey.bind(mash, 'g', rightHalf)
-hs.hotkey.bind(mash, 'r', topHalf)
-hs.hotkey.bind(mash, 'v', bottomHalf)
-hs.hotkey.bind(mash, 'e', topLeft)
-hs.hotkey.bind(mash, 't', topRight)
-hs.hotkey.bind(mash, 'c', bottomLeft)
-hs.hotkey.bind(mash, 'b', bottomRight)
+-- snap windows
+hs.hotkey.bind(mash, ';', function() hs.grid.snap(hs.window.focusedWindow()) end)
+hs.hotkey.bind(mash, "'", function() hs.fnutils.map(hs.window.visibleWindows(), hs.grid.snap) end)
