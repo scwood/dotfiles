@@ -80,14 +80,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
-	<key>NSColorPanelMode</key>
-	<string>1</string>
-	<key>NSColorPickerSlidersDefaults</key>
-	<string>1</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/dotfiles/osx</string>
-	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -118,18 +112,16 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>765 243 231 329 0 0 1280 777 </string>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>1482 613 445 77 0 0 2560 1577 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 313 606 456 0 0 1280 777 </string>
-	<key>NSWindow Frame UKCrashReporter</key>
-	<string>0 197 640 580 0 0 1280 777 </string>
+	<string>2604 415 606 456 2560 -320 1200 1897 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>1940 809 620 392 0 0 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 9 1274 768 0 0 1280 777 </string>
+	<string>2560 -315 1200 945 2560 -320 1200 1897 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 4 1280 773 0 0 1280 777 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 4 1280 773 0 0 1280 777 </string>
+	<string>2560 -320 1186 948 2560 -320 1200 1897 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -233,13 +225,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.67450980392156867</real>
+				<real>0.68235294117647061</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.67450980392156867</real>
+				<real>0.68235294117647061</real>
 				<key>Red Component</key>
-				<real>0.67450980392156867</real>
+				<real>0.68235294117647061</real>
 			</dict>
 			<key>Ansi 2 Color</key>
 			<dict>
@@ -311,13 +303,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.67450980392156867</real>
+				<real>0.68235294117647061</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.67450980392156867</real>
+				<real>0.68235294117647061</real>
 				<key>Red Component</key>
-				<real>0.67450980392156867</real>
+				<real>0.68235294117647061</real>
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
@@ -824,13 +816,20 @@
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
 	<key>NoSyncLastTipTime</key>
-	<real>460179777.08209503</real>
+	<real>459792509.83182502</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
+	<true/>
 	<key>NoSyncTipsDisabled</key>
 	<true/>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -877,7 +876,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/spencer/dotfiles/osx</string>
+	<string>/Users/swood/dotfiles/osx</string>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -895,7 +894,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-13T23:46:40Z</date>
+	<date>2015-08-17T15:01:14Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -920,8 +919,6 @@
 	<integer>10</integer>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
-	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1439510656</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -936,6 +933,10 @@
 	<integer>0</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
 	<string>2.9.20150626</string>
 </dict>
