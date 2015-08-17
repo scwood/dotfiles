@@ -66,6 +66,7 @@ alias vrc='vim ~/.vimrc'
 alias brc='vim ~/.bashrc'
 
 # dir aliases
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
