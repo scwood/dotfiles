@@ -15,15 +15,16 @@ if [ -f ~/.bashrc_local ]; then
 fi
 
 # prompt
+PS1='\u@\h: \[\033[34m\]\w\[\033[0m\]'
 
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
-  PS1='\u@\h: \w\[\033[34m\]$(__git_ps1)\[\033[0m\]\n$ '
-else
-  PS1='\u@\h: \w\n$ '
+  PS1+='\[\033[32m\]$(__git_ps1)\[\033[0m\]'
 fi
+
+PS1+='\n$ '
 
 # add ~/bin to the path
 
