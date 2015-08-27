@@ -15,6 +15,7 @@ if [ -f ~/.bashrc_local ]; then
 fi
 
 # prompt
+
 PS1='\u@\h: \[\033[34m\]\w\[\033[0m\]'
 
 if [ -f ~/.git-prompt.sh ]; then
@@ -57,7 +58,6 @@ alias gb='git branch'
 alias gc='git clone'
 alias gcm='git commit -m'
 alias gd='git diff'
-alias gpo='git push origin'
 alias gs='git status'
 alias gca='git commit --amend'
 
