@@ -1,66 +1,56 @@
+-- modifer keys used by shortcuts
 mash = {'cmd', 'alt', 'ctrl'}
 
+-- hammerspoon config
+hs.window.animationDuration = 0
 hs.grid.MARGINX = 0
 hs.grid.MARGINY = 0
 hs.grid.GRIDHEIGHT = 2
 hs.grid.GRIDWIDTH = 2
 
-hs.window.animationDuration = 0
-hs.hotkey.bind(mash, ';', hs.hints.windowHints)
-
-function snapAllWindows()
-  hs.fnutils.map(hs.window.visibleWindows(), hs.grid.snap)
+-- snap window to given coordinates and width/height
+function snapFocusedWindow(horiz, vert, width, height) 
+    return function()
+        if not hs.window.focusedWindow() then
+            return
+        end
+        hs.window.focusedWindow():moveToUnit({x=horiz, y=vert, w=width, h=height})
+    end
 end
 
-function snapToLeftHalf() 
-  hs.window.focusedWindow():moveToUnit(hs.layout.left50) 
-end
+-- snapp all windows to closest grid sections
+hs.hotkey.bind(mash, ";", function ()
+    hs.fnutils.map(hs.window.visibleWindows(), hs.grid.snap) 
+end)
 
-function snapToBottomHalf()
-  hs.window.focusedWindow():moveToUnit({x=0, y=0.5, w=1, h=0.5}) 
-end
+-- show windows hints
+hs.hotkey.bind(mash, '/', hs.hints.windowHints)
 
-function snapToTopHalf() 
-  hs.window.focusedWindow():moveToUnit({x=0, y=0, w=1, h=0.5}) 
-end
+-- maximize window
+hs.hotkey.bind(mash, 'm', snapFocusedWindow(0, 0, 1, 1))
 
-function snapToRightHalf() 
-  hs.window.focusedWindow():moveToUnit(hs.layout.right50) 
-end
+-- snap window left half
+hs.hotkey.bind(mash, 'h', snapFocusedWindow(0, 0, 0.5, 1))
 
-function snapToNWCorner()
-  hs.window.focusedWindow():moveToUnit({x=0, y=0, w=0.5, h=0.5}) 
-end
+-- snap window bottom half
+hs.hotkey.bind(mash, 'j', snapFocusedWindow(0, 0.5, 1, 0.5))
 
-function snapToNECorner()
-  hs.window.focusedWindow():moveToUnit({x=0.5, y=0, w=0.5, h=0.5}) 
-end
+-- snap window top half
+hs.hotkey.bind(mash, 'k', snapFocusedWindow(0, 0, 1, 0.5))
 
-function snapToSWCorner()
-  hs.window.focusedWindow():moveToUnit({x=0, y=0.5, w=0.5, h=0.5}) 
-end
+-- snap window right half
+hs.hotkey.bind(mash, 'l', snapFocusedWindow(0.5, 0, 0.5, 1))
 
-function snapToSECorner()
-  hs.window.focusedWindow():moveToUnit({x=0.5, y=0.5, w=0.5, h=0.5}) 
-end
+-- snap window NW corner
+hs.hotkey.bind(mash, 'y', snapFocusedWindow(0, 0, 0.5, 0.5))
 
-function moveToNextScreen()
-  hs.window.focusedWindow():moveOneScreenEast()
-end
+-- snap window NE corner
+hs.hotkey.bind(mash, 'u', snapFocusedWindow(0.5, 0, 0.5, 0.5))
 
-function moveToPreviousScreen()
-  hs.window.focusedWindow():moveOneScreenWest()
-end
+-- snap window SW corner
+hs.hotkey.bind(mash, 'i', snapFocusedWindow(0, 0.5, 0.5, 0.5))
 
-hs.hotkey.bind(mash, "'", snapAllWindows)
-hs.hotkey.bind(mash, 'h', snapToLeftHalf)
-hs.hotkey.bind(mash, 'j', snapToBottomHalf)
-hs.hotkey.bind(mash, 'k', snapToTopHalf)
-hs.hotkey.bind(mash, 'l', snapToRightHalf)
-hs.hotkey.bind(mash, 'y', snapToNWCorner)
-hs.hotkey.bind(mash, 'u', snapToNECorner)
-hs.hotkey.bind(mash, 'i', snapToSWCorner)
-hs.hotkey.bind(mash, 'o', snapToSECorner)
-hs.hotkey.bind(mash, 'n', moveToNextScreen)
-hs.hotkey.bind(mash, 'p', moveToPreviousScreen)
-hs.hotkey.bind(mash, 'm', hs.grid.maximizeWindow)
+-- snap window SE corner
+hs.hotkey.bind(mash, 'o', snapFocusedWindow(0.5, 0.5, 0.5, 0.5))
+
+
