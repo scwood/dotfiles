@@ -12,7 +12,7 @@ hs.grid.MARGINY = 0
 hs.grid.GRIDHEIGHT = 2
 hs.grid.GRIDWIDTH = 2
 
--- direction enum (kind of)
+-- direction enum
 north = 1
 south = 2
 west = 3
