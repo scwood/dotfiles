@@ -9,6 +9,7 @@ call plug#begin()
 Plug 'ervandew/supertab' " autocompletion
 Plug 'jiangmiao/auto-pairs' " auto insert brackets
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " fuzzy find
+Plug 'kien/ctrlp.vim' " fuzzy finder for gvim
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
 Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown settings
