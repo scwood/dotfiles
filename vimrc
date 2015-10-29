@@ -53,21 +53,12 @@ set t_vb= " make visual bell blank
 
 set guioptions-=r " remove right scrollbar from gui
 
-" set laststatus=2 " keep status line on and change the format
-" set statusline=\ →\ %F%=[%l/%L]
-" set statusline=\ \ %F%=[%l/%L]
-
 set autoindent " copy indent from previous when starting new line
 set smartindent " smart newline autoindenting for languages
 set expandtab " use spaces for tabs
 set tabstop=4 " pressing tab will insert four spaces
 set shiftwidth=4 " use four spaces for indents
 set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
-
-" python/markdown/text specific indentation
-" au FileType markdown,python,text,yaml set shiftwidth=4
-" au FileType markdown,python,text,yaml set softtabstop=4
-" au FileType markdown,python,text,yaml set tabstop=4
 
 " ------------------------------------------------------------------------------
 " key mappings
