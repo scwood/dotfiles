@@ -12,7 +12,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " fuzzy find
 Plug 'kien/ctrlp.vim' " fuzzy finder for gvim
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
-Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown settings
+Plug 'tpope/vim-markdown', " markdown settings
 
 call plug#end()
 
@@ -22,9 +22,6 @@ call plug#end()
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" vim-markdown
-let g:markdown_fenced_languages = ['java', 'python', 'javascript']
 
 " ------------------------------------------------------------------------------
 " general settings
