@@ -92,7 +92,7 @@ hs.hotkey.bind(cmdAltCtrl, '/', hs.hints.windowHints)
 -- move window to next monitor to the right
 hs.hotkey.bind(cmdAltCtrl, 'n', moveWindowToScreen(east))
 
--- move window to next monitor to the right
+-- move window to next monitor to the left
 hs.hotkey.bind(cmdAltCtrl, 'p', moveWindowToScreen(west))
 
 -- maximize window
