@@ -42,7 +42,6 @@ os="$(uname)"
 # OS X specific aliases
 
 if [[ $os == 'Darwin' ]]; then
-  alias l='ls -F -G'
   alias ls='ls -F -G'
   alias la='ls -A -F -G'
   alias ll='ls -F -G -h -l'
