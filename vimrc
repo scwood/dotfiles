@@ -9,11 +9,11 @@ call plug#begin()
 Plug 'AutoComplPop' " automatically show autocomplete suggestions
 Plug 'ervandew/supertab' " use tab to choose autocomplete suggestions
 Plug 'jiangmiao/auto-pairs' " auto close brackets, quotes, etc.
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " fuzzy find
-Plug 'mattn/emmet-vim' " easy html
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
+Plug 'mattn/emmet-vim' " easy html tags
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
-Plug 'tpope/vim-markdown', " markdown settings
+Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
 
 
 call plug#end()
