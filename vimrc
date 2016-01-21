@@ -7,24 +7,16 @@ set nocompatible
 call plug#begin()
 
 Plug 'AutoComplPop' " automatically show autocomplete suggestions
-Plug 'ervandew/supertab' " autocompletion
 Plug 'ervandew/supertab' " use tab to choose autocomplete suggestions
-Plug 'jiangmiao/auto-pairs' " auto insert brackets
+Plug 'jiangmiao/auto-pairs' " auto close brackets, quotes, etc.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " fuzzy find
-Plug 'kien/ctrlp.vim' " fuzzy finder for gvim
+Plug 'mattn/emmet-vim' " easy html
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks
 Plug 'tpope/vim-markdown', " markdown settings
 
 
 call plug#end()
-
-" ------------------------------------------------------------------------------
-" plugin specific settings
-" ------------------------------------------------------------------------------
-
-" supertab
-let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " ------------------------------------------------------------------------------
 " general settings
@@ -50,8 +42,6 @@ set noswapfile " turn off swap files
 
 set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank
-
-set guioptions-=r " remove right scrollbar from gui
 
 set autoindent " copy indent from previous when starting new line
 set smartindent " smart newline autoindenting for languages
