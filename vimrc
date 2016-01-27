@@ -6,7 +6,6 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'AutoComplPop' " automatically show autocomplete suggestions
 Plug 'ervandew/supertab' " use tab to choose autocomplete suggestions
 Plug 'jiangmiao/auto-pairs' " auto close brackets, quotes, etc.
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
@@ -62,9 +61,14 @@ set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 
 map j gj
 map k gk
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 map <space> <leader>
-nnoremap <leader>so :source $MYVIMRC<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
-nnoremap <leader>z 1z=e
-nnoremap <leader>wc :w <bar> !wc %<cr>
 nnoremap <leader>p :FZF<cr>
+nnoremap <leader>so :source $MYVIMRC<cr>
+nnoremap <leader>wc :w <bar> !wc %<cr>
+nnoremap <leader>z 1z=e
