@@ -64,6 +64,7 @@ alias gca='git commit --amend'
 
 alias vrc='vim ~/.vimrc'
 alias brc='vim ~/.bashrc'
+alias trc='vim ~/.tmux.conf'
 
 # dir aliases
 
