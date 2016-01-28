@@ -8,6 +8,7 @@ gitignore_global
 hammerspoon
 inputrc
 livestreamerrc 
+tmux.conf
 vimrc"
 
 echo
