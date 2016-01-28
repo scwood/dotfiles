@@ -62,6 +62,7 @@ set statusline+=%= " Switch to the right side
 set statusline+=%l " Current line
 set statusline+=/ " Separator
 set statusline+=%L " Total lines
+set statusline+=\ %y 
 
 " ------------------------------------------------------------------------------
 " key mappings
