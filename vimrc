@@ -56,6 +56,13 @@ set tabstop=4 " pressing tab will insert four spaces
 set shiftwidth=4 " use four spaces for indents
 set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 
+set statusline=%f " file name
+set statusline+=%m " file modified indicator
+set statusline+=%= " Switch to the right side
+set statusline+=%l " Current line
+set statusline+=/ " Separator
+set statusline+=%L " Total lines
+
 " ------------------------------------------------------------------------------
 " key mappings
 " ------------------------------------------------------------------------------
