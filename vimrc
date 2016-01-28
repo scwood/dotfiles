@@ -56,14 +56,9 @@ set tabstop=4 " pressing tab will insert four spaces
 set shiftwidth=4 " use four spaces for indents
 set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 
-set laststatus=2 " always show status bar
-set statusline=\  " add leading space
-set statusline+=%f " add tail end of file path"
-
 " ------------------------------------------------------------------------------
 " key mappings
 " ------------------------------------------------------------------------------
-
 map j gj
 map k gk
 
