@@ -6,12 +6,13 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'ervandew/supertab' " use tab to choose autocomplete suggestions
-Plug 'jiangmiao/auto-pairs' " auto close brackets, quotes, etc.
+Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
+Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
+Plug 'jiangmiao/auto-pairs' " auto closes brackets, quotes, etc.
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
-Plug 'mattn/emmet-vim' " easy html tags
+Plug 'mattn/emmet-vim' " allows for easy writing of html tags
 Plug 'scwood/vim-hybrid' " colorscheme
-Plug 'tpope/vim-commentary' " comment out blocks
+Plug 'tpope/vim-commentary' " binds gcc to comment out blocks
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
 
 
@@ -21,7 +22,7 @@ call plug#end()
 " plugin specific settings
 " ------------------------------------------------------------------------------
 
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " ------------------------------------------------------------------------------
 " general settings
@@ -46,7 +47,7 @@ set nobackup " delete backup after file is written
 set noswapfile " turn off swap files
 
 set visualbell " enable visual bell in order to disable beeping
-set t_vb= " make visual bell blank
+set t_vb= " make visual bell blank (effectively turning off all bells)
 
 set autoindent " copy indent from previous when starting new line
 set smartindent " smart newline autoindenting for languages
@@ -55,16 +56,16 @@ set tabstop=4 " pressing tab will insert four spaces
 set shiftwidth=4 " use four spaces for indents
 set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 
+set laststatus=2 " always show status bar
+set statusline=\  " add leading space
+set statusline+=%f " add tail end of file path"
+
 " ------------------------------------------------------------------------------
 " key mappings
 " ------------------------------------------------------------------------------
 
 map j gj
 map k gk
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 map <space> <leader>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
