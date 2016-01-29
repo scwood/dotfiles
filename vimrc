@@ -63,9 +63,8 @@ set statusline+=%m " file modified indicator
 set statusline+=%= " switch to the right side
 set statusline+=%l " current line
 set statusline+=/ " separator
-set statusline+=%L " total lines
-set statusline+=\ %y " file type
-set statusline+=\  " padding"
+set statusline+=%L\  " total lines
+set statusline+=%y\  " file type
 
 " ------------------------------------------------------------------------------
 " key mappings
