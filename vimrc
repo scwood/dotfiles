@@ -10,11 +10,9 @@ Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
 Plug 'jiangmiao/auto-pairs' " auto closes brackets, quotes, etc.
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
-Plug 'mattn/emmet-vim' " allows for easy writing of html tags
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " binds gcc to comment out blocks
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
-
 
 call plug#end()
 
@@ -30,6 +28,9 @@ let g:SuperTabDefaultCompletionType = '<c-n>'
 
 syntax on " turn on syntax highlighting
 colorscheme hybrid
+
+set encoding=utf-8 " the encoding displayed
+set fileencoding=utf-8 " the encoding written to file
 
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
@@ -56,13 +57,15 @@ set tabstop=4 " pressing tab will insert four spaces
 set shiftwidth=4 " use four spaces for indents
 set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 
-set statusline=%f " file name
+set laststatus=2 " leave status line on
+set statusline=\ %f " file name
 set statusline+=%m " file modified indicator
-set statusline+=%= " Switch to the right side
-set statusline+=%l " Current line
-set statusline+=/ " Separator
-set statusline+=%L " Total lines
-set statusline+=\ %y 
+set statusline+=%= " switch to the right side
+set statusline+=%l " current line
+set statusline+=/ " separator
+set statusline+=%L " total lines
+set statusline+=\ %y " file type
+set statusline+=\  " padding"
 
 " ------------------------------------------------------------------------------
 " key mappings
