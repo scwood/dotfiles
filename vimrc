@@ -10,6 +10,7 @@ Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
 Plug 'jiangmiao/auto-pairs' " auto closes brackets, quotes, etc.
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
+Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " binds gcc to comment out blocks
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
