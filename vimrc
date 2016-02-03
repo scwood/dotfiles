@@ -60,13 +60,14 @@ set shiftwidth=4 " use four spaces for indents
 set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 
 set laststatus=2 " leave status line on
-set statusline=\ %F " file name
-set statusline+=%m " file modified indicator
+set statusline=\ %f\ %m  " file name and modified flag
 set statusline+=%= " switch to the right side
-set statusline+=%l " current line
-set statusline+=/ " separator
-set statusline+=%L\  " total lines
-set statusline+=%y\  " file type
+set statusline+=%l:%c\ %y\  " current line, character and filetype
+
+" ------------------------------------------------------------------------------
+" filetype specific settings
+" ------------------------------------------------------------------------------
+autocmd FileType markdown,text setlocal linebreak spell
 
 " ------------------------------------------------------------------------------
 " key mappings
