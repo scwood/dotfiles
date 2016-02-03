@@ -8,6 +8,7 @@ call plug#begin()
 
 Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
 Plug 'jiangmiao/auto-pairs' " auto closes brackets, quotes, etc.
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
 Plug 'scrooloose/syntastic' " linting
