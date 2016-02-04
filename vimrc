@@ -6,11 +6,13 @@ set nocompatible
 
 call plug#begin()
 
+Plug 'Glench/Vim-Jinja2-Syntax' " jinja support
 Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
 Plug 'jiangmiao/auto-pairs' " auto closes brackets, quotes, etc.
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
+Plug 'mattn/emmet-vim' " vim support for emmet
 Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " binds gcc to comment out blocks
@@ -23,6 +25,7 @@ call plug#end()
 " ------------------------------------------------------------------------------
 
 let g:SuperTabDefaultCompletionType = '<c-n>'
+let g:user_emmet_expandabbr_key='<C-e>'
 
 " ------------------------------------------------------------------------------
 " general settings
@@ -60,9 +63,9 @@ set shiftwidth=4 " use four spaces for indents
 set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 
 set laststatus=2 " leave status line on
-set statusline=\ %f\ %m  " file name and modified flag
+set statusline=\ %t\ %m  " file name and modified flag
 set statusline+=%= " switch to the right side
-set statusline+=%l:%c\ %y\  " current line, character and filetype
+set statusline+=%l:%c\ %p%%\ %Y\  " current line, character and filetype
 
 " ------------------------------------------------------------------------------
 " filetype specific settings
@@ -76,6 +79,7 @@ map j gj
 map k gk
 
 map <space> <leader>
+nnoremap <leader>b :ls<cr>:b
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>p :FZF<cr>
 nnoremap <leader>so :source $MYVIMRC<cr>
