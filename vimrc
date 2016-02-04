@@ -25,7 +25,7 @@ call plug#end()
 " ------------------------------------------------------------------------------
 
 let g:SuperTabDefaultCompletionType = '<c-n>'
-let g:user_emmet_expandabbr_key='<C-e>'
+let g:user_emmet_expandabbr_key='<c-e>'
 
 " ------------------------------------------------------------------------------
 " general settings
