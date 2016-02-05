@@ -17,6 +17,7 @@ Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " binds gcc to comment out blocks
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
+Plug 'tpope/vim-surround' " easily surround things with quotes and braces
 
 call plug#end()
 
