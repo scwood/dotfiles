@@ -87,9 +87,11 @@
 	<key>NSColorPickerSlidersDefaults</key>
 	<string>1</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/osx</string>
+	<string>~/.vim/plugged/vim-hybrid</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{712, 488}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -122,6 +124,8 @@
 	</dict>
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>765 243 231 329 0 0 1280 777 </string>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>937 304 445 77 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>390 410 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
@@ -903,7 +907,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-02-01T08:37:22Z</date>
+	<date>2016-02-05T04:28:39Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -950,5 +954,9 @@
 	<false/>
 	<key>iTerm Version</key>
 	<string>2.9.20160113</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
