@@ -70,6 +70,7 @@ set statusline+=%l:%c\ %p%%\ %y\  " current line, character and filetype
 " ------------------------------------------------------------------------------
 " filetype specific settings
 " ------------------------------------------------------------------------------
+
 autocmd FileType markdown,text setlocal linebreak spell
 
 " ------------------------------------------------------------------------------
