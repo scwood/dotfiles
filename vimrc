@@ -10,7 +10,6 @@ Plug 'Glench/Vim-Jinja2-Syntax' " jinja support
 Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
-Plug 'jiangmiao/auto-pairs' " auto closes brackets, quotes, etc.
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
 Plug 'mattn/emmet-vim' " vim support for emmet
 Plug 'scrooloose/syntastic' " linting
