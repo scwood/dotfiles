@@ -8,12 +8,6 @@ if [ -f ~/.fzf.bash ]; then
     source ~/.fzf.bash
 fi
 
-# allow local config
-
-if [ -f ~/.bashrc_local ]; then
-  source ~/.bashrc_local
-fi
-
 # prompt
 
 PS1='\u@\h: \[\033[34m\]\w\[\033[0m\]'
@@ -33,12 +27,11 @@ export PATH=$PATH:$HOME/bin
 # aliases
 # ------------------------------------------------------------------------------
 
-# read OS name
-
-os="$(uname)"
+alias dot='cd ~/dotfiles'
 
 # OS X specific aliases
 
+os="$(uname)"
 if [[ $os == 'Darwin' ]]; then
   alias ls='ls -F -G'
   alias la='ls -A -F -G'
@@ -133,3 +126,9 @@ fcd() {
    local dir
    file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
+
+# allow local config
+
+if [ -f ~/.bashrc_local ]; then
+  source ~/.bashrc_local
+fi
