@@ -46,10 +46,11 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gb='git branch'
 alias gc='git commit'
+alias gca='git commit --amend'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gs='git status'
-alias gca='git commit --amend'
+alias gsu='git status -uno'
 
 # config file shortcuts
 
