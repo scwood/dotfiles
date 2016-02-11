@@ -84,5 +84,6 @@ nnoremap <leader>b :ls<cr>:b
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>p :FZF<cr>
 nnoremap <leader>so :source $MYVIMRC<cr>
+nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>wc :w <bar> !wc %<cr>
 nnoremap <leader>z 1z=e
