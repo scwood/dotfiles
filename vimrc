@@ -65,7 +65,7 @@ set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 set laststatus=2 " leave status line on
 set statusline=\ %t\ %y\ %m  " file name, filetype, and modified flag
 set statusline+=%= " switch to the right side
-set statusline+=%l:%c\ %p%%\  " current line, character and percentage in file
+set statusline+=%l/%L,%c\  " current line, character and percentage in file
 
 " ------------------------------------------------------------------------------
 " filetype specific settings
