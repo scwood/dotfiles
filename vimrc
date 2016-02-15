@@ -73,7 +73,8 @@ set statusline+=%l:%c\  " current line, character and percentage in file
 " filetype specific settings
 " ------------------------------------------------------------------------------
 
-autocmd FileType markdown,text setlocal linebreak spell
+autocmd FileType gitcommit,markdown,text setlocal spell
+autocmd FileType markdown,text setlocal linebreak 
 
 " ------------------------------------------------------------------------------
 " key mappings
