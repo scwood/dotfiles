@@ -14,7 +14,7 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
 Plug 'mattn/emmet-vim' " vim support for emmet
 Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
-Plug 'tpope/vim-commentary' " binds gcc to comment out blocks
+Plug 'tpope/vim-commentary' " comment out blocks easier
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
 Plug 'tpope/vim-surround' " easily surround things with quotes and braces
 
