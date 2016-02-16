@@ -63,7 +63,7 @@ set shiftwidth=4 " use four spaces for indents
 set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
 
 set laststatus=2 " leave status line on
-set statusline=\ %t " file name
+set statusline=\ %f " file name
 set statusline+=\ %y " filetype
 set statusline+=\ %m " modified flag
 set statusline+=%= " switch to the right side
