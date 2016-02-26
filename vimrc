@@ -6,17 +6,18 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'Glench/Vim-Jinja2-Syntax' " jinja support
+Plug 'Glench/Vim-Jinja2-Syntax' " jinja template language support
 Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
+Plug 'jiangmiao/auto-pairs' " close braces, quotes, etc. automatically
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
-Plug 'mattn/emmet-vim' " vim support for emmet
+Plug 'mattn/emmet-vim', {'for': 'html'} " create HTML tags more easily
 Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks easier
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
-Plug 'tpope/vim-surround' " easily surround things with quotes and braces
+Plug 'tpope/vim-surround' " easily surround things with quotes, braces, etc.
 
 call plug#end()
 
@@ -35,7 +36,7 @@ syntax on " turn on syntax highlighting
 colorscheme hybrid
 
 set encoding=utf-8 " the encoding displayed
-set fileencoding=utf-8 " the encoding written to file
+set fileencoding=utf-8 " the encoding written
 
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
@@ -46,7 +47,7 @@ set scrolloff=3 " set a three line scrolling buffer at the top and bottom
 set hlsearch " highlight search
 set incsearch " jump to closest instance during search
 set ignorecase " case insensitive search
-set smartcase  " if using a capital, search becomes case sensitive search
+set smartcase " if using a capital, search becomes case sensitive
 
 set writebackup " make backup file during file overwrite
 set nobackup " delete backup after file is written
@@ -58,9 +59,9 @@ set t_vb= " make visual bell blank (effectively turning off all bells)
 set autoindent " copy indent from previous when starting new line
 set smartindent " smart newline autoindenting for languages
 set expandtab " use spaces for tabs
-set tabstop=4 " pressing tab will insert four spaces
+set tabstop=4 " existing tabs are shown as four columns
 set shiftwidth=4 " use four spaces for indents
-set softtabstop=4 " backspace deletes four spaces tab inserts two spaces
+set softtabstop=4 " in insert mode, backspace deletes four, tab inserts four
 
 set laststatus=2 " leave status line on
 set statusline=\ %f " file name
@@ -80,6 +81,7 @@ autocmd FileType markdown,text setlocal linebreak
 " ------------------------------------------------------------------------------
 " key mappings
 " ------------------------------------------------------------------------------
+
 map j gj
 map k gk
 
