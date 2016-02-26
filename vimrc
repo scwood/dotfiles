@@ -11,9 +11,9 @@ Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
 Plug 'jiangmiao/auto-pairs' " close braces, quotes, etc. automatically
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} " fuzzy finder
 Plug 'mattn/emmet-vim', {'for': 'html'} " create HTML tags more easily
 Plug 'scrooloose/syntastic' " linting
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy finder
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks easier
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
