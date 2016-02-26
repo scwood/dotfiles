@@ -1,3 +1,5 @@
+#!/bin/bash
+
 dir=~/dotfiles
 backup_dir=~/.dotfiles_backup
 
@@ -12,18 +14,20 @@ tmux.conf
 vimrc"
 
 echo
-echo "Creating $backup_dir for backup of existing dotfiles"
+echo "Creating backup directory at $backup_dir"
 mkdir -p $backup_dir
-rm -rf $backup_dir/*
 echo
 
 for file in $files; do
   if [ -a ~/.$file ]; then
     echo "Backing up .$file"
-    cp ~/.$file $backup_dir 2> /dev/null
+    now=`date '+%Y-%m-%d_%H:%M:%S'`
+    cp ~/.$file $backup_dir/$file\_$now 2> /dev/null
     rm ~/.$file 2> /dev/null
   fi
 done
+
+echo
 
 for file in $files; do
   echo "Symlinking .$file"
@@ -31,9 +35,11 @@ for file in $files; do
 done
 
 echo
-echo "Setting up git..."
+echo "Configuring git..."
 git config --global core.excludesfile '~/.gitignore_global'
 git config --global core.editor /usr/bin/vim
+git config --global user.email "spencercwood@gmail.com"
+git config --global user.name "Spencer Wood"
 echo "Finished"
 echo
 
@@ -45,8 +51,20 @@ if [ ! -e ~/.git-prompt.sh ]; then
 fi
 
 if [ ! -e ~/.vim/autoload/plug.vim ]; then
-  echo "Downloading VIM Plug..."
+  echo "Downloading Vim Plug..."
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   echo "Finished"
   echo
 fi
+
+echo "Installing Vim plugins..."
+vim +PlugInstall +qall
+echo "Finished"
+echo
+
+echo "Installing Tmux plugin manager..."
+if [ ! -e ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+echo "Finished"
+echo "To install Tmux plugins launch tmux and press 'C-a I'"
