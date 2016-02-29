@@ -12,6 +12,7 @@ Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
 Plug 'jiangmiao/auto-pairs' " close braces, quotes, etc. automatically
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy finder
+Plug 'junegunn/fzf.vim' " vim extensions for fzf
 Plug 'mattn/emmet-vim', {'for': 'html'} " create HTML tags more easily
 Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
@@ -86,10 +87,11 @@ map j gj
 map k gk
 
 map <space> <leader>
-nnoremap <leader>b :ls<cr>:b
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>f :BLines<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
-nnoremap <leader>p :FZF<cr>
 nnoremap <leader>so :source $MYVIMRC<cr>
+nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>wc :w <bar> !wc %<cr>
 nnoremap <leader>z 1z=e
