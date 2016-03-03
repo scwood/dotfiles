@@ -26,6 +26,7 @@ call plug#end()
 " ------------------------------------------------------------------------------
 
 let g:SuperTabDefaultCompletionType = '<c-n>'
+let g:syntastic_always_populate_loc_list = 1
 let g:user_emmet_expandabbr_key='<c-e>'
 
 " ------------------------------------------------------------------------------
@@ -85,11 +86,26 @@ autocmd FileType markdown,text setlocal linebreak
 map j gj
 map k gk
 
+nnoremap <c-s> :update<cr>
+inoremap <c-s> <C-o>:update<cr>
+
+nnoremap <c-q> :q<cr>
+inoremap <c-q> <C-o>:q<cr>
+
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprev<cr>
+
+nnoremap ]e :lnext<cr>
+nnoremap [e :lprev<cr>
+
+nnoremap ]t :tabnext<cr>
+nnoremap [t :tabprev<cr>
+
 map <space> <leader>
 nnoremap <leader>b :ls<cr>:b
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>p :FZF<cr>
-nnoremap <leader>so :source $MYVIMRC<cr>
+nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
-nnoremap <leader>wc :w <bar> !wc %<cr>
+nnoremap <leader>w :w <bar> !wc %<cr>
 nnoremap <leader>z 1z=e
