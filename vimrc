@@ -45,6 +45,7 @@ set fileencoding=utf-8 " the encoding written
 
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
+set cursorline " show what line you're currently on
 set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
