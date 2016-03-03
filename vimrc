@@ -18,6 +18,7 @@ Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks easier
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
+Plug 'tpope/vim-repeat' " allow repeatable plugin actions
 Plug 'tpope/vim-surround' " easily surround things with quotes, braces, etc.
 
 call plug#end()
@@ -27,6 +28,7 @@ call plug#end()
 " ------------------------------------------------------------------------------
 
 let g:SuperTabDefaultCompletionType = '<c-n>'
+let g:syntastic_always_populate_loc_list = 1
 let g:user_emmet_expandabbr_key='<c-e>'
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
@@ -35,6 +37,7 @@ let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 " ------------------------------------------------------------------------------
 
 syntax on " turn on syntax highlighting
+set background=dark
 colorscheme hybrid
 
 set encoding=utf-8 " the encoding displayed
@@ -42,6 +45,7 @@ set fileencoding=utf-8 " the encoding written
 
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
+set cursorline " show what line you're currently on
 set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
@@ -87,12 +91,29 @@ autocmd FileType markdown,text setlocal linebreak
 map j gj
 map k gk
 
+nnoremap <c-s> :update<cr>
+inoremap <c-s> <c-o>:update<cr>
+
+nnoremap <c-q> :q<cr>
+inoremap <c-q> <c-o>:q<cr>
+
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprev<cr>
+
+nnoremap ]e :lnext<cr>
+nnoremap [e :lprev<cr>
+
+nnoremap ]t :tabnext<cr>
+nnoremap [t :tabprev<cr>
+
 map <space> <leader>
 nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
-nnoremap <leader>so :source $MYVIMRC<cr>
-nnoremap <leader>t :FZF<cr>
+nnoremap <leader>p :FZF<cr>
+nnoremap <leader>s :source $MYVIMRC<cr>
+nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
-nnoremap <leader>wc :w <bar> !wc %<cr>
+nnoremap <leader>w :tabclose<cr>
 nnoremap <leader>z 1z=e
