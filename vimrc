@@ -13,12 +13,13 @@ Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
 Plug 'jiangmiao/auto-pairs' " close braces, quotes, etc. automatically
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy finder
 Plug 'junegunn/fzf.vim' " vim extensions for fzf
+Plug 'junegunn/goyo.vim' " vim extensions for fzf
 Plug 'mattn/emmet-vim', {'for': 'html'} " create HTML tags more easily
 Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks easier
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
-Plug 'tpope/vim-repeat' " allow plugin repeatable actions
+Plug 'tpope/vim-repeat' " allow repeatable plugin actions
 Plug 'tpope/vim-surround' " easily surround things with quotes, braces, etc.
 
 call plug#end()
@@ -36,6 +37,7 @@ let g:user_emmet_expandabbr_key='<c-e>'
 " ------------------------------------------------------------------------------
 
 syntax on " turn on syntax highlighting
+set background=dark
 colorscheme hybrid
 
 set encoding=utf-8 " the encoding displayed
