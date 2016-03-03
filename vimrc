@@ -28,6 +28,7 @@ call plug#end()
 
 let g:SuperTabDefaultCompletionType = '<c-n>'
 let g:user_emmet_expandabbr_key='<c-e>'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
 " ------------------------------------------------------------------------------
 " general settings
