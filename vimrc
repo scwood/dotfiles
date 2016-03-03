@@ -18,6 +18,7 @@ Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks easier
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
+Plug 'tpope/vim-repeat' " allow plugin repeatable actions
 Plug 'tpope/vim-surround' " easily surround things with quotes, braces, etc.
 
 call plug#end()
@@ -88,10 +89,10 @@ map j gj
 map k gk
 
 nnoremap <c-s> :update<cr>
-inoremap <c-s> <C-o>:update<cr>
+inoremap <c-s> <c-o>:update<cr>
 
 nnoremap <c-q> :q<cr>
-inoremap <c-q> <C-o>:q<cr>
+inoremap <c-q> <c-o>:q<cr>
 
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
@@ -104,10 +105,12 @@ nnoremap [t :tabprev<cr>
 
 map <space> <leader>
 nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
+nnoremap <leader>p :FZF<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
-nnoremap <leader>t :FZF<cr>
+nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
-nnoremap <leader>w :w <bar> !wc %<cr>
+nnoremap <leader>w :tabclose<cr>
 nnoremap <leader>z 1z=e
