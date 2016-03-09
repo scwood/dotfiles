@@ -15,8 +15,9 @@ if [ -f ~/.git-prompt.sh ]; then
 fi
 PS1+='\n$ '
 
-# add ~/bin to the path
-export PATH=$PATH:$HOME/bin
+# add stuff to path
+export PATH=$PATH:$HOME/bin 
+export PATH="/usr/local/sbin:$PATH"
 
 # get OS
 export PLATFORM=$(uname)
