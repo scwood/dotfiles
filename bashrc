@@ -47,6 +47,7 @@ alias gc='git commit'
 alias gca='git commit --amend'
 alias gcm='git commit -m'
 alias gd='git diff'
+alias gpom='git push origin master'
 alias gs='git status'
 alias gsu='git status -uno'
 
