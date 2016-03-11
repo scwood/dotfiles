@@ -13,7 +13,7 @@ Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
 Plug 'jiangmiao/auto-pairs' " close braces, quotes, etc. automatically
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy finder
 Plug 'junegunn/fzf.vim' " vim extensions for fzf
-Plug 'mattn/emmet-vim', {'for': 'html'} " create HTML tags more easily
+Plug 'mattn/emmet-vim', {'for': ['html', 'xml']} " create HTML tags more easily
 Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks easier
