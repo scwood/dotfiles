@@ -92,10 +92,13 @@ map j gj
 map k gk
 
 nnoremap <c-s> :update<cr>
-inoremap <c-s> <c-o>:update<cr>
+inoremap <c-s> <c-o>:update<cr><esc>
 
 nnoremap <c-q> :q<cr>
 inoremap <c-q> <c-o>:q<cr>
+
+nnoremap <c-x> :wq<cr>
+inoremap <c-x> <c-o>:wq<cr>
 
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
