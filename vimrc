@@ -14,6 +14,7 @@ Plug 'jiangmiao/auto-pairs' " close braces, quotes, etc. automatically
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy finder
 Plug 'junegunn/fzf.vim' " vim extensions for fzf
 Plug 'mattn/emmet-vim', {'for': ['html', 'xml']} " create HTML tags more easily
+Plug 'pangloss/vim-javascript' " improved javascript support
 Plug 'scrooloose/syntastic' " linting
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks easier
@@ -81,6 +82,7 @@ set statusline+=%l:%c\  " current line, character and percentage in file
 " ------------------------------------------------------------------------------
 
 autocmd FileType gitcommit,markdown,text setlocal spell
+autocmd FileType html,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
 
