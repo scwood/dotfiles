@@ -6,7 +6,6 @@ backup_dir=~/.dotfiles_backup
 files="
 bash_profile
 bashrc
-gitignore_global 
 hammerspoon
 inputrc
 livestreamerrc 
@@ -36,7 +35,6 @@ done
 
 echo
 echo "Configuring git..."
-git config --global core.excludesfile '~/.gitignore_global'
 git config --global core.editor /usr/bin/vim
 git config --global user.email "spencercwood@gmail.com"
 git config --global user.name "Spencer Wood"
