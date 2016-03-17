@@ -43,15 +43,15 @@ syntax on " turn on syntax highlighting
 set background=dark
 colorscheme hybrid
 
-set encoding=utf-8 " the encoding displayed
-set fileencoding=utf-8 " the encoding written
-
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
 set cursorline " show what line you're currently on
 set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
+
+set encoding=utf-8 " the encoding displayed
+set fileencoding=utf-8 " the encoding written
 
 set hlsearch " highlight search
 set incsearch " jump to closest instance during search
@@ -94,6 +94,8 @@ autocmd FileType markdown,text setlocal linebreak
 
 map j gj
 map k gk
+
+nnoremap Q @q
 
 nnoremap <c-s> :update<cr>
 inoremap <c-s> <c-o>:update<cr><esc>
