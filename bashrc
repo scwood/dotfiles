@@ -10,6 +10,8 @@ fi
 # prompt
 PS1='\u@\h: \[\033[34m\]\w\[\033[0m\]'
 if [ -f ~/.git-prompt.sh ]; then
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
     source ~/.git-prompt.sh
     PS1+='\[\033[32m\]$(__git_ps1)\[\033[0m\]'
 fi
