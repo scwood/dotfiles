@@ -9,6 +9,7 @@ call plug#begin()
 Plug 'Glench/Vim-Jinja2-Syntax' " jinja template language support
 Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'ervandew/supertab' " uses tab to choose autocomplete suggestions
+Plug 'godlygeek/tabular' " align by characters
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
 Plug 'jiangmiao/auto-pairs' " close braces, quotes, etc. automatically
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy finder
@@ -29,9 +30,10 @@ call plug#end()
 " ------------------------------------------------------------------------------
 
 let g:SuperTabDefaultCompletionType = '<c-n>'
+let g:markdown_fenced_languages = ['python']
 let g:syntastic_always_populate_loc_list = 1
-let g:user_emmet_expandabbr_key='<c-e>'
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:user_emmet_expandabbr_key='<c-e>'
 
 " ------------------------------------------------------------------------------
 " general settings
