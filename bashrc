@@ -33,6 +33,10 @@ stty -ixon
 
 alias dot='cd ~/dotfiles'
 
+if hash nvim &> /dev/null; then
+  alias vim='nvim'
+fi
+
 # OS X specific aliases
 if [[ "$PLATFORM" == 'Darwin' ]]; then
     alias ls='ls -F -G'
