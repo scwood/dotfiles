@@ -8,15 +8,15 @@ call plug#begin()
 
 Plug 'christoomey/vim-tmux-navigator' " easy navigation between vim/tmux splits
 Plug 'godlygeek/tabular' " align by characters
-Plug 'hynek/vim-python-pep8-indent', {'for': 'python'} " better python format
+Plug 'hynek/vim-python-pep8-indent', " better python format
 Plug 'jiangmiao/auto-pairs' " close braces, quotes, etc. automatically
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder
 Plug 'junegunn/fzf.vim' " vim extensions for fzf
-Plug 'mattn/emmet-vim', {'for': ['html', 'xml']} " create HTML tags more easily
+Plug 'mattn/emmet-vim', { 'for': ['html', 'xml'] } " easy HTML tags 
 Plug 'pangloss/vim-javascript' " improved javascript support
 Plug 'scwood/vim-hybrid' " colorscheme
 Plug 'tpope/vim-commentary' " comment out blocks easier
-Plug 'tpope/vim-markdown', {'for': 'markdown'} " markdown enhancements
+Plug 'tpope/vim-markdown', " markdown enhancements
 Plug 'tpope/vim-repeat' " allow repeatable plugin actions
 Plug 'tpope/vim-surround' " easily surround things with quotes, braces, etc.
 
@@ -64,9 +64,6 @@ set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
 
-set encoding=utf-8 " the encoding displayed
-set fileencoding=utf-8 " the encoding written
-
 set hlsearch " highlight search
 set incsearch " jump to closest instance during search
 set ignorecase " case insensitive search
@@ -92,6 +89,11 @@ set statusline+=\ %y " filetype
 set statusline+=\ %m " modified flag
 set statusline+=%= " switch to the right side
 set statusline+=%l:%c\  " current line, character and percentage in file
+
+if !has('nvim')
+  set encoding=utf-8 " the encoding displayed
+  set fileencoding=utf-8 " the encoding written
+endif
 
 " ------------------------------------------------------------------------------
 " filetype specific settings
@@ -136,3 +138,7 @@ nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>w :tabclose<cr>
 nnoremap <leader>z 1z=e
+
+if has('nvim')
+  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+endif
