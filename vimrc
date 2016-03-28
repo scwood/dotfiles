@@ -42,7 +42,6 @@ if has('nvim')
         \ pumvisible() ? "\<C-n>" :
         \ deoplete#mappings#manual_complete()
   let g:deoplete#enable_at_startup = 1
-  let g:neomake_javascript_enabled_makers = ['eslint']
 else
   let g:SuperTabDefaultCompletionType = '<c-n>'
   let g:syntastic_always_populate_loc_list = 1
