@@ -1,5 +1,3 @@
-set nocompatible
-
 " ------------------------------------------------------------------------------
 " plugins
 " ------------------------------------------------------------------------------
@@ -19,6 +17,7 @@ Plug 'tpope/vim-commentary' " comment out blocks easier
 Plug 'tpope/vim-markdown', " markdown enhancements
 Plug 'tpope/vim-repeat' " allow repeatable plugin actions
 Plug 'tpope/vim-surround' " easily surround things with quotes, braces, etc.
+Plug 'tpope/vim-sleuth' " auto-detect indentation
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim' " autocompletion
@@ -112,8 +111,8 @@ map k gk
 
 nnoremap Q @q
 
-nnoremap <c-s> :update<cr>
-inoremap <c-s> <c-o>:update<cr><esc>
+inoremap <c-c> <esc>:update<cr>
+nnoremap <c-c> :update<cr>
 nnoremap <c-q> :q<cr>
 inoremap <c-q> <c-o>:q<cr>
 nnoremap <c-x> :wq<cr>
