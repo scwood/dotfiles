@@ -113,6 +113,7 @@ autocmd FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
 map j gj
 map k gk
 nnoremap <c-s> :update<cr>
+nnoremap <c-q> :q<cr>
 nnoremap Q @q
 nnoremap [b :bprev<cr>
 nnoremap ]b :bnext<cr>
