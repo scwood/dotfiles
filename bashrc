@@ -40,9 +40,9 @@ fi
 # OS X specific aliases
 if [[ "$PLATFORM" == 'Darwin' ]]; then
     alias ls='ls -F -G'
-    alias la='ls -A -F -G'
+    alias la='ls -a -F -G'
     alias ll='ls -F -G -h -l'
-    alias lla='ls -A -F -G -h -l'
+    alias lla='ls -a -F -G -h -l'
 fi
 
 # git aliases
