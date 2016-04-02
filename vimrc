@@ -20,6 +20,7 @@ Plug 'tpope/vim-surround'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
+Plug 'mxw/vim-jsx'
 
 " vim/nvim specifc
 if has('nvim')
@@ -36,6 +37,7 @@ call plug#end()
 " plugin specific settings
 " ------------------------------------------------------------------------------
 
+let g:jsx_ext_required = 0
 let g:user_emmet_expandabbr_key='<c-e>'
 
 if has('nvim')
