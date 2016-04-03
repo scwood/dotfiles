@@ -10,7 +10,8 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'xml'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'js'] }
+Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -41,10 +42,9 @@ let g:jsx_ext_required = 0
 let g:user_emmet_expandabbr_key='<c-e>'
 
 if has('nvim')
-  inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   autocmd! BufWritePost * Neomake
+  inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   let g:deoplete#enable_at_startup = 1
-  let g:neomake_verbose = 0
   let g:neomake_error_sign = {'text': '>>', 'texthl': 'ErrorMsg'}
   let g:neomake_warning_sign = {'text': '>>', 'texthl': 'Title'}
 else
@@ -114,6 +114,7 @@ autocmd FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 map j gj
 map k gk
+map <c-\> :NERDTreeToggle<CR>
 nnoremap <c-s> :update<cr>
 nnoremap <c-q> :q<cr>
 nnoremap Q @q
