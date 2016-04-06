@@ -19,14 +19,14 @@ Plug 'tpope/vim-surround'
 
 " language
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
-Plug 'mxw/vim-jsx'
 
 " vim/nvim specifc
 if has('nvim')
-  Plug 'benekastah/neomake'
   Plug 'Shougo/deoplete.nvim'
+  Plug 'benekastah/neomake'
 else
   Plug 'ervandew/supertab'
   Plug 'scrooloose/syntastic'
@@ -38,19 +38,35 @@ call plug#end()
 " plugin specific settings
 " ------------------------------------------------------------------------------
 
+" vim-jsx
 let g:jsx_ext_required = 0
+
+" emmet-vim
 let g:user_emmet_expandabbr_key='<c-e>'
 
 if has('nvim')
+
+  " neomake
   autocmd! BufWritePost * Neomake
-  inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  let g:deoplete#enable_at_startup = 1
+  let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+  let g:neomake_javascript_eslint_exe = 
+      \ substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
   let g:neomake_error_sign = {'text': '>>', 'texthl': 'ErrorMsg'}
   let g:neomake_warning_sign = {'text': '>>', 'texthl': 'Title'}
+
+  " deoplete.nvim
+  inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  let g:deoplete#enable_at_startup = 1
+
 else
+
+  " supertab
   let g:SuperTabDefaultCompletionType = '<c-n>'
+
+  " syntastic
   let g:syntastic_always_populate_loc_list = 1
   let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+
 endif
 
 " ------------------------------------------------------------------------------
