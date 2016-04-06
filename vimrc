@@ -130,8 +130,8 @@ autocmd FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 map j gj
 map k gk
-nnoremap <c-s> :update<cr>
 nnoremap <c-q> :q<cr>
+nnoremap <c-s> :update<cr>
 nnoremap Q @q
 nnoremap [b :bprev<cr>
 nnoremap ]b :bnext<cr>
@@ -141,6 +141,7 @@ nnoremap <leader>\ :NERDTreeToggle<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
+nnoremap <leader>l :lopen<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
