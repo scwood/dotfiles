@@ -10,7 +10,7 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'js'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'tpope/vim-commentary'
