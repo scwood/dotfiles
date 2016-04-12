@@ -11,14 +11,17 @@ export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/sbin:$PATH"
 
 # prompt
-PS1='\u@\h: \[\033[34m\]\w\[\033[0m\]'
+green="$(tput setaf 2)"
+blue="$(tput setaf 4)"
+reset="$(tput setaf 7)"
+PS1="\u@\h: ${blue}\w"
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
-  PS1+='\[\033[32m\]$(__git_ps1)\[\033[0m\]'
+  PS1+="${green}$(__git_ps1)"
 fi
-PS1+='\n$ '
+PS1+="${reset}\n$ "
 
 # enable ctrl-s and ctrl-q
 stty -ixon
