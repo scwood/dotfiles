@@ -119,10 +119,11 @@ endif
 " filetype specific settings
 " ------------------------------------------------------------------------------
 
-autocmd FileType gitcommit,markdown,text setlocal spell
-autocmd FileType make setlocal noexpandtab
-autocmd FileType markdown,text setlocal linebreak 
-autocmd FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
+au FileType gitcommit,markdown,text setlocal spell
+au FileType make setlocal noexpandtab
+au FileType markdown,text setlocal linebreak 
+au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
+au BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
 
 " ------------------------------------------------------------------------------
 " key mappings
