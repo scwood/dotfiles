@@ -7,8 +7,7 @@ if [ -f ~/.bashrc_local ]; then
 fi
 
 export PLATFORM=$(uname)
-export PATH=$PATH:$HOME/bin 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="$PATH:$HOME/bin:/usr/local/sbin"
 
 # prompt
 green="\[\033[32m\]"
