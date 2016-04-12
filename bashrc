@@ -101,12 +101,12 @@ fs() {
 
 if [ "$PLATFORM" = 'Darwin' ]; then
 
-  dockerinit() {
+  dockerInit() {
     [ $(docker-machine status default) = 'Running' ] || docker-machine start default
     eval "$(docker-machine env default)"
   }
 
-  dockerstop() {
+  dockerStop() {
     docker-machine stop default
   }
 
