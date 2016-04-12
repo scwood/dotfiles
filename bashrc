@@ -11,13 +11,15 @@ export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/sbin:$PATH"
 
 # prompt
-# prompt
-PS1='\u@\h: \[\033[34m\]\w\[\033[0m\]'
+green="\[\033[32m\]"
+blue="\[\033[34m\]"
+reset="\[\033[0m\]"
+PS1="\u@\h: ${blue}\w${reset}"
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
-  PS1+='\[\033[32m\]$(__git_ps1)\[\033[0m\]'
+  PS1+="${green}\$(__git_ps1)${reset}"
 fi
 PS1+='\n$ '
 
