@@ -138,6 +138,7 @@ nnoremap [b :bprev<cr>
 nnoremap ]b :bnext<cr>
 
 map <space> <leader>
+nnoremap <leader>; $a;<esc>
 nnoremap <leader>\ :NERDTreeToggle<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
