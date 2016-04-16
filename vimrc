@@ -107,7 +107,9 @@ set softtabstop=2 " in insert mode, backspace deletes four, tab inserts four
 
 set laststatus=2 " leave status line on
 set statusline=\ %f " file name
+set statusline+=\ %y " file type
 set statusline+=\ %{fugitive#statusline()}
+set statusline+=\ %m " modified flag
 set statusline+=%= " switch to the right side
 set statusline+=%l:%c\  " current line, character and percentage in file
 
