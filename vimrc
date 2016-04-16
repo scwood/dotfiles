@@ -11,11 +11,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
-Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 
 " language
 Plug 'hynek/vim-python-pep8-indent'
@@ -28,6 +29,7 @@ if has('nvim')
   Plug 'Shougo/deoplete.nvim'
   Plug 'benekastah/neomake'
 else
+  Plug 'Shougo/neocomplete.vim'
   Plug 'ervandew/supertab'
   Plug 'scrooloose/syntastic'
 endif
@@ -105,10 +107,17 @@ set softtabstop=2 " in insert mode, backspace deletes four, tab inserts four
 
 set laststatus=2 " leave status line on
 set statusline=\ %f " file name
-set statusline+=\ %y " filetype
-set statusline+=\ %m " modified flag
+set statusline+=\ %{fugitive#statusline()}
 set statusline+=%= " switch to the right side
 set statusline+=%l:%c\  " current line, character and percentage in file
+
+if has('persistent_undo')
+  if !isdirectory($HOME . "/.vim/backups")
+    call mkdir($HOME . "/.vim/backups", "p")
+  endif
+  set undodir=~/.vim/backups
+  set undofile 
+endif
 
 if !has('nvim')
   set encoding=utf-8 " the encoding displayed
@@ -139,6 +148,7 @@ nnoremap [b :bprev<cr>
 nnoremap ]b :bnext<cr>
 
 map <space> <leader>
+nnoremap <expr> <leader>r ":%s/<c-r><c-w>/" . input("Replace with: ") . "/g<cr>"
 nnoremap <leader>; $a;<esc>
 nnoremap <leader>\ :NERDTreeToggle<cr>
 nnoremap <leader>b :Buffers<cr>
@@ -146,7 +156,6 @@ nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>l :lopen<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
-nnoremap <leader>r *N:%s//
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
