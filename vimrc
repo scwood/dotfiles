@@ -75,7 +75,7 @@ endif
 " general settings
 " ------------------------------------------------------------------------------
 
-syntax on " turn on syntax highlighting
+syntax on
 set background=dark
 colorscheme hybrid
 
@@ -119,11 +119,6 @@ if has('persistent_undo')
   endif
   set undodir=~/.vim/backups
   set undofile 
-endif
-
-if !has('nvim')
-  set encoding=utf-8 " the encoding displayed
-  set fileencoding=utf-8 " the encoding written
 endif
 
 " ------------------------------------------------------------------------------
