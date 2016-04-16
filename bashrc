@@ -35,9 +35,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias vrc='vim ~/.vimrc'
-alias brc='vim ~/.bashrc'
-alias trc='vim ~/.tmux.conf'
+alias vrc='vim ~/dotfiles/vimrc'
+alias brc='vim ~/dotfiles/bashrc'
+alias trc='vim ~/dotfiles/tmux.conf'
 
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 alias ga='git add'
