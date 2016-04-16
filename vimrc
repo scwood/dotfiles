@@ -131,6 +131,7 @@ au BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
 
 map j gj
 map k gk
+nnoremap * *N
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :update<cr>
 nnoremap Q @q
@@ -145,6 +146,7 @@ nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>l :lopen<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
+nnoremap <leader>r *:%s//
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
