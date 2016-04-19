@@ -10,6 +10,7 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
 Plug 'scwood/vim-hybrid'
 Plug 'tpope/vim-commentary'
@@ -29,7 +30,6 @@ if has('nvim')
   Plug 'Shougo/deoplete.nvim'
   Plug 'benekastah/neomake'
 else
-  Plug 'Shougo/neocomplete.vim'
   Plug 'ervandew/supertab'
   Plug 'scrooloose/syntastic'
 endif
@@ -146,7 +146,9 @@ nnoremap ]b :bnext<cr>
 
 map <space> <leader>
 nnoremap <expr> <leader>r ":%s/<c-r><c-w>/" . input("Replace with: ") . "/g<cr>"
+nnoremap <leader>- yypVr-
 nnoremap <leader>; $a;<esc>
+nnoremap <leader>= yypVr=
 nnoremap <leader>\ :NERDTreeToggle<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
