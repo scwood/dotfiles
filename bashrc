@@ -30,6 +30,7 @@ stty -ixon
 # -----------------------------------------------------------------------------
 
 alias dot='cd ~/dotfiles'
+alias notes='cd ~/notes'
 
 alias ..='cd ..'
 alias ...='cd ../..'
