@@ -145,7 +145,7 @@ nnoremap [b :bprev<cr>
 nnoremap ]b :bnext<cr>
 
 map <space> <leader>
-nnoremap <expr> <leader>r ":%s/<c-r><c-w>/" . input("Replace with: ") . "/g<cr>"
+nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>- yypVr-
 nnoremap <leader>; $a;<esc>
 nnoremap <leader>= yypVr=
