@@ -29,6 +29,7 @@ Plug 'tpope/vim-markdown'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
   Plug 'benekastah/neomake'
+  Plug 'zchee/deoplete-jedi'
 else
   Plug 'ervandew/supertab'
   Plug 'scrooloose/syntastic'
@@ -51,6 +52,7 @@ if has('nvim')
   " deoplete.nvim
   inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   let g:deoplete#enable_at_startup = 1
+  set completeopt-=preview
 
   " neomake
   autocmd! BufWritePost * Neomake
@@ -145,9 +147,9 @@ nnoremap [b :bprev<cr>
 nnoremap ]b :bnext<cr>
 
 map <space> <leader>
-nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>- yypVr-
 nnoremap <leader>; $a;<esc>
+nnoremap <leader><s-f> :Ag<cr>
 nnoremap <leader>= yypVr=
 nnoremap <leader>\ :NERDTreeToggle<cr>
 nnoremap <leader>b :Buffers<cr>
@@ -155,6 +157,7 @@ nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>l :lopen<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
+nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
