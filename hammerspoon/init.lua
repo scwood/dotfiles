@@ -80,44 +80,17 @@ end
 -- hotkeys
 --------------------------------------------------------------------------------
 
--- reload config
 hs.hotkey.bind(cmdAltCtrl, "r", reloadConfig)
-
--- snap all windows to their nearest grid position
 hs.hotkey.bind(cmdAltCtrl, ";", snapAllWindows)
-
--- show windows hints
 hs.hotkey.bind(cmdAltCtrl, '/', hs.hints.windowHints)
-
--- move window to next monitor to the right
 hs.hotkey.bind(cmdAltCtrl, 'n', moveWindowToScreen(east))
-
--- move window to next monitor to the left
 hs.hotkey.bind(cmdAltCtrl, 'p', moveWindowToScreen(west))
-
--- maximize window
 hs.hotkey.bind(cmdAltCtrl, 'm', snapFocusedWindow(0, 0, 1, 1))
-
--- snap window left half
 hs.hotkey.bind(cmdAltCtrl, 'h', snapFocusedWindow(0, 0, 0.5, 1))
-
--- snap window bottom half
 hs.hotkey.bind(cmdAltCtrl, 'j', snapFocusedWindow(0, 0.5, 1, 0.5))
-
--- snap window top half
 hs.hotkey.bind(cmdAltCtrl, 'k', snapFocusedWindow(0, 0, 1, 0.5))
-
--- snap window right half
 hs.hotkey.bind(cmdAltCtrl, 'l', snapFocusedWindow(0.5, 0, 0.5, 1))
-
--- snap window NW corner
 hs.hotkey.bind(cmdAltCtrl, 'y', snapFocusedWindow(0, 0, 0.5, 0.5))
-
--- snap window NE corner
 hs.hotkey.bind(cmdAltCtrl, 'u', snapFocusedWindow(0.5, 0, 0.5, 0.5))
-
--- snap window SW corner
 hs.hotkey.bind(cmdAltCtrl, 'i', snapFocusedWindow(0, 0.5, 0.5, 0.5))
-
--- snap window SE corner
 hs.hotkey.bind(cmdAltCtrl, 'o', snapFocusedWindow(0.5, 0.5, 0.5, 0.5))
