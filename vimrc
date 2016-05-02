@@ -52,6 +52,7 @@ if has('nvim')
   " deoplete.nvim
   inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#file#enable_buffer_path = 1
   set completeopt-=preview
 
   " neomake
@@ -131,6 +132,7 @@ au FileType gitcommit,markdown,text setlocal spell
 au FileType make setlocal noexpandtab
 au FileType markdown,text setlocal linebreak 
 au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
+au FileType php setlocal nocursorline
 au BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
 
 " ------------------------------------------------------------------------------
