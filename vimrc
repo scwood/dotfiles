@@ -145,11 +145,10 @@ nnoremap * *N
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :update<cr>
 nnoremap Q @q
-nnoremap [b :bprev<cr>
-nnoremap ]b :bnext<cr>
 
 map <space> <leader>
 nnoremap <leader>- yypVr-
+nnoremap <leader>a ggVG
 nnoremap <leader>; $a;<esc>
 nnoremap <leader><s-f> :Ag<cr>
 nnoremap <leader>= yypVr=
