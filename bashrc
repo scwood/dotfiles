@@ -53,10 +53,6 @@ alias gpom='git push origin master'
 alias gs='git status'
 alias gsu='git status -uno'
 
-if hash nvim &> /dev/null; then
-  alias vim='nvim'
-fi
-
 if [[ "$PLATFORM" == 'Darwin' ]]; then
   alias ls='ls -FG'
   alias la='ls -aFG'
