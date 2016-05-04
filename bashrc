@@ -22,8 +22,9 @@ if [ -f ~/.git-prompt.sh ]; then
 fi
 PS1+='\n$ '
 
-# enable ctrl-s and ctrl-q
-stty -ixon
+stty -ixon # enable ctrl-s and ctrl-q
+bind Space:magic-space # magic space!
+
 
 # -----------------------------------------------------------------------------
 # aliases
