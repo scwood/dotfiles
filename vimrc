@@ -145,8 +145,8 @@ nnoremap * *N
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :update<cr>
 nnoremap Q @q
-nnoremap [t :tabp
-nnoremap ]t :tabn
+nnoremap [t :tabp<cr>
+nnoremap ]t :tabn<cr>
 
 map <space> <leader>
 nnoremap <leader>- yypVr-
