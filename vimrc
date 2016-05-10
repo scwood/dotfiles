@@ -124,12 +124,6 @@ if has('persistent_undo')
   set undofile 
 endif
 
-function! SyntaxItem()
-  return synIDattr(synID(line("."),col("."),1),"name")
-endfunction
-
-set statusline+=%{SyntaxItem()}
-
 " ------------------------------------------------------------------------------
 " filetype specific settings
 " ------------------------------------------------------------------------------
