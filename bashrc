@@ -25,7 +25,6 @@ PS1+='\n$ '
 stty -ixon # enable ctrl-s and ctrl-q
 bind Space:magic-space # magic space!
 
-
 # -----------------------------------------------------------------------------
 # aliases
 # -----------------------------------------------------------------------------
@@ -78,7 +77,7 @@ fcd() {
 # change git branches with fzf
 fbr() {
   local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
+  branches=$(git branch) &&
     branch=$(echo "$branches" |
   fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
     git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
