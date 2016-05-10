@@ -148,11 +148,11 @@ nnoremap Q @q
 
 map <space> <leader>
 nnoremap <leader>- yypVr-
-nnoremap <leader>a ggVG
 nnoremap <leader>; $a;<esc>
 nnoremap <leader><s-f> :Ag<cr>
 nnoremap <leader>= yypVr=
 nnoremap <leader>\ :NERDTreeToggle<cr>
+nnoremap <leader>a ggVG
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
