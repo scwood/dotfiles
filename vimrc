@@ -124,6 +124,12 @@ if has('persistent_undo')
   set undofile 
 endif
 
+augroup CursorLine
+  au!
+  au BufWinEnter,VimEnter,WinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
 " ------------------------------------------------------------------------------
 " filetype specific settings
 " ------------------------------------------------------------------------------
