@@ -53,6 +53,7 @@ alias gs='git status'
 alias gsu='git status -uno'
 
 if [[ "$PLATFORM" == 'Darwin' ]]; then
+  alias l='ls -FG'
   alias ls='ls -FG'
   alias la='ls -aFG'
   alias ll='ls -FGhl'
