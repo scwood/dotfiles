@@ -70,26 +70,22 @@ fi
 
 # cd into the directory of the selected file through fzf
 fcd() {
-  local file
-  local dir
-  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+  local file=$(fzf +m -q "$1") && local dir=$(dirname "$file") && cd "$dir"
 }
 
 # change git branches with fzf
 fbr() {
-  local branches branch
-  branches=$(git branch) &&
-    branch=$(echo "$branches" |
-  fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-    git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  local branches=$(git branch)
+  local branch=$(echo "$branches" |
+    fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m)
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
 # switch tmux-sessions with fzf
 fs() {
-  local session
-  session=$(tmux list-sessions -F "#{session_name}" | \
-    fzf-tmux --query="$1" --select-1 --exit-0) &&
-    tmux switch-client -t "$session"
+  local sessions=$(tmux list-sessions -F "#{session_name}")
+  local selection=$(echo "$sessions" | fzf-tmux --select-1 --exit-0)
+  tmux switch-client -t "$selection" || tmux attach -t "$selection"
 }
 
 # -----------------------------------------------------------------------------
