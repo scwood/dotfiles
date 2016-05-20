@@ -29,7 +29,6 @@ Plug 'tpope/vim-markdown'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
   Plug 'benekastah/neomake'
-  Plug 'zchee/deoplete-jedi'
 else
   Plug 'ervandew/supertab'
   Plug 'scrooloose/syntastic'
