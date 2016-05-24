@@ -24,6 +24,7 @@ PS1+='\n$ '
 
 stty -ixon # enable ctrl-s and ctrl-q
 bind Space:magic-space # magic space!
+export HISTCONTROL=ignoredups # ingore duplicates in history
 
 # -----------------------------------------------------------------------------
 # aliases
