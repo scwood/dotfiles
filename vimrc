@@ -56,9 +56,6 @@ if has('nvim')
 
   " neomake
   autocmd! BufWritePost * Neomake
-  let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-  let g:neomake_javascript_eslint_exe = 
-        \ substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
   let g:neomake_error_sign = {'text': '>>', 'texthl': 'ErrorMsg'}
   let g:neomake_warning_sign = {'text': '>>', 'texthl': 'Title'}
 
