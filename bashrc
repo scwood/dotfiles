@@ -13,7 +13,7 @@ export PATH="$PATH:$HOME/bin:/usr/local/sbin"
 green="\[\033[32m\]"
 blue="\[\033[34m\]"
 reset="\[\033[0m\]"
-PS1="\u@\h: ${blue}\w${reset}"
+PS1="\u@\h: ${blue}\W${reset}"
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=1
