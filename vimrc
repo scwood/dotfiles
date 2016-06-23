@@ -98,7 +98,7 @@ set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank (effectively turning off all bells)
 
 set autoindent " copy indent from previous when starting new line
-set smartindent " smart newline autoindenting for languages
+set cindent " smart newline autoindenting for languages
 set expandtab " use spaces for tabs
 set tabstop=2 " existing tabs are shown as four columns
 set shiftwidth=2 " use four spaces for indents
@@ -130,7 +130,7 @@ augroup END
 " filetype specific settings
 " ------------------------------------------------------------------------------
 
-au FileType gitcommit,markdown,text setlocal spell
+au FileType gitcommit spell
 au FileType make setlocal noexpandtab
 au FileType markdown,text setlocal linebreak 
 au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
