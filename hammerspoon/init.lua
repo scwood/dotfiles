@@ -82,7 +82,6 @@ end
 
 hs.hotkey.bind(cmdAltCtrl, "r", reloadConfig)
 hs.hotkey.bind(cmdAltCtrl, ";", snapAllWindows)
-hs.hotkey.bind(cmdAltCtrl, '/', hs.hints.windowHints)
 hs.hotkey.bind(cmdAltCtrl, ']', moveWindowToScreen(east))
 hs.hotkey.bind(cmdAltCtrl, '[', moveWindowToScreen(west));
 hs.hotkey.bind(cmdAltCtrl, 'm', snapFocusedWindow(0, 0, 1, 1))
