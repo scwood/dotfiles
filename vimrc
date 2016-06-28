@@ -100,21 +100,22 @@ set noswapfile " turn off swap files
 set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank (effectively turning off all bells)
 
-set autoindent " copy indent from previous when starting new line
+set autoindent " copy indent from previous line when starting new line
 set smartindent " smart newline autoindenting for languages
 set expandtab " use spaces for tabs
-set tabstop=2 " existing tabs are shown as four columns
-set shiftwidth=2 " use four spaces for indents
-set softtabstop=2 " in insert mode, backspace deletes four, tab inserts four
+set tabstop=2 " existing tabs are shown as two columns
+set shiftwidth=2 " use two spaces for indents
+set softtabstop=2 " in insert mode, backspace deletes two, tab inserts two
 
 set laststatus=2 " leave status line on
 set statusline=\ %f " file name
 set statusline+=\ %y " file type
-set statusline+=\ %{fugitive#statusline()}
+set statusline+=\ %{fugitive#statusline()} " git info
 set statusline+=\ %m " modified flag
 set statusline+=%= " switch to the right side
 set statusline+=%l:%c\  " current line, character and percentage in file
 
+" persistent undo after closing
 if has('persistent_undo')
   if !isdirectory($HOME . "/.vim/backups")
     call mkdir($HOME . "/.vim/backups", "p")
@@ -123,6 +124,7 @@ if has('persistent_undo')
   set undofile 
 endif
 
+" only show cursorline on selected buffer
 augroup CursorLine
   au!
   au BufWinEnter,VimEnter,WinEnter * setlocal cursorline
