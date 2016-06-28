@@ -56,9 +56,6 @@ if has('nvim')
 
   " neomake
   autocmd! BufWritePost * Neomake
-  let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-  let g:neomake_javascript_eslint_exe = 
-        \ substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
   let g:neomake_error_sign = {'text': '>>', 'texthl': 'ErrorMsg'}
   let g:neomake_warning_sign = {'text': '>>', 'texthl': 'Title'}
 
@@ -100,8 +97,8 @@ set noswapfile " turn off swap files
 set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank (effectively turning off all bells)
 
-set autoindent " copy indent from previous line when starting new line
-set smartindent " smart newline autoindenting for languages
+set autoindent " copy indent from previous when starting new line
+set cindent " smart newline autoindenting for languages
 set expandtab " use spaces for tabs
 set tabstop=2 " existing tabs are shown as two columns
 set shiftwidth=2 " use two spaces for indents
@@ -135,7 +132,7 @@ augroup END
 " filetype specific settings
 " ------------------------------------------------------------------------------
 
-au FileType gitcommit,markdown,text setlocal spell
+au FileType gitcommit spell
 au FileType make setlocal noexpandtab
 au FileType markdown,text setlocal linebreak 
 au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
