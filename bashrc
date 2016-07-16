@@ -2,10 +2,6 @@
 # general
 # -----------------------------------------------------------------------------
 
-if [ -f ~/.bashrc_local ]; then
-  source ~/.bashrc_local
-fi
-
 export PLATFORM=$(uname)
 export PATH="$PATH:$HOME/bin:/usr/local/sbin"
 
@@ -135,3 +131,11 @@ extract() {
     fi
   done
 }
+
+# -----------------------------------------------------------------------------
+# local config
+# -----------------------------------------------------------------------------
+
+if [ -f ~/.bashrc_local ]; then
+  source ~/.bashrc_local
+fi
