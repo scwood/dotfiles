@@ -99,6 +99,7 @@ set noswapfile " turn off swap files
 set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank (effectively turning off all bells)
 
+filetype plugin indent on
 set autoindent " copy indent from previous when starting new line
 set cindent " smart newline autoindenting for languages
 set expandtab " use spaces for tabs
