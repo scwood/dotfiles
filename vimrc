@@ -123,13 +123,6 @@ if has('persistent_undo')
   set undofile 
 endif
 
-" only show cursorline on selected buffer
-augroup CursorLine
-  au!
-  au BufWinEnter,VimEnter,WinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-augroup END
-
 " ------------------------------------------------------------------------------
 " filetype specific settings
 " ------------------------------------------------------------------------------
