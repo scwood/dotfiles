@@ -16,7 +16,7 @@ if [ -f ~/.git-prompt.sh ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   PS1+="${green}\$(__git_ps1)${reset}"
 fi
-PS1+='\n$ '
+PS1+=' $ '
 
 stty -ixon # enable ctrl-s and ctrl-q
 bind Space:magic-space # magic space!
