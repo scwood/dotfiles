@@ -149,6 +149,7 @@ nnoremap [t :tabp<cr>
 nnoremap ]t :tabn<cr>
 
 map <space> <leader>
+nnoremap <leader>, $a,<esc>
 nnoremap <leader>- yypVr-
 nnoremap <leader>; $a;<esc>
 nnoremap <leader><s-f> :Ag<cr>
