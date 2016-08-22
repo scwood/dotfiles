@@ -128,7 +128,7 @@ endif
 " filetype specific settings
 " ------------------------------------------------------------------------------
 
-au FileType gitcommit spell
+au FileType gitcommit set spell
 au FileType make setlocal noexpandtab
 au FileType markdown,text setlocal linebreak 
 au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
