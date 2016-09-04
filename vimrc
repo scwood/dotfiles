@@ -6,6 +6,7 @@ call plug#begin()
 
 " editor
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -26,16 +27,6 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
 
-" vim/nvim specifc
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'benekastah/neomake'
-  Plug 'jaawerth/neomake-local-eslint-first'
-else
-  Plug 'ervandew/supertab'
-  Plug 'scrooloose/syntastic'
-endif
-
 call plug#end()
 
 " ------------------------------------------------------------------------------
@@ -48,30 +39,8 @@ let g:user_emmet_expandabbr_key='<c-e>'
 " vim-jsx
 let g:jsx_ext_required = 0
 
-if has('nvim')
-
-  " deoplete.nvim
-  inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#file#enable_buffer_path = 1
-  set completeopt-=preview
-
-  " neomake
-  autocmd! BufWritePost * Neomake
-  let g:neomake_error_sign = {'text': '>>', 'texthl': 'ErrorMsg'}
-  let g:neomake_warning_sign = {'text': '>>', 'texthl': 'Title'}
-  let g:neomake_javascript_enabled_makers = ['eslint']
-
-else
-
-  " supertab
-  let g:SuperTabDefaultCompletionType = '<c-n>'
-
-  " syntastic
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-
-endif
+" supertab
+let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " ------------------------------------------------------------------------------
 " general settings
@@ -83,7 +52,6 @@ colorscheme hybrid
 
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
-set cursorline " show what line you're currently on
 set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
@@ -133,7 +101,6 @@ au FileType gitcommit set spell
 au FileType make setlocal noexpandtab
 au FileType markdown,text setlocal linebreak 
 au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
-au FileType php setlocal nocursorline
 au BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
 
 " ------------------------------------------------------------------------------
@@ -168,7 +135,3 @@ nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>z 1z=e
-
-if has('nvim')
-  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
-endif
