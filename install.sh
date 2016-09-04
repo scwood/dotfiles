@@ -7,6 +7,7 @@ files="
 bash_profile
 bashrc
 hammerspoon
+hyperterm.js
 inputrc
 livestreamerrc 
 tmux.conf
