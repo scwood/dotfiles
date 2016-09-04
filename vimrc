@@ -5,6 +5,7 @@
 call plug#begin()
 
 " editor
+Plug 'Shougo/neocomplete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
@@ -13,7 +14,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
-Plug 'vim-scripts/AutoComplPop'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'tpope/vim-commentary'
@@ -34,14 +34,17 @@ call plug#end()
 " plugin specific settings
 " ------------------------------------------------------------------------------
 
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+
 " emmet-vim
 let g:user_emmet_expandabbr_key='<c-e>'
 
-" vim-jsx
-let g:jsx_ext_required = 0
-
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-n>'
+
+" vim-jsx
+let g:jsx_ext_required = 0
 
 " ------------------------------------------------------------------------------
 " general settings
