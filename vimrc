@@ -7,6 +7,7 @@ call plug#begin()
 " editor
 Plug 'Shougo/neocomplete.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ddrscott/vim-side-search'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
@@ -14,6 +15,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
+Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'tpope/vim-commentary'
@@ -40,6 +42,11 @@ let g:neocomplete#enable_at_startup = 1
 " emmet-vim
 let g:user_emmet_expandabbr_key='<c-e>'
 
+" fzf.vim
+if executable('ag')
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+endif
+
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-n>'
 
@@ -56,6 +63,7 @@ colorscheme hybrid
 
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
+set completeopt-=preview " disable preview window on autocomplete
 set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
@@ -108,24 +116,33 @@ au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
 
 " ------------------------------------------------------------------------------
-" key mappings
+" default keybinds
 " ------------------------------------------------------------------------------
 
 map j gj
 map k gk
+
 nnoremap * *N
+nnoremap Q @q
+
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :update<cr>
-nnoremap Q @q
+
 nnoremap [t :tabp<cr>
 nnoremap ]t :tabn<cr>
 
+nnoremap <s-tab> <<
+vnoremap <s-tab> <<
+nnoremap <tab> >>
+vnoremap <tab> >>
+
+" ------------------------------------------------------------------------------
+" leader keybinds
+" ------------------------------------------------------------------------------
+
 map <space> <leader>
-nnoremap <leader>, $a,<esc>
-nnoremap <leader>- yypVr-
-nnoremap <leader>; $a;<esc>
-nnoremap <leader><s-f> :Ag<cr>
-nnoremap <leader>= yypVr=
+
+nnoremap <leader><s-f> :SideSearch 
 nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
 nnoremap <leader>a ggVG
 nnoremap <leader>b :Buffers<cr>
@@ -139,3 +156,10 @@ nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>z 1z=e
+
+nnoremap <leader>, $a,<esc>
+nnoremap <leader>; $a;<esc>
+
+nnoremap <leader>- yypVr-
+nnoremap <leader>= yypVr=
+
