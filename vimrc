@@ -4,7 +4,6 @@
 
 call plug#begin()
 
-" editor
 Plug 'Shougo/neocomplete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ddrscott/vim-side-search'
@@ -18,17 +17,12 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-
-" language
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-markdown'
 
 call plug#end()
 
