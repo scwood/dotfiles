@@ -59,6 +59,7 @@ set clipboard=unnamed " use system clipboard
 set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
+set completeopt-=preview " disable autocomplete window
 
 set hlsearch " highlight search
 set incsearch " jump to closest instance during search
