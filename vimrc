@@ -5,6 +5,8 @@
 call plug#begin()
 
 Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/vimshell.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ddrscott/vim-side-search'
 Plug 'ervandew/supertab'
@@ -19,6 +21,7 @@ Plug 'scwood/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
