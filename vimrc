@@ -5,8 +5,6 @@
 call plug#begin()
 
 Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/vimshell.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ddrscott/vim-side-search'
 Plug 'ervandew/supertab'
@@ -14,7 +12,6 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
@@ -24,6 +21,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vim-scripts/YankRing.vim'
 
 call plug#end()
 
@@ -157,4 +155,3 @@ nnoremap <leader>; $a;<esc>
 
 nnoremap <leader>- yypVr-
 nnoremap <leader>= yypVr=
-
