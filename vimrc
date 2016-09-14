@@ -101,12 +101,12 @@ endif
 " ------------------------------------------------------------------------------
 " filetype specific settings
 " ------------------------------------------------------------------------------
-
+au BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
 au FileType gitcommit set spell
 au FileType make setlocal noexpandtab
 au FileType markdown,text setlocal linebreak 
+au FileType php NeoCompleteLock
 au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
-au BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
 
 " ------------------------------------------------------------------------------
 " default keybinds
