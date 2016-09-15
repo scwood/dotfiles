@@ -87,7 +87,7 @@ set statusline+=\ %y " file type
 set statusline+=\ %{fugitive#statusline()} " git info
 set statusline+=\ %m " modified flag
 set statusline+=%= " switch to the right side
-set statusline+=%l:%c\  " current line, character and percentage in file
+set statusline+=%l:%c\ /\ %L\  " current line, character and percentage in file
 
 " persistent undo after closing
 if has('persistent_undo')
