@@ -14,9 +14,9 @@ hs.grid.GRIDWIDTH = 2
 
 -- direction enum
 north = 1
-south = 2
-west = 3
-east = 4
+east = 2
+south = 3
+west = 4
 
 --------------------------------------------------------------------------------
 -- functions
