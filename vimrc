@@ -9,7 +9,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ddrscott/vim-side-search'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
@@ -28,9 +28,8 @@ call plug#end()
 " ------------------------------------------------------------------------------
 " plugin specific settings
 " ------------------------------------------------------------------------------
-
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
+" delimitMate
+let delimitMate_expand_cr=1
 
 " emmet-vim
 let g:user_emmet_expandabbr_key='<c-e>'
@@ -39,6 +38,9 @@ let g:user_emmet_expandabbr_key='<c-e>'
 if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-n>'
