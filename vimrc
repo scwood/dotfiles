@@ -28,6 +28,7 @@ call plug#end()
 " ------------------------------------------------------------------------------
 " plugin specific settings
 " ------------------------------------------------------------------------------
+
 " delimitMate
 let delimitMate_expand_cr=1
 
@@ -123,6 +124,7 @@ nnoremap * *N
 nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
+nnoremap <c-s-q> :q!<cr>
 nnoremap <c-s> :update<cr>
 
 nnoremap [t :tabp<cr>
@@ -146,7 +148,6 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>l :lopen<cr>
-nnoremap <leader>m :%s/<c-v><c-m>/<c-v><cr>/g<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>s :source $MYVIMRC<cr>
