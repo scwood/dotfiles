@@ -33,12 +33,13 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias vrc='vim ~/dotfiles/vimrc'
 alias brc='vim ~/dotfiles/bashrc'
 alias trc='vim ~/dotfiles/tmux.conf'
+alias vrc='vim ~/dotfiles/vimrc'
 
-alias tks='tmux kill-session -t'
 alias tas='tmux attach-session -t'
+alias tks='tmux kill-session -t'
+alias tns='tmux new-session -s'
 
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 alias ga='git add'
