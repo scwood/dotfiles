@@ -86,9 +86,9 @@ set softtabstop=2 " in insert mode, backspace deletes two, tab inserts two
 
 set laststatus=2 " leave status line on
 set statusline=
-set statusline+=\ [%n]
 set statusline+=\ %f " file name
 set statusline+=\ %y " file type
+set statusline+=\ [%n]
 set statusline+=\ %{fugitive#statusline()} " git info
 set statusline+=\ %m " modified flag
 set statusline+=%= " switch to the right side
