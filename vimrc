@@ -4,12 +4,12 @@
 
 call plug#begin()
 
+Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neocomplete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ddrscott/vim-side-search'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
-Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
@@ -94,7 +94,7 @@ set statusline+=\ %m " modified flag
 set statusline+=%= " switch to the right side
 set statusline+=\ %l:%c\/%L\  " current line
 
-" persistent undo after closing
+" persistent undo even after closing
 if has('persistent_undo')
   if !isdirectory($HOME . "/.vim/backups")
     call mkdir($HOME . "/.vim/backups", "p")
@@ -106,12 +106,14 @@ endif
 " ------------------------------------------------------------------------------
 " filetype specific settings
 " ------------------------------------------------------------------------------
-au BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
-au FileType gitcommit set spell
-au FileType make setlocal noexpandtab
-au FileType markdown,text setlocal linebreak 
-au FileType sql,php NeoCompleteLock
-au FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
+
+autocmd BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
+autocmd FileType gitcommit set spell
+autocmd FileType julia setlocal commentstring=#\ %s
+autocmd FileType make setlocal noexpandtab
+autocmd FileType markdown,text setlocal linebreak 
+autocmd FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType sql,php NeoCompleteLock
 
 " ------------------------------------------------------------------------------
 " default keybinds
@@ -124,7 +126,6 @@ nnoremap * *N
 nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
-nnoremap <c-s-q> :q!<cr>
 nnoremap <c-s> :update<cr>
 
 nnoremap [t :tabp<cr>
@@ -147,7 +148,6 @@ nnoremap <leader>a ggVG
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
-nnoremap <leader>l :lopen<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>s :source $MYVIMRC<cr>
