@@ -13,6 +13,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
+Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
@@ -21,7 +22,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/YankRing.vim'
 
 call plug#end()
 
@@ -160,3 +160,6 @@ nnoremap <leader>; $a;<esc>
 
 nnoremap <leader>- yypVr-
 nnoremap <leader>= yypVr=
+
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
