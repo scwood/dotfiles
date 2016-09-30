@@ -37,7 +37,7 @@ let g:user_emmet_expandabbr_key='<c-e>'
 
 " fzf.vim
 if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let $FZF_DEFAULT_COMMAND = 'ag --follow -g ""'
 endif
 
 " neocomplete
