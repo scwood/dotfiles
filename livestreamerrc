@@ -1,2 +1,3 @@
 # Player options
 player=mpv --cache 2048 --no-border --autofit=80% --input-media-keys=no
+twitch-oauth-token=9knuxa5uqz6rs50eqma4vnrdecs74p
