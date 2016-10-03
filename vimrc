@@ -124,7 +124,6 @@ map k gk
 
 nnoremap * *N
 nnoremap Q @q
-nnoremap M `m
 
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :update<cr>
