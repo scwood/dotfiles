@@ -122,6 +122,8 @@ autocmd FileType sql,php NeoCompleteLock
 map j gj
 map k gk
 
+inoremap jk <esc>
+
 nnoremap * *N
 nnoremap Q @q
 
