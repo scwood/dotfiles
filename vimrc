@@ -23,16 +23,12 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
 
 call plug#end()
 
 " ------------------------------------------------------------------------------
 " plugin specific settings
 " ------------------------------------------------------------------------------
-
-" ale
-let g:ale_sign_column_always = 1
 
 " delimitMate
 let delimitMate_expand_cr=1
