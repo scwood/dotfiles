@@ -151,6 +151,7 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
+nnoremap <leader>o :!open .<cr>
 nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
