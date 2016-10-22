@@ -112,7 +112,7 @@ autocmd FileType gitcommit set spell
 autocmd FileType julia setlocal commentstring=#\ %s
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
-autocmd FileType python,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType python,cs,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType sql,php NeoCompleteLock
 
 " ------------------------------------------------------------------------------
