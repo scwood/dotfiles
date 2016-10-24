@@ -1,9 +1,9 @@
-const backgroundColor = '#1D1F21';
+const backgroundColor = '#1c1c1c';
 
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 13,
+    fontSize: 15,
 
     lineHeight: 33,
 
