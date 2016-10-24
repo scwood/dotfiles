@@ -140,6 +140,8 @@ vnoremap <tab> >>
 
 map <space> <leader>
 
+nnoremap <leader>2 :setlocal tabstop=2 shiftwidth=2 softtabstop=2<cr>
+nnoremap <leader>4 :setlocal tabstop=4 shiftwidth=4 softtabstop=4<cr>
 nnoremap <leader><s-f> :SideSearch 
 nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
 nnoremap <leader>a ggVG
