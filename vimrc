@@ -12,6 +12,7 @@ Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-slash'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'metakirby5/codi.vim'
@@ -123,15 +124,10 @@ map j gj
 map k gk
 
 inoremap jk <esc>
-
-nnoremap * *N
 nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :update<cr>
-
-nnoremap [t :tabp<cr>
-nnoremap ]t :tabn<cr>
 
 nnoremap <s-tab> <<
 vnoremap <s-tab> <<
