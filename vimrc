@@ -24,6 +24,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -31,11 +32,14 @@ call plug#end()
 " plugin specific settings
 " ------------------------------------------------------------------------------
 
+" ale
+let g:ale_sign_column_always = 1
+
 " delimitMate
-let delimitMate_expand_cr=1
+let delimitMate_expand_cr = 1
 
 " emmet-vim
-let g:user_emmet_expandabbr_key='<c-e>'
+let g:user_emmet_expandabbr_key = '<c-e>'
 
 " fzf.vim
 if executable('ag')
@@ -123,7 +127,6 @@ autocmd FileType sql,php NeoCompleteLock
 map j gj
 map k gk
 
-inoremap jk <esc>
 nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
