@@ -73,8 +73,11 @@ if [ -f ~/.fzf.bash ]; then
 fi
 
 # cd into the directory of the selected file through fzf
-fcd() {
-  local file=$(fzf +m -q "$1") && local dir=$(dirname "$file") && cd "$dir"
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+    -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
 }
 
 # change git branches with fzf
@@ -97,15 +100,6 @@ fs() {
 # -----------------------------------------------------------------------------
 
 if [ "$PLATFORM" = 'Darwin' ]; then
-
-  dockerInit() {
-    [ $(docker-machine status default) = 'Running' ] || docker-machine start default
-    eval "$(docker-machine env default)"
-  }
-
-  dockerStop() {
-    docker-machine stop default
-  }
 
   showHidden() {
     defaults write com.apple.finder AppleShowAllFiles YES
