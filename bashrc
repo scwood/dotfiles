@@ -113,6 +113,12 @@ if [ "$PLATFORM" = 'Darwin' ]; then
 
 fi
 
+dockerCleanup() {
+  docker run --rm \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /etc:/etc spotify/docker-gc
+}
+
 extract() {
   if [ -z $1 ]; then
     echo "usage: extract file_name"
