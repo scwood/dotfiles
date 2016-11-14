@@ -161,6 +161,7 @@ nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>z 1z=e
 
 nnoremap <leader>, $a,<esc>
+nnoremap <leader>. $a.<esc>
 nnoremap <leader>; $a;<esc>
 
 nmap <leader>p <Plug>yankstack_substitute_older_paste
