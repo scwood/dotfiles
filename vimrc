@@ -160,9 +160,9 @@ nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>z 1z=e
 
-nnoremap <leader>, $a,<esc>
-nnoremap <leader>. $a.<esc>
-nnoremap <leader>; $a;<esc>
+nnoremap <leader>, mz$a,<esc>`z
+nnoremap <leader>. mz$a.<esc>`z
+nnoremap <leader>; mz$a;<esc>`z
 
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
