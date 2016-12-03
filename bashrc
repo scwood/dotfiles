@@ -9,14 +9,14 @@ export PATH="$PATH:$HOME/bin:/usr/local/sbin"
 green="\[\033[32m\]"
 blue="\[\033[34m\]"
 reset="\[\033[0m\]"
-PS1="\u@\h: ${blue}\W${reset}"
+PS1="\u@\h: ${blue}\w${reset}"
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
   PS1+="${green}\$(__git_ps1)${reset}"
 fi
-PS1+=' $ '
+PS1+='\n$ '
 
 stty -ixon # enable ctrl-s and ctrl-q
 bind Space:magic-space # magic space!
