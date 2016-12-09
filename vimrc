@@ -7,7 +7,6 @@ call plug#begin()
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neocomplete.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ddrscott/vim-side-search'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -15,7 +14,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'metakirby5/codi.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
@@ -147,7 +145,7 @@ map <space> <leader>
 
 nnoremap <leader>2 :setlocal tabstop=2 shiftwidth=2 softtabstop=2<cr>
 nnoremap <leader>4 :setlocal tabstop=4 shiftwidth=4 softtabstop=4<cr>
-nnoremap <leader><s-f> :SideSearch 
+nnoremap <leader><s-f> :Ag<cr>
 nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
 nnoremap <leader>a ggVG
 nnoremap <leader>b :Buffers<cr>
@@ -164,6 +162,9 @@ nnoremap <leader>z 1z=e
 nnoremap <leader>, mz$a,<esc>`z
 nnoremap <leader>. mz$a.<esc>`z
 nnoremap <leader>; mz$a;<esc>`z
+
+nnoremap <leader>- :res -5<cr>
+nnoremap <leader>= :res +5<cr>
 
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
