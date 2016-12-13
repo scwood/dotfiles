@@ -10,6 +10,7 @@ hammerspoon
 hyperterm.js
 inputrc
 livestreamerrc 
+phoenix.js
 tmux.conf
 vimrc"
 
