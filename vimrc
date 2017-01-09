@@ -163,8 +163,9 @@ nnoremap <leader>, mz$a,<esc>`z
 nnoremap <leader>. mz$a.<esc>`z
 nnoremap <leader>; mz$a;<esc>`z
 
-nnoremap <leader>- :res -5<cr>
-nnoremap <leader>= :res +5<cr>
+nnoremap <leader>- :resize -5<cr>
+nnoremap <leader>= :resize +5<cr>
+nnoremap <leader><s>= :vertical resize +5<cr>
 
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
