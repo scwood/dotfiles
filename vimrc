@@ -157,6 +157,7 @@ nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
+nnoremap <leader>w :set nowrap!<cr>
 nnoremap <leader>z 1z=e
 
 nnoremap <leader>, mz$a,<esc>`z
@@ -165,7 +166,6 @@ nnoremap <leader>; mz$a;<esc>`z
 
 nnoremap <leader>- :resize -5<cr>
 nnoremap <leader>= :resize +5<cr>
-nnoremap <leader><s>= :vertical resize +5<cr>
 
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
