@@ -4,6 +4,7 @@
 
 call plug#begin()
 
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neocomplete.vim'
 Plug 'christoomey/vim-tmux-navigator'
