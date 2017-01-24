@@ -8,6 +8,7 @@ bash_profile
 bashrc
 hammerspoon
 hyperterm.js
+ideavimrc
 inputrc
 livestreamerrc 
 phoenix.js
