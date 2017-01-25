@@ -1,6 +1,6 @@
-const cmdAltCtrl = ['cmd', 'alt', 'ctrl'];
+var cmdAltCtrl = ['cmd', 'alt', 'ctrl'];
 
-const keybinds = [
+var keybinds = [
   ['m', cmdAltCtrl, snapFocusedWindow(0, 0, 1, 1)],
   ['h', cmdAltCtrl, snapFocusedWindow(0, 0, 0.5, 1)],
   ['j', cmdAltCtrl, snapFocusedWindow(0, 0.5, 1, 0.5)],
@@ -10,26 +10,41 @@ const keybinds = [
   ['u', cmdAltCtrl, snapFocusedWindow(0.5, 0, 0.5, 0.5)],
   ['b', cmdAltCtrl, snapFocusedWindow(0, 0.5, 0.5, 0.5)],
   ['n', cmdAltCtrl, snapFocusedWindow(0.5, 0.5, 0.5, 0.5)],
+  [']', cmdAltCtrl, moveFocusedWindowToNextScreen],
 ];
 
-keybinds.forEach(([key, modifiers, callback]) => {
-  Key.on(key, modifiers, callback);
+keybinds.forEach(function (options) {
+  Key.on(options[0], options[1], options[2]);
 });
 
-function snapFocusedWindow(x, y, width, height) {
-  return () => {
-    const win = Window.focused()
-    if (Window === null) {
+function snapFocusedWindow(xRatio, yRatio, widthRatio, heightRatio) {
+  return function () {
+    var win = Window.focused();
+    if (win === null) {
       return;
     }
-    const screen = Screen.main().frame();
-    win.setTopLeft({
-      x: screen.width * x,
-      y: screen.height * y
-    });
-    win.setSize({
-      width: screen.width * width,
-      height: screen.height * height
+    var screen = win.screen().flippedVisibleFrame();
+    win.setFrame({
+      x: screen.x + screen.width * xRatio,
+      y: screen.y + screen.height * yRatio,
+      width: screen.width * widthRatio,
+      height: screen.height * heightRatio,
     });
   }
+}
+
+function moveFocusedWindowToNextScreen() {
+  var win = Window.focused();
+  if (win === null) {
+    return;
+  }
+  var oldWindow = win.frame();
+  var oldScreen = win.screen().flippedVisibleFrame();
+  var newScreen = win.screen().next().flippedVisibleFrame();
+  win.setFrame({
+    x: newScreen.x + newScreen.width * ((oldWindow.x - oldScreen.x) / oldScreen.width),
+    y: newScreen.y + newScreen.height * ((oldWindow.y - oldScreen.y) / oldScreen.height), 
+    width: newScreen.width * (oldWindow.width / oldScreen.width),
+    height: newScreen.height * (oldWindow.height / oldScreen.height),
+  });
 }
