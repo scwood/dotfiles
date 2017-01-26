@@ -6,7 +6,6 @@ call plug#begin()
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'Shougo/neocomplete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
@@ -24,6 +23,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+
+if v:version >= 800
+  Plug 'w0rp/ale'
+endif
+
+if has('lua')
+  Plug 'Shougo/neocomplete.vim'
+endif
 
 call plug#end()
 
