@@ -24,7 +24,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -131,7 +130,7 @@ map k gk
 nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
-nnoremap <c-s> :update<cr>
+nnoremap <c-s> :w<cr>
 
 nnoremap <s-tab> <<
 vnoremap <s-tab> <<
