@@ -62,6 +62,12 @@ if [[ "$PLATFORM" == 'Darwin' ]]; then
   alias la='ls -aFG'
   alias ll='ls -FGhl'
   alias lla='ls -aFGhl'
+elif [[ "$PLATFORM" == 'Linux' ]]; then
+  alias l='ls -F --color=auto'
+  alias ls='ls -F --color=auto'
+  alias la='ls -aF --color=auto'
+  alias ll='ls -Fhl --color=auto'
+  alias lla='ls -aFhl --color=auto'
 fi
 
 # -----------------------------------------------------------------------------
