@@ -137,7 +137,7 @@ map k gk
 nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
-nnoremap <c-s> :update<cr>
+nnoremap <c-s> :w<cr>
 
 nnoremap <s-tab> <<
 vnoremap <s-tab> <<
