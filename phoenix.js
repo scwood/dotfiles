@@ -10,7 +10,7 @@ var keybinds = [
   ['u', cmdAltCtrl, snapFocusedWindow(0.5, 0, 0.5, 0.5)],
   ['b', cmdAltCtrl, snapFocusedWindow(0, 0.5, 0.5, 0.5)],
   ['n', cmdAltCtrl, snapFocusedWindow(0.5, 0.5, 0.5, 0.5)],
-  [']', cmdAltCtrl, moveFocusedWindowToNextScreen],
+  ['c', cmdAltCtrl, moveFocusedWindowToNextScreen],
 ];
 
 keybinds.forEach(function (options) {
