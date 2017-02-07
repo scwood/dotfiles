@@ -4,6 +4,7 @@
 
 export PLATFORM=$(uname)
 export PATH="$PATH:$HOME/bin:/usr/local/sbin"
+export GOPATH=/Users/spencer/code/gopath
 
 # prompt
 green="\[\033[32m\]"
