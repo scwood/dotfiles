@@ -6,10 +6,11 @@ call plug#begin()
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'SirVer/ultisnips'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'godlygeek/tabular'
+Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
@@ -26,9 +27,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 
-
 if v:version >= 800
   Plug 'w0rp/ale'
+endif
+
+if has('lua') == 1
+  Plug 'Shougo/neocomplete.vim'
 endif
 
 call plug#end()
@@ -52,8 +56,16 @@ if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --follow -g ""'
 endif
 
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-n>'
+
+" ultisnips
+let g:UltiSnipsExpandTrigger='<c-s>'
+let g:UltiSnipsJumpForwardTrigger='<c-n>'
+let g:UltiSnipsJumpBackwardTrigger='<c-p>'
 
 " vim-jsx
 let g:jsx_ext_required = 0
@@ -123,7 +135,6 @@ autocmd FileType julia setlocal commentstring=#\ %s
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
 autocmd FileType python,cs,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType sql,php NeoCompleteLock
 
 " ------------------------------------------------------------------------------
 " default keybinds
