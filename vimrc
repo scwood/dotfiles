@@ -17,6 +17,7 @@ Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -24,12 +25,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 
+
 if v:version >= 800
   Plug 'w0rp/ale'
-endif
-
-if has('lua')
-  Plug 'Shougo/neocomplete.vim'
 endif
 
 call plug#end()
@@ -53,9 +51,6 @@ if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --follow -g ""'
 endif
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-n>'
 
@@ -70,6 +65,7 @@ syntax on
 set background=dark
 colorscheme hybrid
 
+set autoread " when a file changes outside vim, change it inside vim as well
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
 set completeopt-=preview " disable preview window on autocomplete
