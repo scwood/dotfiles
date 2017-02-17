@@ -35,6 +35,10 @@ if has('lua') == 1
   Plug 'Shougo/neocomplete.vim'
 endif
 
+if has('lua') == 1
+  Plug 'Shougo/neocomplete.vim'
+endif
+
 call plug#end()
 
 " ------------------------------------------------------------------------------
@@ -64,8 +68,8 @@ let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " ultisnips
 let g:UltiSnipsExpandTrigger='<c-s>'
-let g:UltiSnipsJumpForwardTrigger='<c-n>'
-let g:UltiSnipsJumpBackwardTrigger='<c-p>'
+let g:UltiSnipsJumpForwardTrigger='<c-z>'
+let g:UltiSnipsJumpBackwardTrigger='<c-b>'
 
 " vim-jsx
 let g:jsx_ext_required = 0
