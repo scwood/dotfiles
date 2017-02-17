@@ -53,7 +53,7 @@ alias gcb='git checkout -b'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gmnff='git merge --no-ff'
-alias gpom='git push origin master'
+alias gpob='gitPushBranchToOrigin'
 alias gs='git status'
 alias gsu='git status -uno'
 
@@ -152,6 +152,11 @@ syncNotes() {
   git commit -m 'Syncing'
   git push origin master
   cd -
+}
+
+gitPushBranchToOrigin() {
+  local branch=$(git name-rev --name-only HEAD)
+  git push origin $branch
 }
 
 # -----------------------------------------------------------------------------
