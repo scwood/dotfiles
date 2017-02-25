@@ -6,11 +6,9 @@ call plug#begin()
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
-Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
@@ -29,10 +27,6 @@ Plug 'tpope/vim-surround'
 
 if v:version >= 800
   Plug 'w0rp/ale'
-endif
-
-if has('lua') == 1
-  Plug 'Shougo/neocomplete.vim'
 endif
 
 if has('lua') == 1
