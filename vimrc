@@ -6,11 +6,9 @@ call plug#begin()
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
-Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
@@ -22,18 +20,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-
-if v:version >= 800
-  Plug 'w0rp/ale'
-endif
-
-if has('lua') == 1
-  Plug 'Shougo/neocomplete.vim'
-endif
 
 if has('lua') == 1
   Plug 'Shougo/neocomplete.vim'
@@ -44,10 +33,6 @@ call plug#end()
 " ------------------------------------------------------------------------------
 " plugin specific settings
 " ------------------------------------------------------------------------------
-
-" ale
-let g:ale_sign_column_always = 1
-let g:ale_linters = { 'html': [] }
 
 " delimitMate
 let delimitMate_expand_cr = 1
@@ -65,11 +50,6 @@ let g:neocomplete#enable_at_startup = 1
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-n>'
-
-" ultisnips
-let g:UltiSnipsExpandTrigger='<c-s>'
-let g:UltiSnipsJumpForwardTrigger='<c-z>'
-let g:UltiSnipsJumpBackwardTrigger='<c-b>'
 
 " vim-jsx
 let g:jsx_ext_required = 0
@@ -115,7 +95,6 @@ set laststatus=2 " leave status line on
 set statusline=
 set statusline+=\ %f " file name
 set statusline+=\ %y " file type
-set statusline+=\ %{fugitive#statusline()} " git info
 set statusline+=\ %m " modified flag
 set statusline+=%= " switch to the right side
 set statusline+=\ %l:%c\/%L\  " current line
