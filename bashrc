@@ -95,11 +95,11 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# switch tmux-sessions with fzf
 fs() {
-  local sessions=$(tmux list-sessions -F "#{session_name}")
-  local selection=$(echo "$sessions" | fzf-tmux --select-1 --exit-0)
-  tmux switch-client -t "$selection" || tmux attach -t "$selection"
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" | \
+    fzf --query="$1" --select-1 --exit-0) &&
+  tmux switch-client -t "$session"
 }
 
 # -----------------------------------------------------------------------------
