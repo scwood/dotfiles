@@ -3,8 +3,10 @@
 # -----------------------------------------------------------------------------
 
 export PLATFORM=$(uname)
-export PATH="$PATH:$HOME/bin:/usr/local/sbin"
-export GOPATH=/Users/spencer/code/gopath
+
+if [ -f ~/.git-completion.bash ]; then
+  source ~/.git-completion.bash
+fi
 
 # prompt
 green="\[\033[32m\]"

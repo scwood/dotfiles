@@ -45,8 +45,15 @@ echo "Finished"
 echo
 
 if [ ! -e ~/.git-prompt.sh ]; then
-  echo "Downloading git prompt ..."
+  echo "Downloading git prompt..."
   curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+  echo "Finished"
+  echo
+fi
+
+if [ ! -e ~/.git-completion.bash ]; then
+  echo "Downloading git auto-completion..."
+  curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
   echo "Finished"
   echo
 fi
