@@ -23,6 +23,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'metakirby5/codi.vim'
 
 if has('lua') == 1
   Plug 'Shougo/neocomplete.vim'
@@ -131,11 +132,6 @@ nnoremap Q @q
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :w<cr>
 
-nnoremap <s-tab> <<
-vnoremap <s-tab> <<
-nnoremap <tab> >>
-vnoremap <tab> >>
-
 " ------------------------------------------------------------------------------
 " leader keybinds
 " ------------------------------------------------------------------------------
@@ -152,6 +148,7 @@ nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>o :!open .<cr>
+nnoremap <leader>os :!subl .<cr>
 nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>t :FZF<cr>
