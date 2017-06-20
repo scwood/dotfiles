@@ -4,8 +4,8 @@
 
 export PLATFORM=$(uname)
 
-if [ -f ~/.git-completion.bash ]; then
-  source ~/.git-completion.bash
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
 fi
 
 # prompt
