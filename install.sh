@@ -6,8 +6,6 @@ backup_dir=~/.dotfiles_backup
 files="
 bash_profile
 bashrc
-hammerspoon
-hyperterm.js
 ideavimrc
 inputrc
 livestreamerrc 
@@ -51,13 +49,6 @@ if [ ! -e ~/.git-prompt.sh ]; then
   echo
 fi
 
-if [ ! -e ~/.git-completion.bash ]; then
-  echo "Downloading git auto-completion..."
-  curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-  echo "Finished"
-  echo
-fi
-
 if [ ! -e ~/.vim/autoload/plug.vim ]; then
   echo "Downloading Vim Plug..."
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -74,5 +65,6 @@ echo "Installing Tmux plugin manager..."
 if [ ! -e ~/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
 echo "Finished"
 echo "To install Tmux plugins launch tmux and press 'C-a I'"
