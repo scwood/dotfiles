@@ -8,7 +8,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
-# prompt
 green="\[\033[32m\]"
 blue="\[\033[34m\]"
 reset="\[\033[0m\]"
@@ -30,7 +29,6 @@ export HISTCONTROL=ignoredups # ingore duplicates in history
 # -----------------------------------------------------------------------------
 
 alias dot='cd ~/dotfiles'
-alias notes='cd ~/notes'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -81,7 +79,7 @@ if [ -f ~/.fzf.bash ]; then
   source ~/.fzf.bash
 fi
 
-# cd into the directory of the selected file through fzf
+# cd into the directory of the selected file
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
@@ -89,7 +87,7 @@ fd() {
   cd "$dir"
 }
 
-# change git branches with fzf
+# switch git branches
 fbr() {
   local branches=$(git branch)
   local branch=$(echo "$branches" |
@@ -97,6 +95,7 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+# switch tmux sessions
 fs() {
   local session
   session=$(tmux list-sessions -F "#{session_name}" | \
@@ -122,38 +121,14 @@ if [ "$PLATFORM" = 'Darwin' ]; then
 
 fi
 
-dockerCleanup() {
-  docker run --rm \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /etc:/etc spotify/docker-gc
+docker-gc() {
+  docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc \
+    -e FORCE_IMAGE_REMOVAL=1 spotify/docker-gc 
 }
 
-extract() {
-  if [ -z $1 ]; then
-    echo "usage: extract file_name"
-    return
-  fi
-  for f; do
-    if [ ! -f "$f" ]; then
-      echo "extract $f failed - file does not exist"
-    else
-      case "$f" in
-        *.tar) tar xvf $f;;
-        *.tar.gz) tar xvf $f;;
-        *.tgz) tar xvf $f;;
-        *.zip) unzip $f;;
-        *) echo "extract $f failed - unknown archive method"
-      esac
-    fi
-  done
-}
-
-syncNotes() {
-  cd ~/notes
-  git add .
-  git commit -m 'Syncing'
-  git push origin master
-  cd -
+serve() {
+  docker rm -f nginx
+  docker run -d -p 9000:80 --name nginx -v $1:/usr/share/nginx/html:ro nginx
 }
 
 gitPushBranchToOrigin() {
