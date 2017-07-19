@@ -110,6 +110,12 @@ if has('persistent_undo')
   set undofile 
 endif
 
+" remember last position on exit
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+        \ | exe "normal! g'\"" | endif
+endif
+
 " ------------------------------------------------------------------------------
 " filetype specific settings
 " ------------------------------------------------------------------------------
