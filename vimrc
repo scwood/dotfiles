@@ -15,6 +15,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'metakirby5/codi.vim'
+Plug 'mhinz/vim-grepper'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
@@ -145,7 +146,7 @@ nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
 nnoremap <leader>a ggVG
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
-nnoremap <leader>f :BLines<cr>
+nnoremap <leader>f :Grepper<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>o :!open .<cr>
 nnoremap <leader>os :!subl .<cr>
