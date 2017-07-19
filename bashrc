@@ -121,9 +121,9 @@ if [ "$PLATFORM" = 'Darwin' ]; then
 
 fi
 
-docker-gc() {
+dockerGc() {
   docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc \
-    -e FORCE_IMAGE_REMOVAL=1 spotify/docker-gc 
+    -e FORCE_IMAGE_REMOVAL=1 spotify/docker-gc
 }
 
 serve() {
