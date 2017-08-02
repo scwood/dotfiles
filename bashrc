@@ -11,24 +11,26 @@ fi
 green="\[\033[32m\]"
 blue="\[\033[34m\]"
 reset="\[\033[0m\]"
-PS1="\u@\h: ${blue}\w${reset}"
+PS1="${blue}\$(truncatedPwd)${reset}"
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
   PS1+="${green}\$(__git_ps1)${reset}"
 fi
-PS1+='\n$ '
+PS1+=' $ '
 
 stty -ixon # enable ctrl-s and ctrl-q
 bind Space:magic-space # magic space!
 export HISTCONTROL=ignoredups # ingore duplicates in history
+
 
 # -----------------------------------------------------------------------------
 # aliases
 # -----------------------------------------------------------------------------
 
 alias dot='cd ~/dotfiles'
+alias sb='source ~/.bashrc'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -123,7 +125,7 @@ fi
 
 dockerGc() {
   docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc \
-    -e FORCE_IMAGE_REMOVAL=1 spotify/docker-gc
+    spotify/docker-gc
 }
 
 serve() {
@@ -131,9 +133,20 @@ serve() {
   docker run -d -p 9000:80 --name nginx -v $1:/usr/share/nginx/html:ro nginx
 }
 
-gitPushBranchToOrigin() {
+getCurrentGitBranch() {
   local branch=$(git name-rev --name-only HEAD)
-  git push origin $branch
+  echo $branch;
+}
+
+truncatedPwd() {
+  local pathLength=$(pwd | grep -o '/' | wc -l)
+  if [ $pathLength -gt 3 ]; then
+    local front=$(pwd | cut -f 1-3 -d '/')
+    local back=$(pwd | rev | cut -f 1 -d '/' | rev)
+    echo "$front/../$back"
+  else
+    pwd
+  fi
 }
 
 # -----------------------------------------------------------------------------
