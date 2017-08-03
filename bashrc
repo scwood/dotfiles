@@ -143,7 +143,7 @@ truncatedPwd() {
   if [ $pathLength -gt 3 ]; then
     local front=$(pwd | cut -f 1-3 -d '/')
     local back=$(pwd | rev | cut -f 1 -d '/' | rev)
-    echo "$front/../$back"
+    echo "$front/.../back"
   else
     pwd
   fi
