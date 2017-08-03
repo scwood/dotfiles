@@ -55,7 +55,7 @@ alias gcb='git checkout -b'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gmnff='git merge --no-ff'
-alias gpob='gitPushBranchToOrigin'
+alias gpob='git push origin $(getCurrentGitBranch)'
 alias gs='git status'
 alias gsu='git status -uno'
 
