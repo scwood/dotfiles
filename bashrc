@@ -130,22 +130,22 @@ dockerGc() {
 
 serve() {
   docker rm -f nginx
-  docker run -d -p 9000:80 --name nginx -v $1:/usr/share/nginx/html:ro nginx
+  docker run -d -p 9999:80 --name nginx -v $1:/usr/share/nginx/html:ro nginx
 }
 
 getCurrentGitBranch() {
-  local branch=$(git name-rev --name-only HEAD)
+  local branch=$(git rev-parse --abbrev-ref HEAD)
   echo $branch;
 }
 
 truncatedPwd() {
-  local pathLength=$(pwd | grep -o '/' | wc -l)
+  local pathLength=$(dirs | grep -o '/' | wc -l)
   if [ $pathLength -gt 3 ]; then
-    local front=$(pwd | cut -f 1-3 -d '/')
-    local back=$(pwd | rev | cut -f 1 -d '/' | rev)
+    local front=$(dirs | cut -f 1-3 -d '/')
+    local back=$(dirs | rev | cut -f 1 -d '/' | rev)
     echo "$front/.../$back"
   else
-    pwd
+    dirs
   fi
 }
 
