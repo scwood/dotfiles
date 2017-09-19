@@ -8,14 +8,13 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'javascript.jsx'] }
+Plug 'maralla/completor.vim', { 'do': 'make js' }
+Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
@@ -26,10 +25,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-
-if has('lua') == 1
-  Plug 'Shougo/neocomplete.vim'
-endif
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -37,25 +33,28 @@ call plug#end()
 " plugin specific settings
 " ------------------------------------------------------------------------------
 
-" delimitMate
+" AndrewRadev/splitjoin.vim
 let delimitMate_expand_cr = 1
 
-" emmet-vim
-let g:user_emmet_expandabbr_key = '<c-e>'
-
-" fzf.vim
+" junegunn/fzf.vim
 if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --follow -g ""'
 endif
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
+" maralla/completor.vim
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+let g:completor_node_binary = '/usr/local/bin/node'
+let g:completor_refresh_always = 0
 
-" supertab
-let g:SuperTabDefaultCompletionType = '<c-n>'
+" mattn/emmet-vim
+let g:user_emmet_expandabbr_key = '<c-e>'
 
-" vim-jsx
-let g:jsx_ext_required = 0
+" w0rp/ale
+let g:ale_fixers = { 'javascript': ['eslint'] }
+let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 1
 
 " ------------------------------------------------------------------------------
 " general settings
