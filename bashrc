@@ -81,14 +81,6 @@ if [ -f ~/.fzf.bash ]; then
   source ~/.fzf.bash
 fi
 
-# cd into the directory of the selected file
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
 # switch git branches
 fbr() {
   local branches=$(git branch)
@@ -99,10 +91,9 @@ fbr() {
 
 # switch tmux sessions
 fs() {
-  local session
-  session=$(tmux list-sessions -F "#{session_name}" | \
-    fzf --query="$1" --select-1 --exit-0) &&
-  tmux switch-client -t "$session"
+  local session=$(tmux list-sessions -F "#{session_name}" | \
+    fzf-tmux --query="$1" --select-1 --exit-0)
+  tmux switch -t $session || tmux attach -t $session
 }
 
 # -----------------------------------------------------------------------------
