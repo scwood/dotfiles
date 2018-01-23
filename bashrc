@@ -42,7 +42,6 @@ alias vrc='vim ~/dotfiles/vimrc'
 
 alias tas='tmux attach-session -t'
 alias tks='tmux kill-session -t'
-alias tns='tmux new-session -s'
 
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 alias ga='git add'
@@ -81,19 +80,25 @@ if [ -f ~/.fzf.bash ]; then
   source ~/.fzf.bash
 fi
 
+export FZF_DEFAULT_OPTS='--height 40%'
+
+if hash ag 2>/dev/null; then
+  export FZF_DEFAULT_COMMAND='ag --follow -g ""'
+fi
+
 # switch git branches
 fbr() {
   local branches=$(git branch)
   local branch=$(echo "$branches" |
-    fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m)
+    fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m)
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
 # switch tmux sessions
 fs() {
   local session=$(tmux list-sessions -F "#{session_name}" | \
-    fzf-tmux --query="$1" --select-1 --exit-0)
-  tmux switch -t $session || tmux attach -t $session
+    fzf --query="$1" --exit-0)
+  tmux attach -t $session || tmux switch -t $session 
 }
 
 # -----------------------------------------------------------------------------
@@ -138,6 +143,23 @@ truncatedPwd() {
   else
     dirs
   fi
+}
+
+function softDeleteGitBranches() {
+  git branch | grep -vE "(master|stage|\*)" | xargs git branch -d
+}
+
+function tns() {
+  tmux new-session -s $1; \
+    split-window-v $1;
+}
+
+function sshProxy() {
+  local localPort=$1
+  local remoteHost=$2
+  local remotePort=$3
+  local sshServer=$4
+  ssh -N -L $localPort:$remoteHost:$remotePort $sshServer
 }
 
 # -----------------------------------------------------------------------------

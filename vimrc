@@ -8,17 +8,17 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'maralla/completor.vim', { 'do': 'make js' }
+Plug 'maralla/completor.vim'
 Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mhinz/vim-grepper'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install '}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -26,6 +26,10 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
+
+if !empty(glob("$HOME/.vimrc_local"))
+  source $HOME/.vimrc_local
+endif
 
 call plug#end()
 
@@ -36,15 +40,9 @@ call plug#end()
 " AndrewRadev/splitjoin.vim
 let delimitMate_expand_cr = 1
 
-" junegunn/fzf.vim
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --follow -g ""'
-endif
-
 " maralla/completor.vim
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-let g:completor_node_binary = '/usr/local/bin/node'
 let g:completor_refresh_always = 0
 
 " mattn/emmet-vim
@@ -139,8 +137,12 @@ nnoremap Q @q
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :w<cr>
 
+nnoremap [[ :bprev<cr>
+nnoremap ]] :bnext<cr>
 nnoremap [c :cprev<cr>
 nnoremap ]c :cnext<cr>
+nnoremap [t :tabprev<cr>
+nnoremap ]t :tabnext<cr>
 
 " ------------------------------------------------------------------------------
 " leader keybinds
