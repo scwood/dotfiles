@@ -22,8 +22,7 @@ PS1+=' $ '
 
 stty -ixon # enable ctrl-s and ctrl-q
 bind Space:magic-space # magic space!
-export HISTCONTROL=ignoredups # ingore duplicates in history
-
+HISTCONTROL=ignoredups:erasedups
 
 # -----------------------------------------------------------------------------
 # aliases
@@ -160,6 +159,19 @@ function sshProxy() {
   local remotePort=$3
   local sshServer=$4
   ssh -N -L $localPort:$remoteHost:$remotePort $sshServer
+}
+
+function tmuxLayoutDesktop() {
+  tmux split-pane -h -p 66
+  tmux select-pane -t 1
+  tmux split-pane -v -p 66
+  tmux split-pane -v -p 50
+}
+
+function tmuxLayoutLatop() {
+  tmux split-pane -h -p 50
+  tmux select-pane -t 1
+  tmux split-pane -v -p 50
 }
 
 # -----------------------------------------------------------------------------

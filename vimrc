@@ -40,6 +40,11 @@ call plug#end()
 " AndrewRadev/splitjoin.vim
 let delimitMate_expand_cr = 1
 
+" junegunn/fzf.vim
+if executable('ag')
+  let $FZF_DEFAULT_COMMAND = 'ag --follow -g ""'
+endif
+
 " maralla/completor.vim
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -109,7 +114,7 @@ if has('persistent_undo')
 endif
 
 " remember last position on exit
-if has("autocmd")
+if has('autocmd')
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
         \ | exe "normal! g'\"" | endif
 endif
@@ -152,12 +157,12 @@ map <space> <leader>
 
 nnoremap <leader>2 :setlocal tabstop=2 shiftwidth=2 softtabstop=2<cr>
 nnoremap <leader>4 :setlocal tabstop=4 shiftwidth=4 softtabstop=4<cr>
-nnoremap <leader><s-f> :Ag<cr>
+nnoremap <leader><s-f> :Grepper<cr>
 nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
 nnoremap <leader>a ggVG
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
-nnoremap <leader>f :Grepper<cr>
+nnoremap <leader>f :BLines<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>o :!open .<cr>
 nnoremap <leader>os :!subl .<cr>
