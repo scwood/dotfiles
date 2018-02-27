@@ -123,7 +123,7 @@ endif
 " filetype specific settings
 " ------------------------------------------------------------------------------
 
-autocmd BufNewFile,BufRead {.babel,.eslint}rc set filetype=json
+autocmd BufNewFile,BufRead {.babel,.eslint,.prettier}rc set filetype=json
 autocmd FileType gitcommit set spell
 autocmd FileType julia setlocal commentstring=#\ %s
 autocmd FileType make setlocal noexpandtab
