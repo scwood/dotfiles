@@ -168,6 +168,7 @@ nnoremap <leader>o :!open .<cr>
 nnoremap <leader>os :!subl .<cr>
 nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>s :source $MYVIMRC<cr>
+nnoremap <leader>so vip:sort<cr>
 nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>w :set nowrap!<cr>
