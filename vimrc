@@ -14,6 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'maralla/completor.vim'
 Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
@@ -42,7 +43,7 @@ let delimitMate_expand_cr = 1
 
 " junegunn/fzf.vim
 if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --follow -g ""'
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden --follow --ignore .git -g ""'
 endif
 
 " maralla/completor.vim
@@ -52,6 +53,9 @@ let g:completor_refresh_always = 0
 
 " mattn/emmet-vim
 let g:user_emmet_expandabbr_key = '<c-e>'
+
+" ternjs/tern_for_vim
+let g:tern_map_keys=1
 
 " w0rp/ale
 let g:ale_lint_on_text_changed = 'never'
@@ -160,16 +164,14 @@ nnoremap <leader>4 :setlocal tabstop=4 shiftwidth=4 softtabstop=4<cr>
 nnoremap <leader><s-f> :Grepper<cr>
 nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
 nnoremap <leader>a ggVG
-nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
+nnoremap <leader>gs :GitFiles?<cr>
 nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>o :!open .<cr>
 nnoremap <leader>os :!subl .<cr>
+nnoremap <leader>p :FZF<cr>
 nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
-nnoremap <leader>s :source $MYVIMRC<cr>
-nnoremap <leader>t :FZF<cr>
-nnoremap <leader>v :sp<cr>:e $MYVIMRC<cr>
 nnoremap <leader>w :set nowrap!<cr>
 nnoremap <leader>z 1z=e
 
@@ -180,5 +182,8 @@ nnoremap <leader>; mz$a;<esc>`z
 nnoremap <leader>- :resize -5<cr>
 nnoremap <leader>= :resize +5<cr>
 
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
+nnoremap <leader>ev :sp<cr>:e $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+nmap <leader>v <Plug>yankstack_substitute_older_paste
+nmap <leader>V <Plug>yankstack_substitute_newer_paste

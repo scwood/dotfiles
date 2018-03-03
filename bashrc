@@ -161,15 +161,15 @@ function sshProxy() {
   ssh -N -L $localPort:$remoteHost:$remotePort $sshServer
 }
 
-function tmuxLayoutDesktop() {
+function tl1() {
   tmux split-pane -h -p 66
   tmux select-pane -t 1
   tmux split-pane -v -p 66
   tmux split-pane -v -p 50
 }
 
-function tmuxLayoutLatop() {
-  tmux split-pane -h -p 50
+function tl2() {
+  tmux split-pane -h -p 65
   tmux select-pane -t 1
   tmux split-pane -v -p 50
 }
