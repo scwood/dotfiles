@@ -11,7 +11,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'maralla/completor.vim'
+Plug 'maralla/completor.vim', { 'do': 'make js' }
 Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'metakirby5/codi.vim'
@@ -50,6 +50,7 @@ endif
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 let g:completor_refresh_always = 0
+let g:completor_node_binary = '/usr/local/bin/node'
 
 " mattn/emmet-vim
 let g:user_emmet_expandabbr_key = '<c-e>'
