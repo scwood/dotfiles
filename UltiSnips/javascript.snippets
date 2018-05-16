@@ -1,0 +1,15 @@
+snippet main "main function"
+function main(argv) {
+	$1
+}
+
+if (!module.parent) {
+	main(process.argv)
+}
+endsnippet
+
+snippet fun "function"
+function $1($2) {
+	$3
+}
+endsnippet

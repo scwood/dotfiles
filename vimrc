@@ -6,8 +6,10 @@ call plug#begin()
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'SirVer/ultisnips'
 Plug 'bronson/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -19,7 +21,6 @@ Plug 'mhinz/vim-grepper'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install '}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -41,22 +42,23 @@ call plug#end()
 " AndrewRadev/splitjoin.vim
 let delimitMate_expand_cr = 1
 
+" SirVer/ultisnips
+let g:UltiSnipsSnippetsDir = $HOME . '/dotfiles/UltiSnips'
+let g:UltiSnipsSnippetDirectories = ['UltiSnips', $HOME . '/dotfiles/UltiSnips']
+
+" ervandew/supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " junegunn/fzf.vim
 if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --hidden --follow --ignore .git -g ""'
 endif
 
-" maralla/completor.vim
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 let g:completor_refresh_always = 0
 let g:completor_node_binary = '/usr/local/bin/node'
 
 " mattn/emmet-vim
 let g:user_emmet_expandabbr_key = '<c-e>'
-
-" ternjs/tern_for_vim
-let g:tern_map_keys=1
 
 " w0rp/ale
 let g:ale_lint_on_text_changed = 'never'
@@ -184,7 +186,7 @@ nnoremap <leader>; mz$a;<esc>`z
 nnoremap <leader>- :resize -5<cr>
 nnoremap <leader>= :resize +5<cr>
 
-nnoremap <leader>ev :sp<cr>:e $MYVIMRC<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nmap <leader>v <Plug>yankstack_substitute_older_paste

@@ -815,7 +815,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>2133 622 918 492 1440 -43 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1440 -43 2560 1417 1440 -43 2560 1417 </string>
+	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>4000 -43 2560 1417 4000 -43 2560 1417 </string>
 	<key>New Bookmarks</key>
@@ -1557,6 +1557,8 @@
 	<false/>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PassOnControlClick</key>
 	<false/>
 	<key>PasteFromClipboard</key>
@@ -1598,6 +1600,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/swood/dotfiles/iterm2</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1615,7 +1619,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-24T16:15:58Z</date>
+	<date>2018-04-30T19:07:07Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
