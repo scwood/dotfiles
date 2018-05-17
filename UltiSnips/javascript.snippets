@@ -1,3 +1,9 @@
+snippet fun "function"
+function $1($2) {
+	$3
+}
+endsnippet
+
 snippet main "main function"
 function main(argv) {
 	$1
@@ -8,8 +14,10 @@ if (!module.parent) {
 }
 endsnippet
 
-snippet fun "function"
-function $1($2) {
-	$3
-}
+snippet desc "mocha style test"
+describe('$1', () => {
+	it('$2', () => {
+		$3
+	})
+})
 endsnippet
