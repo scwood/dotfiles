@@ -54,6 +54,7 @@ if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --hidden --follow --ignore .git -g ""'
 endif
 
+" maralla/completor.vim
 let g:completor_refresh_always = 0
 let g:completor_node_binary = '/usr/local/bin/node'
 
@@ -121,10 +122,8 @@ if has('persistent_undo')
 endif
 
 " remember last position on exit
-if has('autocmd')
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
-        \ | exe "normal! g'\"" | endif
-endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+      \ | exe "normal! g'\"" | endif
 
 " ------------------------------------------------------------------------------
 " filetype specific settings
@@ -132,6 +131,7 @@ endif
 
 autocmd BufNewFile,BufRead {.babel,.eslint,.prettier}rc set filetype=json
 autocmd FileType gitcommit set spell
+autocmd FileType gitcommit CompletorDisable
 autocmd FileType julia setlocal commentstring=#\ %s
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
