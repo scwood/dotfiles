@@ -38,6 +38,32 @@ for (const $1 of $2) {
 }
 endsnippet
 
+snippet for "for loop"
+for (let $1) {
+	$2
+}
+endsnippet
+
 snippet req "require"
 const $1 = require('$2')
+endsnippet
+
+snippet comp "React class component"
+import React, {Component} from 'react'
+
+class $1 extends Component {
+	$2
+}
+
+export default $1
+endsnippet
+
+snippet compf "React functional component"
+import React from 'react'
+
+function $1($2) {
+	$3
+}
+
+export default $1
 endsnippet
