@@ -1,7 +1,3 @@
-" ------------------------------------------------------------------------------
-" plugins
-" ------------------------------------------------------------------------------
-
 call plug#begin()
 
 Plug 'AndrewRadev/splitjoin.vim'
@@ -35,10 +31,6 @@ endif
 
 call plug#end()
 
-" ------------------------------------------------------------------------------
-" plugin specific settings
-" ------------------------------------------------------------------------------
-
 " AndrewRadev/splitjoin.vim
 let delimitMate_expand_cr = 1
 
@@ -66,10 +58,6 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
 let g:ale_fixers = { 'javascript': ['eslint'] }
 let g:ale_linters = { 'javascript': ['eslint'], 'html': [] }
-
-" ------------------------------------------------------------------------------
-" general settings
-" ------------------------------------------------------------------------------
 
 syntax on
 set background=dark
@@ -125,10 +113,6 @@ endif
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
       \ | exe "normal! g'\"" | endif
 
-" ------------------------------------------------------------------------------
-" filetype specific settings
-" ------------------------------------------------------------------------------
-
 autocmd BufNewFile,BufRead {.babel,.eslint,.prettier}rc set filetype=json
 autocmd FileType gitcommit set spell
 autocmd FileType gitcommit CompletorDisable
@@ -136,10 +120,6 @@ autocmd FileType julia setlocal commentstring=#\ %s
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
 autocmd FileType python,cs,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
-
-" ------------------------------------------------------------------------------
-" default keybinds
-" ------------------------------------------------------------------------------
 
 map j gj
 map k gk
@@ -155,10 +135,8 @@ nnoremap [c :cprev<cr>
 nnoremap ]c :cnext<cr>
 nnoremap [t :tabprev<cr>
 nnoremap ]t :tabnext<cr>
-
-" ------------------------------------------------------------------------------
-" leader keybinds
-" ------------------------------------------------------------------------------
+nnoremap [e :ALEPrevious<cr>
+nnoremap ]e :ALENext<cr>
 
 map <space> <leader>
 

@@ -1,7 +1,3 @@
-# -----------------------------------------------------------------------------
-# general
-# -----------------------------------------------------------------------------
-
 export PLATFORM=$(uname)
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -23,10 +19,6 @@ PS1+=' $ '
 stty -ixon # enable ctrl-s and ctrl-q
 bind Space:magic-space # magic space!
 HISTCONTROL=ignoredups:erasedups
-
-# -----------------------------------------------------------------------------
-# aliases
-# -----------------------------------------------------------------------------
 
 alias dot='cd ~/dotfiles'
 alias sb='source ~/.bashrc'
@@ -71,10 +63,6 @@ elif [[ "$PLATFORM" == 'Linux' ]]; then
   alias lla='ls -aFhl --color=auto'
 fi
 
-# -----------------------------------------------------------------------------
-# fzf - fuzzy finder for your shell: https://github.com/junegunn/fzf
-# -----------------------------------------------------------------------------
-
 if [ -f ~/.fzf.bash ]; then
   source ~/.fzf.bash
 fi
@@ -99,10 +87,6 @@ fs() {
     fzf --query="$1" --exit-0)
   tmux attach -t $session || tmux switch -t $session 
 }
-
-# -----------------------------------------------------------------------------
-# general functions
-# -----------------------------------------------------------------------------
 
 if [ "$PLATFORM" = 'Darwin' ]; then
 
@@ -161,22 +145,18 @@ function sshProxy() {
   ssh -N -L $localPort:$remoteHost:$remotePort $sshServer
 }
 
-function tl1() {
-  tmux split-pane -h -p 66
-  tmux select-pane -t 1
-  tmux split-pane -v -p 66
-  tmux split-pane -v -p 50
-}
-
 function tl2() {
   tmux split-pane -h -p 65
   tmux select-pane -t 1
   tmux split-pane -v -p 50
 }
 
-# -----------------------------------------------------------------------------
-# local config
-# -----------------------------------------------------------------------------
+function tl3() {
+  tmux split-pane -h -p 66
+  tmux select-pane -t 1
+  tmux split-pane -v -p 66
+  tmux split-pane -v -p 50
+}
 
 if [ -f ~/.bashrc_local ]; then
   source ~/.bashrc_local
