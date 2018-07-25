@@ -129,12 +129,6 @@ nnoremap Q @q
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :w<cr>
 
-nnoremap [[ :bprev<cr>
-nnoremap ]] :bnext<cr>
-nnoremap [c :cprev<cr>
-nnoremap ]c :cnext<cr>
-nnoremap [t :tabprev<cr>
-nnoremap ]t :tabnext<cr>
 nnoremap [e :ALEPrevious<cr>
 nnoremap ]e :ALENext<cr>
 
