@@ -2,10 +2,10 @@ call plug#begin()
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips'
 Plug 'bronson/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -34,12 +34,12 @@ call plug#end()
 " AndrewRadev/splitjoin.vim
 let delimitMate_expand_cr = 1
 
-" SirVer/ultisnips
-let g:UltiSnipsSnippetsDir = $HOME . '/dotfiles/UltiSnips'
-let g:UltiSnipsSnippetDirectories = ['UltiSnips', $HOME . '/dotfiles/UltiSnips']
-
 " ervandew/supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" fatih/vim-go
+let g:completor_gocode_binary = '/Users/swood/go/bin/gocode'
+let g:go_fmt_autosave = 0
 
 " junegunn/fzf.vim
 if executable('ag')
@@ -56,8 +56,8 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 " w0rp/ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
-let g:ale_fixers = { 'javascript': ['eslint'] }
-let g:ale_linters = { 'javascript': ['eslint'], 'html': [] }
+let g:ale_fixers = { 'javascript': ['eslint'], 'go': ['gofmt'] }
+let g:ale_linters = { 'javascript': ['eslint'], 'html': [], 'go': ['govet'] }
 
 syntax on
 set background=dark
@@ -66,7 +66,6 @@ colorscheme hybrid
 set autoread " when a file changes outside vim, change it inside vim as well
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
-set completeopt-=preview " disable preview window on autocomplete
 set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
@@ -113,9 +112,9 @@ endif
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
       \ | exe "normal! g'\"" | endif
 
+" filetype autocommands
 autocmd BufNewFile,BufRead {.babel,.eslint,.prettier}rc set filetype=json
-autocmd FileType gitcommit set spell
-autocmd FileType gitcommit CompletorDisable
+autocmd FileType gitcommit CompletorDisable | set spell
 autocmd FileType julia setlocal commentstring=#\ %s
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
@@ -139,6 +138,7 @@ nnoremap <leader>4 :setlocal tabstop=4 shiftwidth=4 softtabstop=4<cr>
 nnoremap <leader><s-f> :Grepper<cr>
 nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
 nnoremap <leader>a ggVG
+nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>gs :GitFiles?<cr>
