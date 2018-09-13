@@ -44,21 +44,27 @@ for (let $1) {
 }
 endsnippet
 
-snippet req "require"
+snippet require "require"
 const $1 = require('$2')
 endsnippet
 
-snippet comp "React class component"
+snippet import "import"
+import $1 from '$2'
+endsnippet
+
+snippet rcc "React class component"
 import React, {Component} from 'react'
 
 class $1 extends Component {
-	$2
+	render() {
+		$3
+	}
 }
 
 export default $1
 endsnippet
 
-snippet compf "React functional component"
+snippet rfc "React functional component"
 import React from 'react'
 
 function $1($2) {
@@ -66,4 +72,12 @@ function $1($2) {
 }
 
 export default $1
+endsnippet
+
+snippet try "try catch"
+try {
+	$2
+} catch (error) {
+	$1
+}
 endsnippet
