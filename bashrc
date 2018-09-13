@@ -14,7 +14,7 @@ if [ -f ~/.git-prompt.sh ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   PS1+="${green}\$(__git_ps1)${reset}"
 fi
-PS1+=' $ '
+PS1+='\n$ '
 
 stty -ixon # enable ctrl-s and ctrl-q
 bind Space:magic-space # magic space!
@@ -22,6 +22,7 @@ HISTCONTROL=ignoredups:erasedups
 
 alias dot='cd ~/dotfiles'
 alias sb='source ~/.bashrc'
+alias loadDotEnv='export $(cat .env | xargs)'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -45,7 +46,7 @@ alias gcb='git checkout -b'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gmnff='git merge --no-ff'
-alias gpob='git push origin $(getCurrentGitBranch)'
+alias gpob='git push -u origin $(getCurrentGitBranch)'
 alias gs='git status'
 alias gsu='git status -uno'
 
@@ -156,6 +157,11 @@ function tl3() {
   tmux select-pane -t 1
   tmux split-pane -v -p 66
   tmux split-pane -v -p 50
+}
+
+function checkPort() {
+  local port=$1
+  lsof -w -n -i tcp:$port
 }
 
 if [ -f ~/.bashrc_local ]; then
