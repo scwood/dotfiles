@@ -38,7 +38,7 @@ let delimitMate_expand_cr = 1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " fatih/vim-go
-let g:completor_gocode_binary = '/Users/swood/go/bin/gocode'
+let g:completor_gocode_binary = '$HOME/go/bin/gocode'
 let g:go_fmt_autosave = 0
 
 " junegunn/fzf.vim
@@ -83,7 +83,6 @@ set noswapfile " turn off swap files
 set visualbell " enable visual bell in order to disable beeping
 set t_vb= " make visual bell blank (effectively turning off all bells)
 
-filetype plugin indent on
 set autoindent " copy indent from previous when starting new line
 set cindent " smart newline autoindenting for languages
 set expandtab " use spaces for tabs
@@ -146,7 +145,7 @@ nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
 nnoremap <leader>o :!open .<cr>
 nnoremap <leader>os :!subl .<cr>
 nnoremap <leader>p :FZF<cr>
-nnoremap <leader>r *N:%s/\<<c-r><c-w>\>//g<left><left>
+nnoremap <leader>r *N:%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
 nnoremap <leader>so vip:sort<cr>
 nnoremap <leader>w :set nowrap!<cr>
 nnoremap <leader>z 1z=e
