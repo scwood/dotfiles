@@ -117,6 +117,7 @@ autocmd FileType gitcommit CompletorDisable | set spell
 autocmd FileType julia setlocal commentstring=#\ %s
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
+autocmd FileType php ALEDisable
 autocmd FileType python,cs,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 map j gj
