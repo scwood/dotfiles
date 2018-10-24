@@ -15,6 +15,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'maralla/completor.vim', { 'do': 'make js' }
 Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
@@ -30,10 +31,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_file_list_command = 'rg --files'
-let g:gutentags_cache_dir = $HOME . '/.gutentags'
 
 if !empty(glob($HOME . '/.vimrc_local'))
   source $HOME/.vimrc_local
@@ -55,6 +52,10 @@ let g:go_fmt_autosave = 0
 if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'rg  --files'
 endif
+
+" ludovicchabant/vim-gutentags
+let g:gutentags_file_list_command = 'rg --files'
+let g:gutentags_cache_dir = $HOME . '/.gutentags'
 
 " maralla/completor.vim
 let g:completor_refresh_always = 0
