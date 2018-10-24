@@ -70,23 +70,31 @@ fi
 
 export FZF_DEFAULT_OPTS='--height 40%'
 
-if hash ag 2>/dev/null; then
-  export FZF_DEFAULT_COMMAND='ag --follow -g ""'
+if hash rg 2>/dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files ""'
 fi
 
-# switch git branches
+# switch git branches via fzf
 fbr() {
   local branches=$(git branch)
   local branch=$(echo "$branches" |
-    fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m)
+    fzf -d $(( 2 + $(wc -l <<< "$branches") )))
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# switch tmux sessions
+# switch tmux sessions via fzf
 fs() {
   local session=$(tmux list-sessions -F "#{session_name}" | \
     fzf --query="$1" --exit-0)
   tmux attach -t $session || tmux switch -t $session 
+}
+
+# change directories via fzf
+fcd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
 }
 
 if [ "$PLATFORM" = 'Darwin' ]; then
