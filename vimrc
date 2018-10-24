@@ -1,4 +1,10 @@
-call plug#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
@@ -25,7 +31,11 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 
-if !empty(glob("$HOME/.vimrc_local"))
+Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_file_list_command = 'rg --files'
+let g:gutentags_cache_dir = $HOME . '/.gutentags'
+
+if !empty(glob($HOME . '/.vimrc_local'))
   source $HOME/.vimrc_local
 endif
 
@@ -43,7 +53,7 @@ let g:go_fmt_autosave = 0
 
 " junegunn/fzf.vim
 if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --follow --ignore .git -g ""'
+  let $FZF_DEFAULT_COMMAND = 'rg  --files'
 endif
 
 " maralla/completor.vim
@@ -113,43 +123,39 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
 
 " filetype autocommands
 autocmd BufNewFile,BufRead {.babel,.eslint,.prettier}rc set filetype=json
-autocmd FileType gitcommit CompletorDisable | set spell
+autocmd FileType gitcommit,gitrebase set spell | CompletorDisable
 autocmd FileType julia setlocal commentstring=#\ %s
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
 autocmd FileType php ALEDisable
 autocmd FileType python,cs,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
-map j gj
-map k gk
+nnoremap j gj
+nnoremap k gk
 
 nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :w<cr>
+nnoremap <c-a> ggVG
 
 nnoremap [e :ALEPrevious<cr>
 nnoremap ]e :ALENext<cr>
 
-map <space> <leader>
+let mapleader = "\<Space>"
 
 nnoremap <leader>2 :setlocal tabstop=2 shiftwidth=2 softtabstop=2<cr>
 nnoremap <leader>4 :setlocal tabstop=4 shiftwidth=4 softtabstop=4<cr>
-nnoremap <leader><s-f> :Grepper<cr>
-nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
-nnoremap <leader>a ggVG
+
+nnoremap <leader>p :Files<cr>
 nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>c :w <bar> !wc %<cr>
 nnoremap <leader>f :BLines<cr>
-nnoremap <leader>gs :GitFiles?<cr>
-nnoremap <leader>n :noh<cr>:let @/ = ""<cr>:<backspace>
+nnoremap <leader>r :BTags<cr>
+nnoremap <leader><s-r> :Tags<cr>
+nnoremap <leader><s-f> :GrepperRg<space>
+
 nnoremap <leader>o :!open .<cr>
 nnoremap <leader>os :!subl .<cr>
-nnoremap <leader>p :FZF<cr>
-nnoremap <leader>r *N:%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
-nnoremap <leader>so vip:sort<cr>
-nnoremap <leader>w :set nowrap!<cr>
-nnoremap <leader>z 1z=e
 
 nnoremap <leader>, mz$a,<esc>`z
 nnoremap <leader>. mz$a.<esc>`z
@@ -161,5 +167,15 @@ nnoremap <leader>= :resize +5<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-nmap <leader>v <Plug>yankstack_substitute_older_paste
-nmap <leader>V <Plug>yankstack_substitute_newer_paste
+nnoremap <leader>v <Plug>yankstack_substitute_older_paste
+nnoremap <leader>V <Plug>yankstack_substitute_newer_paste
+
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+
+nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
+nnoremap <leader>n :noh<cr>
+nnoremap <leader>so vip:sort<cr>
+nnoremap <leader>sr *N:%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
+nnoremap <leader>w :set nowrap!<cr>
+nnoremap <leader>z 1z=e
