@@ -50,6 +50,10 @@ alias gpob='git push -u origin $(getCurrentGitBranch)'
 alias gs='git status'
 alias gsu='git status -uno'
 
+if hash nvim 2>/dev/null; then
+  alias vim='nvim'
+fi
+
 if [[ "$PLATFORM" == 'Darwin' ]]; then
   alias l='ls -FG'
   alias ls='ls -FG'
@@ -117,8 +121,10 @@ dockerGc() {
 }
 
 serve() {
-  docker rm -f nginx
-  docker run -d -p 9999:80 --name nginx -v $1:/usr/share/nginx/html:ro nginx
+  echo
+  echo "  Visit: http://localhost:9999"
+  echo
+  docker run -it --rm -p 9999:80 --name nginx -v $1:/usr/share/nginx/html:ro nginx
 }
 
 getCurrentGitBranch() {
@@ -157,13 +163,11 @@ function sshProxy() {
 function tl2() {
   tmux split-pane -h -p 65
   tmux select-pane -t 1
-  tmux split-pane -v -p 50
 }
 
 function tl3() {
   tmux split-pane -h -p 66
   tmux select-pane -t 1
-  tmux split-pane -v -p 66
   tmux split-pane -v -p 50
 }
 
