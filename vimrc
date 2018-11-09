@@ -11,7 +11,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -32,8 +31,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 
-if !empty(glob($HOME . '/.vimrc_local'))
-  source $HOME/.vimrc_local
+if !empty(glob('~/.vimrc_local'))
+  source ~/.vimrc_local
 endif
 
 call plug#end()
@@ -42,10 +41,10 @@ call plug#end()
 let delimitMate_expand_cr = 1
 
 " ervandew/supertab
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " fatih/vim-go
-let g:completor_gocode_binary = '$HOME/go/bin/gocode'
+let g:completor_gocode_binary = '~/go/bin/gocode'
 let g:go_fmt_autosave = 0
 
 " junegunn/fzf.vim
@@ -55,7 +54,7 @@ endif
 
 " ludovicchabant/vim-gutentags
 let g:gutentags_file_list_command = 'rg --files'
-let g:gutentags_cache_dir = $HOME . '/.gutentags'
+let g:gutentags_cache_dir = '~/.gutentags'
 
 " maralla/completor.vim
 let g:completor_refresh_always = 0
@@ -111,8 +110,8 @@ set statusline+=\ %l:%c\/%L\  " current line
 
 " persistent undo even after closing
 if has('persistent_undo')
-  if !isdirectory($HOME . "/.vim/backups")
-    call mkdir($HOME . "/.vim/backups", "p")
+  if !isdirectory('~/.vim/backups')
+    call mkdir('~/.vim/backups', 'p')
   endif
   set undodir=~/.vim/backups
   set undofile 
@@ -138,7 +137,7 @@ nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :w<cr>
-nnoremap <c-a> ggVG
+
 
 nnoremap [e :ALEPrevious<cr>
 nnoremap ]e :ALENext<cr>
@@ -171,12 +170,15 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>v <Plug>yankstack_substitute_older_paste
 nnoremap <leader>V <Plug>yankstack_substitute_newer_paste
 
-nmap gs  <plug>(GrepperOperator)
-xmap gs  <plug>(GrepperOperator)
-
 nnoremap <leader>\ :NERDTreeToggle<cr><c-w>=
+nnoremap <leader>a ggVG
+nnoremap <leader>m :tabnew %<cr>
 nnoremap <leader>n :noh<cr>
 nnoremap <leader>so vip:sort<cr>
 nnoremap <leader>sr *N:%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
 nnoremap <leader>w :set nowrap!<cr>
 nnoremap <leader>z 1z=e
+
+if has('nvim')
+ tnoremap <Esc> <C-\><C-n>
+endif
