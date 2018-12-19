@@ -4,7 +4,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin($HOME . '/.vim/plugged')
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
@@ -31,8 +31,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 
-if !empty(glob('~/.vimrc_local'))
-  source ~/.vimrc_local
+if !empty(glob($HOME . '/.vimrc_local'))
+  source $HOME/.vimrc_local
 endif
 
 call plug#end()
@@ -110,11 +110,11 @@ set statusline+=\ %l:%c\/%L\  " current line
 
 " persistent undo even after closing
 if has('persistent_undo')
-  if !isdirectory('~/.vim/backups')
-    call mkdir('~/.vim/backups', 'p')
-  endif
-  set undodir=~/.vim/backups
-  set undofile 
+if !isdirectory($HOME . '/.vim/backups')
+   call mkdir($HOME . '/.vim/backups', 'p')
+ endif
+ set undodir=~/.vim/backups
+ set undofile
 endif
 
 " remember last position on exit
@@ -142,7 +142,7 @@ nnoremap <c-s> :w<cr>
 nnoremap [e :ALEPrevious<cr>
 nnoremap ]e :ALENext<cr>
 
-let mapleader = "\<Space>"
+map <Space> <leader>
 
 nnoremap <leader>2 :setlocal tabstop=2 shiftwidth=2 softtabstop=2<cr>
 nnoremap <leader>4 :setlocal tabstop=4 shiftwidth=4 softtabstop=4<cr>
