@@ -48,9 +48,7 @@ let g:completor_gocode_binary = '~/go/bin/gocode'
 let g:go_fmt_autosave = 0
 
 " junegunn/fzf.vim
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'rg  --files'
-endif
+let $FZF_DEFAULT_COMMAND = 'rg  --files'
 
 " ludovicchabant/vim-gutentags
 let g:gutentags_file_list_command = 'rg --files'
