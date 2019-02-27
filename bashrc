@@ -32,9 +32,6 @@ alias brc='vim ~/dotfiles/bashrc'
 alias trc='vim ~/dotfiles/tmux.conf'
 alias vrc='vim ~/dotfiles/vimrc'
 
-alias tas='tmux attach-session -t'
-alias tks='tmux kill-session -t'
-
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 alias ga='git add'
 alias gaa='git add --all'
@@ -49,10 +46,6 @@ alias gmnff='git merge --no-ff'
 alias gpob='git push -u origin $(getCurrentGitBranch)'
 alias gs='git status'
 alias gsu='git status -uno'
-
-if hash nvim 2>/dev/null; then
-  alias vim='nvim'
-fi
 
 if [[ "$PLATFORM" == 'Darwin' ]]; then
   alias l='ls -FG'
@@ -161,12 +154,12 @@ function sshProxy() {
 }
 
 function tl2() {
-  tmux split-pane -h -p 65
+  tmux split-pane -h -p 70
   tmux select-pane -t 1
 }
 
 function tl3() {
-  tmux split-pane -h -p 66
+  tmux split-pane -h -p 70
   tmux select-pane -t 1
   tmux split-pane -v -p 50
 }
