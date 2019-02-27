@@ -48,7 +48,7 @@ let g:completor_gocode_binary = '~/go/bin/gocode'
 let g:go_fmt_autosave = 0
 
 " junegunn/fzf.vim
-let $FZF_DEFAULT_COMMAND = 'rg  --files'
+let $FZF_DEFAULT_COMMAND = 'rg  --files --hidden'
 
 " ludovicchabant/vim-gutentags
 let g:gutentags_file_list_command = 'rg --files'
@@ -57,6 +57,7 @@ let g:gutentags_cache_dir = '~/.gutentags'
 " maralla/completor.vim
 let g:completor_refresh_always = 0
 let g:completor_node_binary = '/usr/local/bin/node'
+let g:completor_complete_options='menuone,noselect'
 
 " mattn/emmet-vim
 let g:user_emmet_expandabbr_key = '<c-e>'
@@ -72,12 +73,13 @@ set background=dark
 colorscheme hybrid
 
 set autoread " when a file changes outside vim, change it inside vim as well
+set autowrite " if a file changes on disk, reload it
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
+set hidden " allow switching between buffers with unsaved changes
 set mouse=a " enable mouse
 set number " turn on line numbers
 set scrolloff=3 " set a three line scrolling buffer at the top and bottom
-set autowrite " if a file changes on disk, reload it
 
 set hlsearch " highlight search
 set incsearch " jump to closest instance during search
@@ -135,7 +137,6 @@ nnoremap Q @q
 
 nnoremap <c-q> :q<cr>
 nnoremap <c-s> :w<cr>
-
 
 nnoremap [e :ALEPrevious<cr>
 nnoremap ]e :ALENext<cr>
