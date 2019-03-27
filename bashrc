@@ -29,6 +29,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias brc='vim ~/dotfiles/bashrc'
+alias brcl='vim ~/.bashrc_local'
 alias trc='vim ~/dotfiles/tmux.conf'
 alias vrc='vim ~/dotfiles/vimrc'
 
