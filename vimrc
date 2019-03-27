@@ -1,22 +1,15 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin($HOME . '/.vim/plugged')
 
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'maralla/completor.vim', { 'do': 'make js' }
-Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-grepper'
@@ -25,48 +18,46 @@ Plug 'scwood/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+
+Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_file_list_command = 'rg --files'
+let g:gutentags_cache_dir = $HOME . '/.gutentags'
+
+Plug 'maralla/completor.vim', { 'do': 'make js' }
+let g:completor_refresh_always = 0
+let g:completor_node_binary = '/usr/local/bin/node'
+let g:completor_complete_options='menuone,noselect'
+
+Plug 'fatih/vim-go'
+let g:completor_gocode_binary = '~/go/bin/gocode'
+let g:go_fmt_autosave = 0
+
+Plug 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = '<c-n>'
+
+Plug 'Raimondi/delimitMate'
+let delimitMate_expand_cr = 1
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg  --files --hidden'
+endif
+
 Plug 'w0rp/ale'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = { 'javascript': ['eslint'], 'go': ['gofmt'] }
+let g:ale_linters = { 'javascript': ['eslint'], 'html': [], 'go': ['govet'] }
 
 if !empty(glob($HOME . '/.vimrc_local'))
   source $HOME/.vimrc_local
 endif
 
 call plug#end()
-
-" AndrewRadev/splitjoin.vim
-let delimitMate_expand_cr = 1
-
-" ervandew/supertab
-let g:SuperTabDefaultCompletionType = '<c-n>'
-
-" fatih/vim-go
-let g:completor_gocode_binary = '~/go/bin/gocode'
-let g:go_fmt_autosave = 0
-
-" junegunn/fzf.vim
-let $FZF_DEFAULT_COMMAND = 'rg  --files --hidden'
-
-" ludovicchabant/vim-gutentags
-let g:gutentags_file_list_command = 'rg --files'
-let g:gutentags_cache_dir = '~/.gutentags'
-
-" maralla/completor.vim
-let g:completor_refresh_always = 0
-let g:completor_node_binary = '/usr/local/bin/node'
-let g:completor_complete_options='menuone,noselect'
-
-" mattn/emmet-vim
-let g:user_emmet_expandabbr_key = '<c-e>'
-
-" w0rp/ale
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_fix_on_save = 1
-let g:ale_fixers = { 'javascript': ['eslint'], 'go': ['gofmt'] }
-let g:ale_linters = { 'javascript': ['eslint'], 'html': [], 'go': ['govet'] }
 
 syntax on
 set background=dark
@@ -76,6 +67,7 @@ set autoread " when a file changes outside vim, change it inside vim as well
 set autowrite " if a file changes on disk, reload it
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
+set cursorline " highlight current line
 set hidden " allow switching between buffers with unsaved changes
 set mouse=a " enable mouse
 set number " turn on line numbers
@@ -110,11 +102,11 @@ set statusline+=\ %l:%c\/%L\  " current line
 
 " persistent undo even after closing
 if has('persistent_undo')
-if !isdirectory($HOME . '/.vim/backups')
-   call mkdir($HOME . '/.vim/backups', 'p')
- endif
- set undodir=~/.vim/backups
- set undofile
+  if !isdirectory($HOME . '/.vim/backups')
+    call mkdir($HOME . '/.vim/backups', 'p')
+  endif
+  set undodir=~/.vim/backups
+  set undofile
 endif
 
 " remember last position on exit
@@ -179,5 +171,5 @@ nnoremap <leader>w :set nowrap!<cr>
 nnoremap <leader>z 1z=e
 
 if has('nvim')
- tnoremap <Esc> <C-\><C-n>
+  tnoremap <Esc> <C-\><C-n>
 endif
