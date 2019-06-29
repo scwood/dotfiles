@@ -24,10 +24,6 @@ alias dot='cd ~/dotfiles'
 alias sb='source ~/.bashrc'
 alias loadDotEnv='export $(cat .env | xargs)'
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
 alias brc='vim ~/dotfiles/bashrc'
 alias brcl='vim ~/.bashrc_local'
 alias trc='vim ~/dotfiles/tmux.conf'
@@ -43,23 +39,21 @@ alias gca='git commit --amend'
 alias gcb='git checkout -b'
 alias gcm='git commit -m'
 alias gd='git diff'
-alias gmnff='git merge --no-ff'
+alias gfa='git fetch --all'
 alias gpob='git push -u origin $(getCurrentGitBranch)'
 alias gs='git status'
 alias gsu='git status -uno'
 
 if [[ "$PLATFORM" == 'Darwin' ]]; then
-  alias l='ls -FG'
   alias ls='ls -FG'
-  alias la='ls -aFG'
+  alias la='ls -FGa'
   alias ll='ls -FGhl'
-  alias lla='ls -aFGhl'
+  alias lla='ls -FGhla'
 elif [[ "$PLATFORM" == 'Linux' ]]; then
-  alias l='ls -F --color=auto'
   alias ls='ls -F --color=auto'
-  alias la='ls -aF --color=auto'
+  alias la='ls -Fa --color=auto'
   alias ll='ls -Fhl --color=auto'
-  alias lla='ls -aFhl --color=auto'
+  alias lla='ls -Fhla --color=auto'
 fi
 
 if [ -f ~/.fzf.bash ]; then
@@ -69,7 +63,7 @@ fi
 export FZF_DEFAULT_OPTS='--height 40%'
 
 if hash rg 2>/dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files ""'
+  export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 fi
 
 # switch git branches via fzf
@@ -89,14 +83,13 @@ fs() {
 
 # change directories via fzf
 fcd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
+  local file
+  file=$(fzf)
+  dir=$(dirname $file)
   cd "$dir"
 }
 
 if [ "$PLATFORM" = 'Darwin' ]; then
-
   showHidden() {
     defaults write com.apple.finder AppleShowAllFiles YES
     killall -KILL Finder
@@ -106,7 +99,6 @@ if [ "$PLATFORM" = 'Darwin' ]; then
     defaults write com.apple.finder AppleShowAllFiles NO
     killall -KILL Finder
   }
-
 fi
 
 dockerGc() {
@@ -144,6 +136,14 @@ function softDeleteGitBranches() {
 function tns() {
   tmux new-session -s $1; \
     split-window-v $1;
+}
+
+function createTmuxSessionFromDirectory() {
+  tmux new-session -s $(basename "$PWD")
+}
+
+function renameTmuxWindowToDirectory() {
+  tmux rename-window $(basename "$PWD")
 }
 
 function sshProxy() {
