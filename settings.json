@@ -1,0 +1,91 @@
+{
+    "editor.tabSize": 2,
+    "editor.fontSize": 13,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                ";"
+            ],
+            "after": [
+                "m",
+                "z",
+                "$",
+                "a",
+                ";",
+                "<esc>",
+                "`",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ","
+            ],
+            "after": [
+                "m",
+                "z",
+                "$",
+                "a",
+                ",",
+                "<esc>",
+                "`",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>",
+            ],
+            "after": [
+                "<C-w>",
+                "h",
+            ]
+        },
+        {
+            "before": [
+                "<C-j>",
+            ],
+            "after": [
+                "<C-w>",
+                "j",
+            ]
+        },
+        {
+            "before": [
+                "<C-k>",
+            ],
+            "after": [
+                "<C-w>",
+                "k",
+            ]
+        },
+        {
+            "before": [
+                "<C-l>",
+            ],
+            "after": [
+                "<C-w>",
+                "l",
+            ]
+        }
+    ],
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    "editor.fontFamily": "\"SF Mono\", monospace"
+}
