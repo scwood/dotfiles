@@ -17,8 +17,12 @@ fi
 PS1+='\n$ '
 
 stty -ixon # enable ctrl-s and ctrl-q
-bind Space:magic-space # magic space!
 HISTCONTROL=ignoredups:erasedups
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 alias dot='cd ~/dotfiles'
 alias sb='source ~/.bashrc'

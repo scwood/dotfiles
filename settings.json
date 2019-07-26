@@ -87,5 +87,9 @@
     "gitlens.codeLens.recentChange.enabled": false,
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
-    "editor.fontFamily": "\"SF Mono\", monospace"
+    "editor.fontFamily": "\"SF Mono\", monospace",
+    "eslint.autoFixOnSave": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/swood/.vscode/extensions/gabrielbb.vscode-lombok-0.9.8/server/lombok.jar\""
 }

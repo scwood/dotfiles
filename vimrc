@@ -32,7 +32,6 @@ let g:completor_node_binary = '/usr/local/bin/node'
 let g:completor_complete_options='menuone,noselect'
 
 Plug 'fatih/vim-go'
-let g:completor_gocode_binary = '~/go/bin/gocode'
 let g:go_fmt_autosave = 0
 
 Plug 'ervandew/supertab'
@@ -44,14 +43,14 @@ let delimitMate_expand_cr = 1
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg  --files --hidden'
+  let $FZF_DEFAULT_COMMAND = 'rg  --files --hidden --follow'
 endif
 
-Plug 'w0rp/ale'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_fix_on_save = 1
-let g:ale_fixers = { 'javascript': ['eslint'], 'go': ['gofmt'] }
-let g:ale_linters = { 'javascript': ['eslint'], 'html': [], 'go': ['govet'] }
+" Plug 'w0rp/ale'
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_fix_on_save = 1
+" let g:ale_fixers = { 'javascript': ['eslint'], 'go': ['gofmt'] }
+" let g:ale_linters = { 'javascript': ['eslint'], 'html': [], 'go': ['govet'] }
 
 if !empty(glob($HOME . '/.vimrc_local'))
   source $HOME/.vimrc_local
@@ -67,7 +66,6 @@ set autoread " when a file changes outside vim, change it inside vim as well
 set autowrite " if a file changes on disk, reload it
 set backspace=indent,eol,start " make backspace behave normally
 set clipboard=unnamed " use system clipboard
-set cursorline " highlight current line
 set hidden " allow switching between buffers with unsaved changes
 set mouse=a " enable mouse
 set number " turn on line numbers
@@ -121,6 +119,8 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown,text setlocal linebreak 
 autocmd FileType php ALEDisable
 autocmd FileType python,cs,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd BufEnter * set cursorline
+autocmd BufLeave * set nocursorline
 
 nnoremap j gj
 nnoremap k gk
@@ -157,7 +157,6 @@ nnoremap <leader>= :resize +5<cr>
 
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
 nnoremap <leader>v <Plug>yankstack_substitute_older_paste
 nnoremap <leader>V <Plug>yankstack_substitute_newer_paste
 
@@ -170,6 +169,8 @@ nnoremap <leader>sr *N:%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
 nnoremap <leader>w :set nowrap!<cr>
 nnoremap <leader>z 1z=e
 
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-endif
+tnoremap <esc> <c-\><c-n>
+tnoremap <c-j> <c-w>j
+tnoremap <c-h> <c-w>h
+tnoremap <c-k> <c-w>k
+tnoremap <c-l> <c-w>l
