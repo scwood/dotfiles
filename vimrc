@@ -9,22 +9,19 @@ call plug#begin($HOME . '/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'godlygeek/tabular'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'scrooloose/nerdtree'
 Plug 'scwood/vim-hybrid'
-Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_file_list_command = 'rg --files'
-let g:gutentags_cache_dir = $HOME . '/.gutentags'
+Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['csv']
 
 Plug 'maralla/completor.vim', { 'do': 'make js' }
 let g:completor_refresh_always = 0
@@ -46,11 +43,20 @@ if executable('rg')
   let $FZF_DEFAULT_COMMAND = 'rg  --files --hidden --follow'
 endif
 
-" Plug 'w0rp/ale'
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_fix_on_save = 1
-" let g:ale_fixers = { 'javascript': ['eslint'], 'go': ['gofmt'] }
-" let g:ale_linters = { 'javascript': ['eslint'], 'html': [], 'go': ['govet'] }
+Plug 'w0rp/ale'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = { 
+      \ 'javascript': ['eslint'],
+      \ 'typescriptreact': ['eslint'],
+      \ 'go': ['gofmt'] 
+      \ }
+let g:ale_linters = {
+      \ 'javascript': ['eslint'], 
+      \ 'typescript': ['eslint'], 
+      \ 'html': [], 
+      \ 'go': ['govet'],
+      \ }
 
 if !empty(glob($HOME . '/.vimrc_local'))
   source $HOME/.vimrc_local
@@ -122,13 +128,14 @@ autocmd FileType python,cs,make setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd BufEnter * set cursorline
 autocmd BufLeave * set nocursorline
 
+function Date()
+  read !date +\%Y-\%m-\%d
+endfunction
+
 nnoremap j gj
 nnoremap k gk
 
 nnoremap Q @q
-
-nnoremap <c-q> :q<cr>
-nnoremap <c-s> :w<cr>
 
 nnoremap [e :ALEPrevious<cr>
 nnoremap ]e :ALENext<cr>
