@@ -8,8 +8,6 @@ bash_profile
 bashrc
 ideavimrc
 inputrc
-livestreamerrc 
-phoenix.js
 tmux.conf
 vimrc"
 
@@ -37,8 +35,8 @@ done
 echo
 echo "Configuring git..."
 git config --global core.editor /usr/bin/vim
-git config --global user.email "spencercwood@gmail.com"
-git config --global user.name "Spencer Wood"
+git config user.email "spencercwood@gmail.com"
+git config user.name "Spencer Wood"
 echo "Finished"
 echo
 
